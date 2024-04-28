@@ -1,11 +1,7 @@
-import Homepage from "./components/Homepage"
+import Homepage from "./components/pages/Homepage";
 
 function App() {
-  return (
-    <>
-      <Homepage />
-    </>
-  )
+    return <Homepage />;
 }
 
-export default App
+export default App;

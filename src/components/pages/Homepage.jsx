@@ -1,8 +1,14 @@
-import "../assets/homepage.css"
-import "../assets/style.css"
-import steamLogo from "../assets/images/steamlogo.png"
-import valveLogoFooter from "../assets/images/logo_valve_footer.png"
-import steamLogoFooter from "../assets/images/logo_steam_footer.png"
+import "../../assets/homepage.css";
+import "../../assets/style.css";
+import steamLogo from "../../assets/images/steamlogo.png";
+import valveLogoFooter from "../../assets/images/logo_valve_footer.png";
+import steamLogoFooter from "../../assets/images/logo_steam_footer.png";
+import LoginButton from "../elements/SignInBox/LoginButton";
+import SignInBox from "../elements/SignInBox/SignInBox";
+import BrowseByCategoryBox from "../elements/BrowseByCategoryBox/BrowseByCategoryBox";
+import BrowseSteamBox from "../elements/BrowseSteamBox/BrowseSteamBox";
+import Under90kBox from "../elements/Under90kBox/Under90kBox";
+
 
 const Homepage = () => {
     return (
@@ -213,198 +219,13 @@ const Homepage = () => {
             {/* Fariz */}
             <div className="bg-[#1b2838] pt-10 px-6">
                 {/* Feature: Browse by Category */}
-                <div className="max-w-[1100px] text-white mx-auto mb-16 relative">
-                    <h2 className="uppercase mb-5 tracking-wider">Browse by Category</h2>
-                    <div className="absolute gradient-arrow-left top-1/2 bottom-1/2 -translate-y-1/2 -left-[3.9rem] flex py-[4.2rem] px-4 justify-center items-center cursor-pointer">
-                        <div>
-                            <i className="fa-solid fa-chevron-left text-white text-5xl" />
-                        </div>
-                    </div>
-                    <div className="absolute gradient-arrow-right top-1/2 bottom-1/2 -translate-y-1/2 -right-[3.9rem] flex py-[4.2rem] px-4 justify-center items-center cursor-pointer">
-                        <div>
-                            <i className="fa-solid fa-chevron-right text-white text-5xl" />
-                        </div>
-                    </div>
-                    <div className="flex gap-4 overflow-x-auto pb-5 tracking-widest text-lg font-semibold relative">
-                        <a href="#" className="block grow relative shrink-0">
-                            <img src="https://store.steampowered.com/categories/homepageimage/category/racing?cc=us&l=english" alt="" className="w-full h-full" />
-                            <div className="uppercase absolute right-0 left-0 flex justify-center items-center bottom-7 z-10">
-                                <span className="drop-shadow-lg">Racing</span>
-                            </div>
-                            <div className="absolute top-0 right-0 left-0 bottom-0 gradient-red"></div>
-                        </a>
-                        <a href="#" className="block grow relative shrink-0">
-                            <img src="https://store.steampowered.com/categories/homepageimage/category/anime?cc=us&l=english" alt="" className="w-full h-full" />
-                            <div className="uppercase absolute right-0 left-0 flex justify-center items-center bottom-7 z-10">
-                                <span className="drop-shadow-lg">Anime</span>
-                            </div>
-                            <div className="absolute top-0 right-0 left-0 bottom-0 gradient-blue"></div>
-                        </a>
-                        <a href="#" className="block grow relative shrink-0">
-                            <img src="https://store.steampowered.com/categories/homepageimage/category/puzzle_matching/?cc=us&l=english" alt="" className="w-full h-full" />
-                            <div className="uppercase absolute right-0 left-0 flex justify-center items-center bottom-7 z-10">
-                                <span className="drop-shadow-lg">Action</span>
-                            </div>
-                            <div className="absolute top-0 right-0 left-0 bottom-0 gradient-yellow"></div>
-                        </a>
-                        <a href="#" className="block grow relative shrink-0">
-                            <img src="https://store.steampowered.com/categories/homepageimage/category/simulation?cc=us&l=english" alt="" className="w-full h-full" />
-                            <div className="uppercase absolute right-0 left-0 flex justify-center items-center bottom-7 z-10">
-                                <span className="drop-shadow-lg">Simulation</span>
-                            </div>
-                            <div className="absolute top-0 right-0 left-0 bottom-0 gradient-green"></div>
-                        </a>
-                    </div>
-                    <div className="carousel-thumbs flex gap-1 justify-center mt-3">
-                        <div className="carousel-thumb focus w-4 h-2 rounded-sm cursor-pointer" />
-                        <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                        <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                        <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                        <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                        <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                    </div>
-                </div>
-                {/* END Feature: Browse by Category */}
+                <BrowseByCategoryBox />
                 {/* Feature: Sign In */}
-                <div className="max-w-[1100px] mx-auto text-center bg-[#00000033] p-6 mb-10 rounded-sm text-[#8f98a0] font-normal">
-                    <span className="block mb-4">Sign in to view personalized recommendation</span>
-                    <a href="login.html" className="inline-block rounded-sm sign-in-btn text-[#D2E885] mb-6 p-[1px] hover:text-white">
-                        <span className="block rounded-t-[0.25rem] px-4 py-1">Sign In</span>
-                    </a>
-                    <span className="block">
-                        Or{" "}
-                        <a href="register.html" className="text-white hover:text-[#66c0f4]">
-                            sign up
-                        </a>{" "}
-                        and join Steam for free
-                    </span>
-                </div>
-                {/* END Feature: Sign In */}
+                <SignInBox />
                 {/* Feature: Browse Steam (CATEGORY BY NEW RELEASE, SPECIALS, ETC)*/}
-                <div className="max-w-[1100px] text-white mx-auto tracking-wider">
-                    <h2 className="uppercase mb-2">Browse Steam</h2>
-                    <div className="grid grid-cols-cards gap-3 text-center font-semibold lgNewRelease:grid-cols-2">
-                        <a href="#" className="gradient-browse-btn px-8 py-[0.9rem] rounded-[0.2rem] uppercase text-lg shadow-sm">
-                            New Releases
-                        </a>
-                        <a href="#" className="gradient-browse-btn px-8 py-[0.9rem] rounded-[0.2rem] uppercase text-lg shadow-sm">
-                            Specials
-                        </a>
-                        <a href="#" className="gradient-browse-btn px-8 py-[0.9rem] rounded-[0.2rem] uppercase text-lg shadow-sm">
-                            Free Games
-                        </a>
-                        <a href="#" className="gradient-browse-btn px-8 py-[0.9rem] rounded-[0.2rem] uppercase text-lg shadow-sm">
-                            By User Tags
-                        </a>
-                    </div>
-                </div>
-                {/* END Feature: Browse Steam */}
+                <BrowseSteamBox />
                 {/* Feature: Under 90k */}
-                <div className="max-w-[1100px] text-white mx-auto mt-10 relative">
-                    <div className="flex justify-between items-end mb-1.5">
-                        <h2 className="uppercase tracking-wider flex-1">Under RP 90 000</h2>
-                        <div className="flex-1 text-right">
-                            <button className="uppercase border border-[#ffffff66] px-3 py-0.5 text-sm hover:border-white">Under RP 90 000</button>
-                            <button className="uppercase border border-[#ffffff66] px-3 py-0.5 text-sm hover:border-white">Under Rp 45 000</button>
-                        </div>
-                    </div>
-                    <div className="absolute gradient-arrow-left top-1/2 bottom-1/2 -translate-y-1/2 flex py-[3.9rem] px-3 -left-[3.3rem] justify-center items-center cursor-pointer">
-                        <div>
-                            <i className="fa-solid fa-chevron-left text-white text-5xl" />
-                        </div>
-                    </div>
-                    <div className="absolute gradient-arrow-right top-1/2 bottom-1/2 -translate-y-1/2 flex py-[3.9rem] px-3 -right-[3.4rem] justify-center items-center cursor-pointer">
-                        <div>
-                            <i className="fa-solid fa-chevron-right text-white text-5xl" />
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-cards gap-3 overflow-x-auto pb-3">
-                        <div className="relative gradient-game-cards group/game-card text-xs">
-                            <a href="product-detail/ohDeerProdDetail.html">
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/2708450/header_292x136.jpg?t=1710877806" alt="" />
-                                <div className="p-1 flex">
-                                    <div className="px-1 py-0.5 text-discount bg-[#4c6b22]">
-                                        <span className=" ">-20%</span>
-                                    </div>
-                                    <div className="px-1 py-0.5 bg-[#141f2c66]">
-                                        <span className="text-discountOriginalPrice before:content-[''] relative before:left-0 before:right-0 before:border-b before:absolute before:top-[43%] before:-skew-y-[8deg] before:border-discountOriginalPrice">
-                                            Rp 90 999
-                                        </span>
-                                        <span className="text-discount">Rp 72 799</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <button
-                                id="gameCardMoreBtn"
-                                className="absolute flex bg-white transition opacity-0 translate-x-1 right-1.5 top-1.5 px-2 py-[0.33rem] rounded-[0.15rem] shadow-moreMenu text-black gap-[0.15rem] group-hover/game-card:translate-x-0 group-hover/game-card:opacity-100 hover:bg-[#67c1f5] group/more-menu"
-                            >
-                                <div className="w-[0.3rem] h-[0.3rem] bg-[#8d949b] rounded-full group-hover/more-menu:bg-white" />
-                                <div className="w-[0.3rem] h-[0.3rem] bg-[#8d949b] rounded-full group-hover/more-menu:bg-white" />
-                                <div className="w-[0.3rem] h-[0.3rem] bg-[#8d949b] rounded-full group-hover/more-menu:bg-white" />
-                            </button>
-                        </div>
-                        <div className="relative gradient-game-cards group/game-card text-xs">
-                            <a href="product-detail/phasmoProdDetail.html">
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/739630/header_292x136.jpg?t=1702309974" alt="" />
-                                <div className="p-1 flex">
-                                    <div className="px-1 py-0.5 bg-[#141f2c66]">
-                                        <span className="text-white">Rp 89 999</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <button className="absolute flex bg-white transition opacity-0 translate-x-1 right-1.5 top-1.5 px-2 py-[0.33rem] rounded-[0.15rem] shadow-moreMenu text-black gap-[0.15rem] group-hover/game-card:translate-x-0 group-hover/game-card:opacity-100 hover:bg-[#67c1f5] group/more-menu">
-                                <div className="w-[0.3rem] h-[0.3rem] bg-[#8d949b] rounded-full group-hover/more-menu:bg-white" />
-                                <div className="w-[0.3rem] h-[0.3rem] bg-[#8d949b] rounded-full group-hover/more-menu:bg-white" />
-                                <div className="w-[0.3rem] h-[0.3rem] bg-[#8d949b] rounded-full group-hover/more-menu:bg-white" />
-                            </button>
-                        </div>
-                        <div className="relative gradient-game-cards group/game-card text-xs">
-                            <a href="product-detail/starwarsProdDetail.html">
-                                <img src="https://cdn.akamai.steamstatic.com/steam/subs/401587/header_292x136.jpg?t=1574100600" alt="" />
-                                <div className="p-1 flex">
-                                    <div className="px-1 py-0.5 text-discount bg-[#4c6b22]">
-                                        <span className=" ">-90%</span>
-                                    </div>
-                                    <div className="px-1 py-0.5 bg-[#141f2c66]">
-                                        <span className="text-discountOriginalPrice before:content-[''] relative before:left-0 before:right-0 before:border-b before:absolute before:top-[43%] before:-skew-y-[8deg] before:border-discountOriginalPrice">
-                                            Rp 569 000
-                                        </span>
-                                        <span className="text-discount">Rp 56 900</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <button className="absolute flex bg-white transition opacity-0 translate-x-1 right-1.5 top-1.5 px-2 py-[0.33rem] rounded-[0.15rem] shadow-moreMenu text-black gap-[0.15rem] group-hover/game-card:translate-x-0 group-hover/game-card:opacity-100 hover:bg-[#67c1f5] group/more-menu">
-                                <div className="w-[0.3rem] h-[0.3rem] bg-[#8d949b] rounded-full group-hover/more-menu:bg-white" />
-                                <div className="w-[0.3rem] h-[0.3rem] bg-[#8d949b] rounded-full group-hover/more-menu:bg-white" />
-                                <div className="w-[0.3rem] h-[0.3rem] bg-[#8d949b] rounded-full group-hover/more-menu:bg-white" />
-                            </button>
-                        </div>
-                        <div className="relative gradient-game-cards group/game-card text-xs">
-                            <a href="product-detail/backroomProdDetail.html">
-                                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1943950/header_292x136.jpg?t=1710893725" alt="" />
-                                <div className="p-1 flex">
-                                    <div className="px-1 py-0.5 bg-[#141f2c66]">
-                                        <span className="text-white">Rp 69 999</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <button className="absolute flex bg-white transition opacity-0 translate-x-1 right-1.5 top-1.5 px-2 py-[0.33rem] rounded-[0.15rem] shadow-moreMenu text-black gap-[0.15rem] group-hover/game-card:translate-x-0 group-hover/game-card:opacity-100 hover:bg-[#67c1f5] group/more-menu">
-                                <div className="w-[0.3rem] h-[0.3rem] bg-[#8d949b] rounded-full group-hover/more-menu:bg-white" />
-                                <div className="w-[0.3rem] h-[0.3rem] bg-[#8d949b] rounded-full group-hover/more-menu:bg-white" />
-                                <div className="w-[0.3rem] h-[0.3rem] bg-[#8d949b] rounded-full group-hover/more-menu:bg-white" />
-                            </button>
-                        </div>
-                    </div>
-                    <div className="carousel-thumbs flex gap-1 justify-center mt-3">
-                        <div className="carousel-thumb focus w-4 h-2 rounded-sm cursor-pointer" />
-                        <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                        <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                        <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                        <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                        <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                    </div>
-                </div>
-                {/* END Feature: Under 90k */}
+                <Under90kBox />
             </div>
             {/* Syawal */}
             <div className="bg-[#1B2838] pt-10">
@@ -481,9 +302,7 @@ const Homepage = () => {
                         <div className="flex flex-col bg-black mt-8 py-8 items-center">
                             <p className="text-3xl text-[#67C1F5] smFooter:text-2xl">Looking for recomendations ?</p>
                             <p className="text-gray-400">Sign in to view personalized recomendations</p>
-                            <a href="login.html">
-                                <button className="bg-[#729105] p-2 w-28 text-white rounded-sm">Sign In</button>
-                            </a>
+                            <LoginButton />
                             <span className="text-gray-400">
                                 Or{" "}
                                 <a href="register.html" className="text-white">
