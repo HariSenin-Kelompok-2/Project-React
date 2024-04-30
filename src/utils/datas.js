@@ -19,26 +19,26 @@ export const categories = [
         image: "https://store.steampowered.com/categories/homepageimage/category/simulation?cc=us&l=english",
         bgColor: "gradient-green"
     },
-    // "casual": {
-    //     name:
-    //     image:
-    //     bgColor:
-    // },
-    // "strategy": {
-    //     name: "strategy",
-    //     image:
-    //     bgColor:
-    // },
-    // "action": {
-    //     name:
-    //     image:
-    //     bgColor:
-    // },
-    // "adventure": {
-    //     name:
-    //     image:
-    //     bgColor:
-    // },
+    {
+        name: "casual",
+        image: "https://store.steampowered.com/categories/homepageimage/category/casual?cc=us&l=english",
+        bgColor: "gradient-cyan"
+    },
+    {
+        name: "strategy",
+        image: "https://store.steampowered.com/categories/homepageimage/category/strategy?cc=us&l=english",
+        bgColor: "gradient-purple"
+    },
+    {
+        name: "action",
+        image: "https://store.steampowered.com/categories/homepageimage/category/action?cc=us&l=english",
+        bgColor: "gradient-green"
+    },
+    {
+        name: "adventure",
+        image: "https://store.steampowered.com/categories/homepageimage/category/adventure?cc=us&l=english",
+        bgColor: "gradient-blue"
+    },
 ]
 
 export const under90kGameDatas = [
@@ -71,3 +71,22 @@ export const under90kGameDatas = [
         discountedPrice: null,
     },
 ];
+
+export const VRGameDatas = [
+    {
+        image: "https://cdn.cloudflare.steamstatic.com/steam/apps/1079800/header_292x136.jpg?t=1709311461",
+        price: "206 999"
+    },
+    {
+        image: "https://cdn.cloudflare.steamstatic.com/steam/apps/611670/header_292x136.jpg?t=1564002443",
+        price: "114 999"
+    },
+    {
+        image: "https://cdn.cloudflare.steamstatic.com/steam/apps/629730/header_292x136.jpg?t=1701774481",
+        price: "135 999"
+    },
+    {
+        image: "https://cdn.cloudflare.steamstatic.com/steam/apps/1683340/header_292x136.jpg?t=1708002651",
+        price: "799 999"
+    }
+]

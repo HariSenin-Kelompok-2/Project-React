@@ -6,33 +6,27 @@ body {
 .gradient-red {
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(139, 0, 0) 100%);
 }
-.gradient-red:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0), rgb(169, 0, 0) 100%);
-}
-
 .gradient-blue {
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 139) 100%);
 }
-.gradient-blue:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 169) 100%);
-}
-
 .gradient-yellow {
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(184, 134, 11) 100%);
 }
-.gradient-yellow:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0), rgb(214, 164, 11) 100%);
-}
-
 .gradient-green {
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 100, 0) 100%);
 }
-.gradient-green:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 130, 0) 100%);
+.gradient-cyan {
+    background: linear-gradient(rgba(0,0,0,0), rgb(0,139,139) 100%);
+}
+.gradient-purple {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(139, 0, 139) 100%);
+}
+.gradient-yellow:hover, .gradient-blue:hover, .gradient-red:hover, .gradient-green:hover, .gradient-cyan:hover, .gradient-purple:hover {
+    filter: brightness(1.25);
 }
 
 .carousel-thumb {
-    background-color: hsla(202, 60%, 100%, 0.2);
+    background-color: hsla(202, 60%, 100%, 0.3);
 }
 .carousel-thumb:hover {
     background-color: #63676f;

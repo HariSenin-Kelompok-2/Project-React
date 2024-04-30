@@ -2,13 +2,15 @@ import "../../assets/homepage.css";
 import "../../assets/style.css";
 import steamLogo from "../../assets/images/steamlogo.png";
 import valveLogoFooter from "../../assets/images/logo_valve_footer.png";
-import steamLogoFooter from "../../assets/images/logo_steam_footer.png";
-import LoginButton from "../elements/SignInBox/LoginButton";
 import SignInBox from "../elements/SignInBox/SignInBox";
-import BrowseByCategoryBox from "../elements/BrowseByCategoryBox/BrowseByCategoryBox";
 import BrowseSteamBox from "../elements/BrowseSteamBox/BrowseSteamBox";
-import Under90kBox from "../elements/Under90kBox/Under90kBox";
-
+import FeatureContainer from "../elements/FeatureContainer/FeatureContainer";
+import { VRGameDatas, categories, under90kGameDatas } from "../../utils/datas";
+import SignInBoxFooter from "../elements/SignInBoxFooter/SignInBoxFooter";
+import { SwiperSlide } from "swiper/react";
+import Footer from "../elements/Footer/Footer";
+import CategoryCard from "../elements/CategoryCard";
+import GameCard from "../elements/GameCard";
 
 const Homepage = () => {
     return (
@@ -40,8 +42,8 @@ const Homepage = () => {
                         </a>
                     </div>
                     <div className="mt-[0.001rem] hidden sm:hidden md:hidden lg:block">
-                        <div className="flex justify-start space-x-2">
-                            <button className="bg-[#5c7e10] p-1 px-2 text-black">
+                        <div className="flex justify-start space-x-2 text-white">
+                            <button className="bg-[#5c7e10] p-1 px-2">
                                 <i className="fa-solid fa-download mr-2" />
                                 install steam
                             </button>
@@ -217,140 +219,55 @@ const Homepage = () => {
                 {/* End Feature: Special Offers */}
             </div>
             {/* Fariz */}
-            <div className="bg-[#1b2838] pt-10 px-6">
+            <div className="bg-[#1b2838] pt-10 px-6 pb-10">
                 {/* Feature: Browse by Category */}
-                <BrowseByCategoryBox />
+                {/* <BrowseByCategoryBox /> */}
+                <FeatureContainer title={"Browse by Category"}>
+                    {categories.map((category, index) => (
+                        <SwiperSlide key={index}>
+                            <CategoryCard key={index} image={category.image} bgColor={category.bgColor}>
+                                {category.name}
+                            </CategoryCard>
+                        </SwiperSlide>
+                    ))}
+                </FeatureContainer>
+
                 {/* Feature: Sign In */}
                 <SignInBox />
                 {/* Feature: Browse Steam (CATEGORY BY NEW RELEASE, SPECIALS, ETC)*/}
                 <BrowseSteamBox />
                 {/* Feature: Under 90k */}
-                <Under90kBox />
+                <FeatureContainer classProps="pt-10" title="Under Rp 90 000" button="Under Rp 90 000" button2="Under Rp 45 000">
+                    {under90kGameDatas.map((game, index) => (
+                        <SwiperSlide key={index}>
+                            <GameCard image={game.image} price={game.price} isDiscount={game.isDiscount} discountedPrice={game.discountedPrice} discountValue={game.discountValue} />
+                        </SwiperSlide>
+                    ))}
+                    {under90kGameDatas.map((game, index) => (
+                        <SwiperSlide key={index}>
+                            <GameCard image={game.image} price={game.price} isDiscount={game.isDiscount} discountedPrice={game.discountedPrice} discountValue={game.discountValue} />
+                        </SwiperSlide>
+                    ))}
+                </FeatureContainer>
+                {/* Feature: Popular VR Games */}
+                <FeatureContainer title={"Popular VR Games"} button={"BROWSE ALL"}>
+                    {VRGameDatas.map((item, index) => (
+                        <SwiperSlide key={index}>
+                            <GameCard image={item.image} price={item.price} />
+                        </SwiperSlide>
+                    ))}
+                    {VRGameDatas.map((item, index) => (
+                        <SwiperSlide key={index}>
+                            <GameCard image={item.image} price={item.price} />
+                        </SwiperSlide>
+                    ))}
+                </FeatureContainer>
             </div>
             {/* Syawal */}
-            <div className="bg-[#1B2838] pt-10">
-                <div className="container w-4/5 mx-auto pb-10">
-                    <section>
-                        <div className="flex justify-between mb-2">
-                            <h1 className="text-xl font-light text-white">POPULAR VR GAMES</h1>
-                            <div className="text-xl font-light text-white border p-1">
-                                <span>BROWSE ALL</span>
-                            </div>
-                        </div>
-                        <div className="flex gap-2 w-full overflow-x-auto">
-                            <a href="product-detail/pistolWhipProdDetail.html" className="card w-1/4">
-                                <div className="card-image">
-                                    <img className="w-full" src="./assets/img/popular/image1.jpg" />
-                                </div>
-                                <div className="bg-[#3D7593] pl-2 pt-2 pb-2 w-full">
-                                    <div className="card-harga bg-[#28435B] w-28 p-1 rounded-sm">
-                                        <span className="text-white">Rp. 206.999</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="product-detail/skyrimProdDetail.html" className="card w-1/4">
-                                <div className="card-image">
-                                    <img className="w-full" src="./assets/img/popular/image2.jpg" />
-                                </div>
-                                <div className="bg-[#3D7593] pl-2 pt-2 pb-2 w-full">
-                                    <div className="card-harga bg-[#28435B] w-28 p-1 rounded-sm">
-                                        <span className="text-white">Rp. 114.999</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="product-detail/bladeSorceryProdDetail.html" className="card w-1/4">
-                                <div className="card-image">
-                                    <img className="w-full" src="./assets/img/popular/image3.jpg" />
-                                </div>
-                                <div className="bg-[#3D7593] pl-2 pt-2 pb-2 w-full">
-                                    <div className="card-harga bg-[#28435B] w-28 p-1 rounded-sm">
-                                        <span className="text-white">Rp. 135.999</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="product-detail/kayakVRProdDetail.html" className="card w-1/4">
-                                <div className="card-image">
-                                    <img className="w-full" src="./assets/img/popular/image4.jpg" />
-                                </div>
-                                <div className="bg-[#3D7593] pl-2 pt-2 pb-2 w-full">
-                                    <div className="card-harga bg-[#28435B] w-28 p-1 rounded-sm">
-                                        <span className="text-white">Rp. 799.999</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="product-detail/kayakVRProdDetail.html" className="card w-1/4">
-                                <div className="card-image">
-                                    <img className="w-full" src="./assets/img/popular/image4.jpg" />
-                                </div>
-                                <div className="bg-[#3D7593] pl-2 pt-2 pb-2 w-full">
-                                    <div className="card-harga bg-[#28435B] w-28 p-1 rounded-sm">
-                                        <span className="text-white">Rp. 206.999</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div className="flex justify-center mt-2 gap-1">
-                            <div className="w-6 hover:bg-gray-200 bg-gray-400 h-4 rounded-sm" />
-                            <div className="w-6 hover:bg-gray-200 bg-gray-400 h-4 rounded-sm" />
-                            <div className="w-6 hover:bg-gray-200 bg-gray-400 h-4 rounded-sm" />
-                            <div className="w-6 hover:bg-gray-200 bg-gray-400 h-4 rounded-sm" />
-                            <div className="w-6 hover:bg-gray-200 bg-gray-400 h-4 rounded-sm" />
-                            <div className="w-6 hover:bg-gray-200 bg-gray-400 h-4 rounded-sm" />
-                        </div>
-                    </section>
-                    <section>
-                        <div className="flex flex-col bg-black mt-8 py-8 items-center">
-                            <p className="text-3xl text-[#67C1F5] smFooter:text-2xl">Looking for recomendations ?</p>
-                            <p className="text-gray-400">Sign in to view personalized recomendations</p>
-                            <LoginButton />
-                            <span className="text-gray-400">
-                                Or{" "}
-                                <a href="register.html" className="text-white">
-                                    sign up
-                                </a>{" "}
-                                and join Steam for free
-                            </span>
-                        </div>
-                    </section>
-                </div>
+            <div className="bg-[#1B2838] pb-16">
                 {/* Footer */}
-                <div className="bg-[#171A21] pb-10 px-10 smFooter:hidden font-sans">
-                    <section>
-                        <div className="h-[2rem]" />
-                        <hr className="mb-2" />
-                    </section>
-                    <section>
-                        <div className="flex h-[4rem] gap-1 bg-[171A21]">
-                            <div className="w-1/6 my-auto">
-                                <div className="mr-3">
-                                    <img src={valveLogoFooter} />
-                                </div>
-                            </div>
-                            <div className="w-4/6">
-                                <div className="text-gray-400">
-                                    © 2024 Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries. VAT included in all prices where applicable.
-                                </div>
-                            </div>
-                            <div className="w-1/6 my-auto">
-                                <div className="flex justify-end">
-                                    <img src={steamLogoFooter} />
-                                </div>
-                            </div>
-                        </div>
-                        <hr className="mt-8" />
-                    </section>
-                    <section>
-                        <div className="flex justify-between mt-4">
-                            <div className="hover:text-white border-r-2 border-gray-600 text-gray-400 text-center w-full">About Valve</div>
-                            <div className="hover:text-white border-r-2 border-gray-600 w-full text-gray-400 text-center">Steamworks</div>
-                            <div className="hover:text-white border-r-2 border-gray-600 w-full text-gray-400 text-center">Jobs</div>
-                            <div className="hover:text-white border-r-2 border-gray-600 w-full text-gray-400 text-center">Support</div>
-                            <div className="hover:text-white border-r-2 border-gray-600 w-full text-gray-400 text-center">Gift Cards</div>
-                            <div className="hover:text-white border-r-2 border-gray-600 w-full text-gray-400 text-center">Steam</div>
-                            <div className="hover:text-white w-full text-center text-gray-400">@steam</div>
-                        </div>
-                    </section>
-                </div>
+                <SignInBoxFooter />
+                <Footer />
             </div>
         </>
     );

@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 
 
-const Under90kCard = ({ image, price, isDiscount, discountedPrice, discountValue }) => {
+const GameCard = ({ image, price, isDiscount = false, discountedPrice = null, discountValue = null }) => {
     return (
-        <div className="relative gradient-game-cards group/game-card text-xs">
+        <div className="gradient-game-cards group/game-card text-xs">
             <a href="product-detail/ohDeerProdDetail.html">
                 <img src={image} alt="game" />
                 <div className="p-1 flex">
@@ -38,12 +38,12 @@ const Under90kCard = ({ image, price, isDiscount, discountedPrice, discountValue
     );
 };
 
-Under90kCard.propTypes = {
+GameCard.propTypes = {
     image: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
-    isDiscount: PropTypes.bool.isRequired,
-    discountedPrice: PropTypes.string.isRequired,
-    discountValue: PropTypes.string.isRequired,
+    isDiscount: PropTypes.bool,
+    discountedPrice: PropTypes.string,
+    discountValue: PropTypes.string,
 };
 
-export default Under90kCard;
+export default GameCard;
