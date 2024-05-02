@@ -25,6 +25,7 @@
 .swiper-button-next {
     padding-bottom: 2.3rem;
     z-index: 99;
+    display: none;
 }
 
 .swiper-pagination-bullet {
