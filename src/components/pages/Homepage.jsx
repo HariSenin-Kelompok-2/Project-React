@@ -3,7 +3,6 @@ import "../../assets/style.css";
 import steamLogo from "../../assets/images/steamlogo.png";
 import valveLogoFooter from "../../assets/images/logo_valve_footer.png";
 import SignInBox from "../elements/SignInBox/SignInBox";
-import BrowseSteamBox from "../elements/BrowseSteamBox/BrowseSteamBox";
 import FeatureContainer from "../elements/FeatureContainer/FeatureContainer";
 import { VRGameDatas, categories, under90kGameDatas } from "../../utils/datas";
 import SignInBoxFooter from "../elements/SignInBoxFooter/SignInBoxFooter";
@@ -11,6 +10,8 @@ import { SwiperSlide } from "swiper/react";
 import Footer from "../elements/Footer/Footer";
 import CategoryCard from "../elements/CategoryCard";
 import GameCard from "../elements/GameCard";
+import RecommendedJumbotron from "../elements/RecommendedJumbotron/RecommendedJumbotron";
+import BrowseSteam from "../elements/BrowseSteam/BrowseSteam";
 
 const Homepage = () => {
     return (
@@ -102,16 +103,16 @@ const Homepage = () => {
             </div>
             {/* Hamburger Menu end */}
             {/* Andi */}
-            <div className="flex justify-center items-center flex-col text-white bg-no-repeat bg-[#1b2838]">
+            <div className="flex items-center flex-col text-white bg-no-repeat bg-[#1b2838] md:px-2">
                 {/* Cart */}
-                <div className="md:w-4/5 md:mt-2 flex justify-end text-sm">
-                    <a href="cart.html" className="bg-[#5c7e10] px-6 py-1 text-center hover:bg-[#7ea64b]">
+                <div className="text-sm hidden md:mt-2 md:max-w-[1100px] md:flex md:w-full">
+                    <a href="cart.html" className="block bg-[#5c7e10] px-6 py-1 hover:bg-[#7ea64b] ml-auto">
                         <i className="fa-sharp fa-solid fa-cart-shopping" /> <span>Cart (1)</span>
                     </a>
                 </div>
-                {/* End Cart */}
+
                 {/* Feature: NavBar */}
-                <nav className="md:w-4/5 w-full md:mt-1 bg-gradient-to-r from-sky-700 via-sky-700 to-blue-950">
+                <nav className="w-full bg-gradient-to-r from-sky-700 via-sky-700 to-blue-950 md:max-w-[1100px] md:mt-1">
                     <div className="md:flex md:justify-between">
                         <ul className="p-0 md:flex md:items-center -z-1 md:z-auto md:static">
                             <li className="px-4 h-full content-center md:my-0">
@@ -147,7 +148,7 @@ const Homepage = () => {
                         </ul>
                         <div className="relative text-white md:w-auto w-full my-2 mr-1">
                             <input
-                                className="w-full border border-cyan-400 bg-cyan-800 bg-opacity-95 h-10 pl-3 pr-16 rounded-md text-sm focus:outline-none shadow-inner hover:border-white hover:border-32 italic"
+                                className="w-full border border-cyan-400 bg-cyan-800 bg-opacity-95 h-10 pl-3 pr-16 rounded-md text-sm focus:outline-none shadow-inner hover:border-white hover:border-32 placeholder:italic placeholder:text-black"
                                 type="search"
                                 name="search"
                                 placeholder="Search"
@@ -162,67 +163,77 @@ const Homepage = () => {
                         </div>
                     </div>
                 </nav>
-                {/* End feature: navbar */}
-                {/* Feature: Recommended */}
-                <div className="mt-7 w-4/5">
-                    <h2 className="text-white mb-2">FEATURED &amp; RECOMMENDED</h2>
-                    <div className="flex flex-row h-full content-center w-full">
-                        <div className="lg:w-2/3">
-                            <a href="product-detail/apexProdDetail.html">
-                                <img className="w-full" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/capsule_616x353.jpg?t=1710268442" alt="Game Apex Legend" />
-                            </a>
-                        </div>
-                        <div className="bg-[#0B151E] md:block hidden lg:w-1/3">
-                            <h3 className="text-white my-3 ml-3">Apex Legends™</h3>
-                            <div className="grid grid-cols-2 gap-y-3 gap-x-4 mr-2">
-                                <img className="w-full" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/ss_b5051a24edf949582756c313eebf6f61582ce25f.116x65.jpg?t=1708706824" />
-                                <img className="w-full" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/ss_215051168b1b52177d802ab36e40a6f874db404a.116x65.jpg?t=1708706824" />
-                                <img className="w-full" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/ss_a47a8c9b09393bd4cddfeb2891beb4d1eafb2897.116x65.jpg?t=1708706824" />
-                                <img className="w-full" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/ss_c75144f4a9c3771806a72ff939752c15456aa557.116x65.jpg?t=1708706824" />
-                            </div>
-                            <h4 className="mt-2 ml-3">Now Available</h4>
-                            <p className="mt-1 ml-3">Free to Play</p>
-                        </div>
-                    </div>
-                </div>
-                {/* End feature: Recommended */}
-                {/* Feature: Special Offers */}
-                <div className="mt-5 w-4/5">
-                    <h2 className="mb-2">SPECIAL OFFERS</h2>
-                    <div className="grid grid-cols-2 w-full gap-5 md:grid-cols-3">
-                        <a href="product-detail/cs2ProdDetail.html" className="bg-gradient-to-tl from-sky-600 to-sky-700">
-                            <img className="w-full h-3/5 object-cover" src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/capsule_616x353.jpg?t=1698860631" alt="Spesial Offers" />
-                            <div className="p-2">
-                                <h4>MIDWALK DEAL</h4>
-                                <p>Offers ends 30 mar @ 12.00am</p>
-                            </div>
-                        </a>
-                        <a href="product-detail/pubgProdDetail.html" className="bg-gradient-to-tl from-sky-600 to-sky-700">
-                            <img className="w-full h-3/5 object-cover" src="https://cdn.cloudflare.steamstatic.com/steam/apps/578080/capsule_616x353.jpg?t=1710727439" alt="Spesial Offers" />
-                            <div className="p-2">
-                                <h4>MIDWALK DEAL</h4>
-                                <p>Offers ends 30 mar @ 12.00am</p>
-                            </div>
-                        </a>
-                        <div className="flex flex-col gap-3">
-                            <a href="product-detail/kofProdDetail.html" className="bg-[#ACDBF4] text-black md:block hidden">
-                                <img className="w-full h-4/5 object-cover" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1498570/capsule_616x353.jpg?t=1701397336" alt="" />
-                                <h5 className="my-1 p-2">Today&apos;s Deal!</h5>
-                            </a>
-                            <a href="product-detail/kofProdDetail.html" className="bg-[#ACDBF4] text-black md:block hidden">
-                                <img className="w-full h-4/5 object-cover" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1498570/capsule_616x353.jpg?t=1701397336" alt="" />
-                                <h5 className="my-1 p-2">Today&apos;s Deal!</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                {/* End Feature: Special Offers */}
             </div>
             {/* Fariz */}
-            <div className="bg-[#1b2838] pt-10 px-6 pb-10">
+            <div className="bg-[#1b2838] pt-5 pb-10 px-2">
+
+                {/* Feature: Recommended */}
+                <FeatureContainer title="Featured & Recommended" slidesPerView={1}>
+                    <SwiperSlide>
+                        <RecommendedJumbotron />
+                    </SwiperSlide>
+                </FeatureContainer>
+
+                {/* Feature: Special Offers */}
+                <FeatureContainer title="SPECIAL OFFERS" classProps="mb-4" slidesPerView={3}>
+                    <SwiperSlide>
+                        <GameCard
+                            type="midweek deal"
+                            image="https://cdn.akamai.steamstatic.com/steam/spotlights/df26f523ee36ed6609a7a786/spotlight_image_english.jpg?t=1714087103"
+                            discountValue="-30%"
+                            discountedPrice="140 000"
+                            price="200 000"
+                        />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <GameCard
+                            type="midweek deal"
+                            image="https://cdn.akamai.steamstatic.com/steam/spotlights/f11b6fb0223c1a2f55d07ab3/spotlight_image_english.jpg?t=1713302774"
+                            discountValue="-65%"
+                            discountedPrice="206 999"
+                            price="72 449"
+                        />
+                    </SwiperSlide>
+                    <SwiperSlide className="flex flex-col gap-4">
+                        <a href="#" className="drop-shadow-md">
+                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/600090/header.jpg?t=1712077006" alt="" />
+                            <div className="flex bg-[#addbf4] p-1 justify-between">
+                                <span className="block text-[#283846]">Today&apos;s Deal!</span>
+                                <div className="flex">
+                                    <div className="px-1 py-0.5 text-discount bg-[#4c6b22] flex">
+                                        <div className="my-auto block text-3xl font-[500]">-65%</div>
+                                    </div>
+                                    <div className="px-2 py-0.5 bg-[#344654]">
+                                        <span className="text-discountOriginalPrice before:content-[''] relative before:left-0 before:right-0 before:border-b before:absolute before:top-[43%] before:-skew-y-[8deg] before:border-discountOriginalPrice block text-xs text-right w-fit ml-auto">
+                                            Rp 206 999
+                                        </span>
+                                        <span className="text-discount">Rp 72 449</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" className="drop-shadow-md">
+                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/1551360/header.jpg?t=1714086603" alt="" />
+                            <div className="flex bg-[#addbf4] p-1 justify-between">
+                                <span className="block text-[#283846]">Today&apos;s Deal!</span>
+                                <div className="flex">
+                                    <div className="px-1 py-0.5 text-discount bg-[#4c6b22] flex">
+                                        <div className="my-auto block text-3xl font-[500]">-50%</div>
+                                    </div>
+                                    <div className="px-2 py-0.5 bg-[#344654] ">
+                                        <span className="text-discountOriginalPrice before:content-[''] relative before:left-0 before:right-0 before:border-b before:absolute before:top-[43%] before:-skew-y-[8deg] before:border-discountOriginalPrice block text-xs text-right w-fit ml-auto">
+                                            Rp 699 000
+                                        </span>
+                                        <span className="text-discount">Rp 349 500</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </SwiperSlide>
+                </FeatureContainer>
+
                 {/* Feature: Browse by Category */}
-                {/* <BrowseByCategoryBox /> */}
-                <FeatureContainer title={"Browse by Category"}>
+                <FeatureContainer title={"Browse by Category"} classProps="mb-7">
                     {categories.map((category, index) => (
                         <SwiperSlide key={index}>
                             <CategoryCard key={index} image={category.image} bgColor={category.bgColor}>
@@ -234,8 +245,12 @@ const Homepage = () => {
 
                 {/* Feature: Sign In */}
                 <SignInBox />
-                {/* Feature: Browse Steam (CATEGORY BY NEW RELEASE, SPECIALS, ETC)*/}
-                <BrowseSteamBox />
+
+                {/* Feature: Browse Steam*/}
+                <FeatureContainer title="Browse Steam">
+                    <BrowseSteam />
+                </FeatureContainer>
+
                 {/* Feature: Under 90k */}
                 <FeatureContainer classProps="pt-10" title="Under Rp 90 000" button="Under Rp 90 000" button2="Under Rp 45 000">
                     {under90kGameDatas.map((game, index) => (
@@ -249,6 +264,7 @@ const Homepage = () => {
                         </SwiperSlide>
                     ))}
                 </FeatureContainer>
+
                 {/* Feature: Popular VR Games */}
                 <FeatureContainer title={"Popular VR Games"} button={"BROWSE ALL"}>
                     {VRGameDatas.map((item, index) => (
@@ -263,7 +279,7 @@ const Homepage = () => {
                     ))}
                 </FeatureContainer>
             </div>
-            {/* Syawal */}
+
             <div className="bg-[#1B2838] pb-16">
                 {/* Footer */}
                 <SignInBoxFooter />

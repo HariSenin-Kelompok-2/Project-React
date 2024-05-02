@@ -8,7 +8,7 @@ import "../../../assets/swiper.css";
 import OutlineButton from "./OutlineButton";
 import PropTypes from "prop-types";
 
-const FeatureContainer = ({ title, children, button = null, button2 = null,  classProps = "" }) => {
+const FeatureContainer = ({ title, children, button = null, button2 = null, classProps = "", slidesPerView = 4 }) => {
     const pagination = {
         clickable: true,
     };
@@ -23,9 +23,11 @@ const FeatureContainer = ({ title, children, button = null, button2 = null,  cla
                     </>
                 )}
             </HeadingFeatures>
-            <Swiper loop navigation modules={[Navigation, Pagination]} spaceBetween={8} slidesPerView={4} pagination={pagination}>
-                {children}
-            </Swiper>
+
+                <Swiper loop navigation modules={[Navigation, Pagination]} spaceBetween={8} slidesPerView={slidesPerView} pagination={pagination}>
+                    {children}
+                </Swiper>
+           
 
             {/* <div className="absolute gradient-arrow-left top-1/2 bottom-1/2 -translate-y-1/2 flex py-[3.9rem] px-3 -left-[3.3rem] justify-center items-center cursor-pointer">
                 <div>
@@ -63,6 +65,7 @@ FeatureContainer.propTypes = {
     button2: PropTypes.string,
     children: PropTypes.node,
     classProps: PropTypes.string,
+    slidesPerView: PropTypes.number,
 };
 
 export default FeatureContainer;

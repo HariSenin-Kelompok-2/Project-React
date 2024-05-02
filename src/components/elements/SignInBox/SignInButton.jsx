@@ -1,4 +1,4 @@
-const LoginButton = () => {
+const SignInButton = () => {
     return (
         <button>
             <a href="login.html" className="inline-block rounded-sm sign-in-btn text-[#D2E885] mb-6 mt-4 p-[1px] hover:text-white">
@@ -8,4 +8,4 @@ const LoginButton = () => {
     );
 };
 
-export default LoginButton;
+export default SignInButton;
