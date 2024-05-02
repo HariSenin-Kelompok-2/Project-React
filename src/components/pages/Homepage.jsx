@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../../assets/homepage.css";
 import "../../assets/style.css";
 import steamLogo from "../../assets/images/steamlogo.png";
@@ -16,51 +16,116 @@ import BrowseSteam from "../elements/BrowseSteam/BrowseSteam";
 
 const Homepage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const hamburgerBtnRef = useRef(null);
+  const mobileMenuRef = useRef(null);
+  const overlayRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    console.log("menu dipencet");
-    console.log(isMenuOpen);
   };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        !mobileMenuRef.current.contains(event.target) &&
+        !hamburgerBtnRef.current.contains(event.target)
+      ) {
+        closeMenu();
+      }
+    };
+
+    document.body.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.body.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <>
-      {/* Hamburger ON START*/}
-      {isMenuOpen && (
-        <div className="bg-[#171a21] text-[#afb8b6] absolute top-0 left-0 w-[40%] h-full z-50 flex items-start justify-center">
-          <div className="grid grid-rows-4 gap-4 md:grid-cols-none md:grid-rows-none mt-4">
-            <a
-              href=""
-              className="flex items-center justify-center hover:text-[#38a4d2]"
-            >
-              STORE
-            </a>
-            <a
-              href=""
-              className="flex items-center justify-center hover:text-[#38a4d2]"
-            >
-              COMMUNITY
-            </a>
-            <a
-              href=""
-              className="flex items-center justify-center hover:text-[#38a4d2]"
-            >
-              ABOUT
-            </a>
-            <a
-              href=""
-              className="flex items-center justify-center hover:text-[#38a4d2]"
-            >
-              SUPPORT
-            </a>
-          </div>
+      {/* Hamburger Button */}
+      {/* Overlay */}
+      <div ref={overlayRef} className="overlay" />
+      {/* Mobile Menu */}
+      <div
+        ref={mobileMenuRef}
+        id="mobile-menu"
+        className={`bg-[#171a21] text-[#afb8b6] fixed top-0 left-0 h-full z-50 ${
+          isMenuOpen ? "show" : ""
+        }`}
+      >
+        <div className="grid grid-rows-4 gap-4">
+          <a
+            href="login.html"
+            className="text-[1.2rem] p-4 border-b-[0.1vh] border-[#bcbcbc]"
+          >
+            Login
+          </a>
+          <a
+            href="#"
+            className="text-[1.2rem] p-4 border-b-[0.1vh] border-[#bcbcbc]"
+          >
+            STORE
+          </a>
+          <a
+            href="#"
+            className="text-[1.2rem] p-4 border-b-[0.1vh] border-[#bcbcbc]"
+          >
+            COMMUNITY
+          </a>
+          <a
+            href="#"
+            className="text-[1.2rem] p-4 border-b-[0.1vh] border-[#bcbcbc]"
+          >
+            SUPPORT
+          </a>
+          <p className="px-2 text-[1rem] text-[#6f7071]">Change language</p>
+          <p className="px-2 text-[1rem] text-[#6f7071]">
+            Get the Steam Mobile App
+          </p>
+          <p className="px-2 text-[1rem] text-[#6f7071]">
+            View Desktop website
+          </p>
         </div>
-      )}
 
+        <footer className="w-full absolute bottom-0 mb-4 p-4">
+          <div className="h-full text-[0.6rem] lg:text-[18px]">
+            <div className="w-[13vw] md:w-auto grid md:justify-end lg:mr-2">
+              <img
+                src={valveLogoFooter}
+                className="w-full md:w-[100px]"
+                alt=""
+              />
+            </div>
+            <div>
+              <p>
+                © Valve Corporation. All rights reserved. All trademarks are
+                property of their respective owners in the US and other
+                countries.
+                <a href="#" className="hover:text-white">
+                  Privacy Policy
+                </a>
+                <a href="#" className="hover:text-white">
+                  Legal
+                </a>
+                <a href="#" className="hover:text-white">
+                  Steam Subscriber Agreement
+                </a>
+                <a href="#" className="hover:text-white">
+                  Refunds
+                </a>
+              </p>
+            </div>
+          </div>
+        </footer>
+      </div>
       {/* Hamburger ON END */}
 
       {/* Hamburger Menu end */}
-
       {/* header */}
       <div className="bg-[#171a21] h-full p-2 md:p-5 w-full">
         <div className="grid grid-cols-10 lg:grid-cols-4 text-center text-white justify-between">
@@ -68,6 +133,7 @@ const Homepage = () => {
             {/* Hamburger Button */}
             <button
               id="hamburger-btn"
+              ref={hamburgerBtnRef}
               className="text-white focus:outline-none"
               onClick={toggleMenu}
             >
@@ -420,7 +486,6 @@ const Homepage = () => {
           ))}
         </FeatureContainer>
       </div>
-
       <div className="bg-[#1B2838] pb-16">
         {/* Footer */}
         <SignInBoxFooter />
