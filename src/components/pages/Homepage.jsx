@@ -25,14 +25,14 @@ const Homepage = () => {
             {/* Fariz */}
             <div className="bg-[#1b2838] pt-5 pb-10 px-4">
                 {/* Feature: Recommended */}
-                <FeatureContainer title="Featured & Recommended" slidesPerView={1}>
+                <FeatureContainer title="Featured & Recommended" slidesPerView={1} type={"Recommended"}>
                     <SwiperSlide>
                         <RecommendedJumbotron />
                     </SwiperSlide>
                 </FeatureContainer>
 
                 {/* Feature: Special Offers */}
-                <FeatureContainer title="SPECIAL OFFERS" classProps="mb-4" slidesPerView={3}>
+                <FeatureContainer title="SPECIAL OFFERS" classProps="mb-4" slidesPerView={3} type={"recommended"}>
                     <SwiperSlide>
                         <GameCard
                             type="midweek deal"
