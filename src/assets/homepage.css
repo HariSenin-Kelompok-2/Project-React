@@ -3,6 +3,10 @@ body {
     font-family: "Motiva Sans", sans-serif;
 }
 
+.gradient-recommended {
+    background: linear-gradient(180deg, #0A141D 0%, rgba(10, 20, 29, 0.2) 100%)
+}
+
 .gradient-red {
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(139, 0, 0) 100%);
 }
