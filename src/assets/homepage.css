@@ -7,6 +7,10 @@ body {
     background: linear-gradient(180deg, #0A141D 0%, rgba(10, 20, 29, 0.2) 100%)
 }
 
+.gradient-navbar-search {
+    background: linear-gradient(90deg, rgba(62, 103, 150, 0.919) 11.38%, rgba(58, 120, 177, 0.8) 25.23%, rgb(15, 33, 110) 100%);
+}
+
 .gradient-red {
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(139, 0, 0) 100%);
 }

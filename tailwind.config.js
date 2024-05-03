@@ -31,7 +31,7 @@ export default {
       boxShadow: {
         moreMenu: '0 0 3px #000',
         card: '0 0 12px 2px #000'
-      }
+      },
     },
   },
   plugins: [],

@@ -12,52 +12,15 @@ import GameCard from "../elements/GameCard";
 import RecommendedJumbotron from "../elements/RecommendedJumbotron/RecommendedJumbotron";
 import BrowseSteam from "../elements/BrowseSteam/BrowseSteam";
 import Header from "../elements/Header/Header";
+import CartAndNavbar from "../elements/CartAndNavbar/CartAndNavbar";
 
 const Homepage = () => {
-    const navbarMenus = ["Your Store", "New & Noteworthy", "Categories", "Points Shop", "News", "Labs"];
     return (
         <>
             <Header />
 
             {/* Andi */}
-            <div className="flex items-center flex-col text-white bg-no-repeat bg-[#1b2838] lg:px-2">
-                {/* Cart */}
-                <div className="text-sm hidden lg:mt-2 lg:max-w-[1100px] lg:flex lg:w-full">
-                    <a href="cart.html" className="block bg-[#5c7e10] px-6 py-1 hover:bg-[#7ea64b] ml-auto">
-                        <i className="fa-sharp fa-solid fa-cart-shopping" /> <span>Cart (1)</span>
-                    </a>
-                </div>
-
-                {/* Feature: NavBar */}
-                <nav className="w-full bg-gradient-to-r from-sky-700 via-sky-700 to-blue-950 lg:max-w-[1100px] lg:mt-1">
-                    <div className="lg:flex lg:justify-between">
-                        <ul className="lg:flex lg:items-center -z-1 lg:z-auto lg:static">
-                            {navbarMenus.map((menu, index) => (
-                                <li key={index} className="px-4 h-full content-center lg:my-0">
-                                    <a href="#" className="text-white">
-                                        {menu}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                        <div className="relative text-white md:w-auto w-full my-2 mr-1">
-                            <input
-                                className="w-full border border-cyan-400 bg-cyan-800 bg-opacity-95 h-10 pl-3 pr-16 rounded-md text-sm focus:outline-none shadow-inner hover:border-white hover:border-32 placeholder:italic placeholder:text-black"
-                                type="search"
-                                name="search"
-                                placeholder="Search"
-                            />
-                            <button type="submit" className="absolute right-0 top-0 my-2 mr-1 shadow-2xl">
-                                <svg className="text-transparent h-6 w-6 fill-current" viewBox="0 0 54 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="0.5" y="0.5" width={53} height={52} rx="1.5" fill="#63B5E4" stroke="#84C8EE" />
-                                    <path d="M25 32.2166L33.3018 25L42.4866 35.5659C43.2113 36.3996 43.123 37.6628 42.2893 38.3875L37.0064 42.9799C36.1727 43.7045 34.9095 43.6162 34.1848 42.7826L25 32.2166Z" fill="#2A3E5A" />
-                                    <circle cx={21} cy={19} r={11} stroke="#2A3E5A" strokeWidth={2} />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </nav>
-            </div>
+            <CartAndNavbar />
 
             {/* Fariz */}
             <div className="bg-[#1b2838] pt-5 pb-10 px-4">

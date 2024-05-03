@@ -83,7 +83,7 @@ const Header = () => {
             {/* Hamburger Menu end */}
 
             {/* Header */}
-            <div className="bg-[#171a21] w-full">
+            <div className="bg-[#171a21] w-full px-2 py-1">
                 <div className="grid grid-cols-10 text-center text-white lg:grid-cols-4 lg:max-w-[1100px] mx-auto">
                     <div className="col-span-1 flex justify-center items-center lg:hidden">
                         {/* Hamburger Button */}
@@ -91,7 +91,7 @@ const Header = () => {
                             <i className="fa-solid fa-bars" style={{ color: "#ffffff" }} />
                         </button>
                     </div>
-                    <div className="flex -ml-9 justify-center items-center col-span-9 lg:col-span-1 lg:justify-start my-4 lg:ml-0">
+                    <div className="flex -ml-10 justify-center items-center col-span-9 lg:col-span-1 lg:justify-start my-4 lg:ml-0">
                         <a href="">
                             <img src={steamLogo} className="w-[15vh] md:w-auto" alt="steam" />
                         </a>
