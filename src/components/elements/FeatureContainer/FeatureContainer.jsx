@@ -7,11 +7,20 @@ import "swiper/css/pagination";
 import "../../../assets/swiper.css";
 import OutlineButton from "./OutlineButton";
 import PropTypes from "prop-types";
+import { useCallback, useState } from "react";
 
-const FeatureContainer = ({ title, children, button = null, button2 = null, classProps = "", slidesPerView = 4 }) => {
+const FeatureContainer = ({ title, children, button = null, button2 = null, classProps = "", slidesPerView = 4, type = null }) => {
     const pagination = {
         clickable: true,
     };
+    const [swiperRef, setSwiperRef] = useState();
+    const handlePrevious = useCallback(() => {
+        swiperRef?.slidePrev();
+    }, [swiperRef]);
+
+    const handleNext = useCallback(() => {
+        swiperRef?.slideNext();
+    }, [swiperRef]);
 
     return (
         <div className={`max-w-[1100px] text-white mx-auto relative ${classProps}`}>
@@ -23,38 +32,23 @@ const FeatureContainer = ({ title, children, button = null, button2 = null, clas
                     </>
                 )}
             </HeadingFeatures>
-
-                <Swiper loop navigation modules={[Navigation, Pagination]} spaceBetween={8} slidesPerView={slidesPerView} pagination={pagination}>
-                    {children}
-                </Swiper>
-           
-
-            {/* <div className="absolute gradient-arrow-left top-1/2 bottom-1/2 -translate-y-1/2 flex py-[3.9rem] px-3 -left-[3.3rem] justify-center items-center cursor-pointer">
-                <div>
-                    <i className="fa-solid fa-chevron-left text-white text-5xl" />
+            {type === null && (
+                <div className="absolute gradient-arrow-left top-1/2 bottom-1/2 -translate-y-1/2 flex py-[3.9rem] px-3 -left-[3.3rem] justify-center items-center cursor-pointer" onClick={handlePrevious}>
+                    <div>
+                        <i className="fa-solid fa-chevron-left text-white text-5xl" />
+                    </div>
                 </div>
-            </div>
-            <div className="absolute gradient-arrow-right top-1/2 bottom-1/2 -translate-y-1/2 flex py-[3.9rem] px-3 -right-[3.4rem] justify-center items-center cursor-pointer">
-                <div>
-                    <i className="fa-solid fa-chevron-right text-white text-5xl" />
+            )}
+            <Swiper loop navigation modules={[Navigation, Pagination]} spaceBetween={8} slidesPerView={slidesPerView} pagination={pagination} onSwiper={setSwiperRef}>
+                {children}
+            </Swiper>
+            {type === null && (
+                <div className="absolute gradient-arrow-right top-1/2 bottom-1/2 -translate-y-1/2 flex py-[3.9rem] px-3 -right-[3.4rem] justify-center items-center cursor-pointer" onClick={handleNext}>
+                    <div>
+                        <i className="fa-solid fa-chevron-right text-white text-5xl" />
+                    </div>
                 </div>
-            </div> */}
-
-            {/* <div className="grid grid-cols-cards gap-3 overflow-x-auto pb-3">
-                {under90kGameDatas.map((game, index) => (
-                    <GameCard key={index} image={game.image} price={game.price} isDiscount={game.isDiscount} discountedPrice={game.discountedPrice} discountValue={game.discountValue} />
-                ))}
-            </div> */}
-            {/* <div className="swiper-button-prev flex items-center justify-center w-10 h-10 bg-black rounded-full text-white">Prev</div>
-                <div className="swiper-button-next flex items-center justify-center w-10 h-10 bg-black rounded-full text-white">Next</div> */}
-            {/* <div className="carousel-thumbs flex gap-1 justify-center mt-3">
-                <div className="carousel-thumb focus w-4 h-2 rounded-sm cursor-pointer" />
-                <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-                <div className="carousel-thumb w-4 h-2 rounded-sm cursor-pointer" />
-            </div> */}
+            )}
         </div>
     );
 };
@@ -66,6 +60,7 @@ FeatureContainer.propTypes = {
     children: PropTypes.node,
     classProps: PropTypes.string,
     slidesPerView: PropTypes.number,
+    type: PropTypes.string
 };
 
 export default FeatureContainer;

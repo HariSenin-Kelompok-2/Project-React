@@ -1,73 +1,10 @@
-import "../../assets/cart.css";
+import Footer from "../elements/Footer/Footer";
+import Header from "../elements/Header/Header";
 
 const Cart = () => {
     return (
-        <div className="lg:flex lg:flex-col lg:justify-between lg:min-h-screen">
-            {/* header */}
-            <div className="bg-[#171a21] h-full p-2 md:p-5 w-full">
-                <div className="grid grid-cols-10 lg:grid-cols-4 text-center text-white justify-between">
-                    <div className="lg:hidden col-span-1 flex justify-center items-center">
-                        {/* Hamburger Button */}
-                        <button id="hamburger-btn" className="text-white focus:outline-none">
-                            <i className="fa-solid fa-bars" style={{ color: '#ffffff' }} />
-                        </button>
-                    </div>
-                    <div className="flex justify-center items-center lg:justify-end col-span-9 lg:col-span-1">
-                        <img src="assets/login/steamlogo.png" className="w-[9vh] sm:w-[10vh] md:w-[20vh]" alt="" />
-                    </div>
-                    <div className="lg:block md-[18px] text-[0.8rem] mt-[0.5vh] md:text-[2vw] lg:text-[1.2vw] lg:col-span-2 hidden sm:hidden md:hidden">
-                        <a href="homepage.html" className="mr-2 hover:text-[#38a4d2]">STORE</a>
-                        <a href className="mr-2 hover:text-[#38a4d2]">COMMUNITY</a>
-                        <a href className="mr-2 hover:text-[#38a4d2]">ABOUT</a>
-                        <a href className="mr-2 hover:text-[#38a4d2]">SUPPORT</a>
-                    </div>
-                    <div className="mt-[0.001rem] hidden sm:hidden md:hidden lg:block">
-                        <div className="flex justify-start space-x-2">
-                            <button className="bg-[#5c7e10] p-1 px-2 text-black">
-                                <i className="fa-solid fa-download mr-2" />install steam
-                            </button>
-                            <a href="login.html">Login</a>
-                            <a href="register.html">Register</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* header end */}
-            {/* Hamburger Menu */}
-            <div id="mobile-menu" className="bg-[#171a21] text-[#afb8b6] fixed top-0 left-0 h-full z-50">
-                <div className="grid grid-rows-4 gap-4">
-                    <a href="#" className="text-[1.2rem] p-4 border-b-[0.1vh] border-[#bcbcbc]">Login</a>
-                    <a href="#" className="text-[1.2rem] p-4 border-b-[0.1vh] border-[#bcbcbc]">STORE</a>
-                    <a href="#" className="text-[1.2rem] p-4 border-b-[0.1vh] border-[#bcbcbc]">COMMUNITY</a>
-                    <a href="#" className="text-[1.2rem] p-4 border-b-[0.1vh] border-[#bcbcbc]">SUPPORT</a>
-                    <p className="px-2 text-[1rem] text-[#6f7071]">Change language</p>
-                    <p className="px-2 text-[1rem] text-[#6f7071]">
-                        Get the Steam Mobile App
-                    </p>
-                    <p className="px-2 text-[1rem] text-[#6f7071]">View Desktop website</p>
-                </div>
-                {/* Footer */}
-                <footer className="w-full absolute bottom-0 mb-4 p-4">
-                    <div className="h-full text-[0.6rem] lg:text-[18px]">
-                        <div className="w-[13vw] md:w-auto grid md:justify-end lg:mr-2">
-                            <img src="assets/footer/logo_valve_footer.png" className="w-full md:w-[100px]" alt="" />
-                        </div>
-                        <div>
-                            <p>
-                                © Valve Corporation. All rights reserved. All trademarks
-                                are property of their respective owners in the US and other
-                                countries.
-                                <a href="#" className="hover:text-white">Privacy Policy</a>
-                                <a href="#" className="hover:text-white">Legal</a>
-                                <a href="#" className="hover:text-white">Steam Subscriber Agreement</a>
-                                <a href="#" className="hover:text-white">Refunds</a>
-                            </p>
-                        </div>
-                    </div>
-                </footer>
-                {/* Footer end */}
-            </div>
-            {/* Hamburger Menu end */}
+        <div className="lg:flex lg:flex-col lg:justify-between lg:min-h-screen bg-[#1b2838]">
+            <Header />
             <main>
                 {/* Cart */}
                 <div className="flex justify-end text-xs mb-1 mx-[2vh] lg:mx-[10vh] xl:mx-[20vh] mt-[1rem]">
@@ -174,50 +111,7 @@ const Cart = () => {
                     </div>
                 </div>
             </main>
-            <footer className="w-full lg:block hidden">
-                <div className="bg-[#2a475e] h-full p-4 text-[8px] lg:text-[18px]">
-                    {/* baris satu */}
-                    <div className="grid grid-cols-7 md:grid-cols-4 lg:grid-cols-4 lg:justify-end text-center text-white">
-                        <div className="w-[50px] md:w-auto grid md:justify-end lg:mr-2">
-                            <img src="assets/footer/logo_valve_footer.png" className="w-full md:w-[100px]" alt="" />
-                        </div>
-                        <div className="col-span-5 md:col-span-2 lg:col-span-2">
-                            <p>
-                                © Valve Corporation. All rights reserved. All trademarks
-                                are property of their respective owners in the US and other
-                                countries. VAT included in all prices where applicable.
-                            </p>
-                        </div>
-                        <div className="grid md:ml lg:ml-4 w-[50px] md:w-[200px]">
-                            <img src="assets/footer/logo_steam_footer.png" className="w-full md:w-[100px]" alt="" />
-                        </div>
-                    </div>
-                    {/* baris satu end */}
-                    {/* baris dua */}
-                    <div className="text-center mb-2 text-white mt-2">
-                        <a href className="mr-2 hover:text-[#38a4d2]">Privacy Policy</a>
-                        <a href className="mr-2 hover:text-[#38a4d2]">Legal</a>
-                        <a href className="mr-2 hover:text-[#38a4d2]">Steam Subscriber</a>
-                        <a href className="mr-2 hover:text-[#38a4d2]">Agreement</a>
-                        <a href className="mr-2 hover:text-[#38a4d2]">Refunds</a>
-                    </div>
-                    {/* baris dua end */}
-                    {/* baris ketiga */}
-                    <div className="bg-white w-full h-[1px] mx-auto mt-2" />
-                    {/* baris ketiga end */}
-                    {/* baris keempat */}
-                    <div className="text-center mb-2 text-white mt-2">
-                        <a href className="mr-2 hover:text-[#38a4d2]">About Valve</a>
-                        <a href className="mr-2 hover:text-[#38a4d2]">Steamworks</a>
-                        <a href className="mr-2 hover:text-[#38a4d2]">Jobs</a>
-                        <a href className="mr-2 hover:text-[#38a4d2]">Steam Distribution</a>
-                        <a href className="mr-2 hover:text-[#38a4d2]">Gifts Cards</a>
-                        <a href className="mr-2 hover:text-[#38a4d2]">Steam</a>
-                        <a href className="mr-2 hover:text-[#38a4d2]">@steam-games</a>
-                    </div>
-                    {/* baris keempat end */}
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 };
