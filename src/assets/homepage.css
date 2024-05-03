@@ -10,6 +10,9 @@ body {
 .gradient-navbar-search {
     background: linear-gradient(90deg, rgba(62, 103, 150, 0.919) 11.38%, rgba(58, 120, 177, 0.8) 25.23%, rgb(15, 33, 110) 100%);
 }
+.link-navbar-search:hover {
+    background: linear-gradient(90deg, rgba(33, 162, 255, 0.25) 0%, rgba(33, 162, 255, 0.15) 50%, rgba(50, 50, 51, 0) 100%);
+}
 
 .gradient-red {
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(139, 0, 0) 100%);

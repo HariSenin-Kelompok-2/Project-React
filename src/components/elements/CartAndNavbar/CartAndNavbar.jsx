@@ -16,7 +16,7 @@ const CartAndNavbar = () => {
                     <ul className="flex flex-col lg:flex lg:flex-row lg:items-center">
                         {navbarMenus.map((menu, index) => (
                             <li key={index} className="">
-                                <a href="#" className="drop-shadow-lg text-white py-2 px-5 h-full content-center block hover:bg-blue-500 font-medium lg:text-sm">
+                                <a href="#" className="drop-shadow-lg text-white py-2 px-5 h-full content-center block font-medium lg:text-sm link-navbar-search">
                                     {menu}
                                 </a>
                             </li>
