@@ -13,55 +13,32 @@ import RecommendedJumbotron from "../elements/RecommendedJumbotron/RecommendedJu
 import BrowseSteam from "../elements/BrowseSteam/BrowseSteam";
 import Header from "../elements/Header/Header";
 
-const Homepage = () => {   
-
+const Homepage = () => {
+    const navbarMenus = ["Your Store", "New & Noteworthy", "Categories", "Points Shop", "News", "Labs"];
     return (
         <>
             <Header />
 
             {/* Andi */}
-            <div className="flex items-center flex-col text-white bg-no-repeat bg-[#1b2838] md:px-2">
+            <div className="flex items-center flex-col text-white bg-no-repeat bg-[#1b2838] lg:px-2">
                 {/* Cart */}
-                <div className="text-sm hidden md:mt-2 md:max-w-[1100px] md:flex md:w-full">
+                <div className="text-sm hidden lg:mt-2 lg:max-w-[1100px] lg:flex lg:w-full">
                     <a href="cart.html" className="block bg-[#5c7e10] px-6 py-1 hover:bg-[#7ea64b] ml-auto">
                         <i className="fa-sharp fa-solid fa-cart-shopping" /> <span>Cart (1)</span>
                     </a>
                 </div>
 
                 {/* Feature: NavBar */}
-                <nav className="w-full bg-gradient-to-r from-sky-700 via-sky-700 to-blue-950 md:max-w-[1100px] md:mt-1">
-                    <div className="md:flex md:justify-between">
-                        <ul className="p-0 md:flex md:items-center -z-1 md:z-auto md:static">
-                            <li className="px-4 h-full content-center md:my-0">
-                                <a href="#" className="text-white">
-                                    Your store
-                                </a>
-                            </li>
-                            <li className="px-4 h-full content-center md:my-0">
-                                <a href="#" className="text-white">
-                                    New &amp; Noteworthy
-                                </a>
-                            </li>
-                            <li className="px-4 h-full content-center md:my-0">
-                                <a href="#" className="text-white">
-                                    Categories
-                                </a>
-                            </li>
-                            <li className="px-4 h-full content-center md:my-0">
-                                <a href="#" className="text-white">
-                                    Points Shop
-                                </a>
-                            </li>
-                            <li className="px-4 h-full content-center md:my-0">
-                                <a href="#" className="text-white">
-                                    News
-                                </a>
-                            </li>
-                            <li className="px-4 h-full content-center md:my-0">
-                                <a href="#" className="text-white">
-                                    Labs
-                                </a>
-                            </li>
+                <nav className="w-full bg-gradient-to-r from-sky-700 via-sky-700 to-blue-950 lg:max-w-[1100px] lg:mt-1">
+                    <div className="lg:flex lg:justify-between">
+                        <ul className="lg:flex lg:items-center -z-1 lg:z-auto lg:static">
+                            {navbarMenus.map((menu, index) => (
+                                <li key={index} className="px-4 h-full content-center lg:my-0">
+                                    <a href="#" className="text-white">
+                                        {menu}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                         <div className="relative text-white md:w-auto w-full my-2 mr-1">
                             <input
@@ -83,7 +60,7 @@ const Homepage = () => {
             </div>
 
             {/* Fariz */}
-            <div className="bg-[#1b2838] pt-5 pb-10 px-2">
+            <div className="bg-[#1b2838] pt-5 pb-10 px-4">
                 {/* Feature: Recommended */}
                 <FeatureContainer title="Featured & Recommended" slidesPerView={1}>
                     <SwiperSlide>

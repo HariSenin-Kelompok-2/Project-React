@@ -10,8 +10,8 @@ const RecommendedJumbotron = () => {
 
     return (
         <a href="#" className="flex justify-center ">
-            <div className="lg:w-2/3">
-                <div>
+            <div className="w-full lg:w-2/3">
+                <div className="w-full">
                     <img className="w-full" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/capsule_616x353.jpg?t=1710268442" alt="Apex Legends Header Thumbnail" />
                 </div>
                 <div className="lg:hidden gradient-recommended p-1.5">

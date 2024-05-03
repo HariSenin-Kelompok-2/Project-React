@@ -3,7 +3,7 @@ import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import Cart from "./components/pages/Cart";
 import "./assets/cart.css";
-import "./assets/login.css"
+import "./assets/login.css";
 
 function App() {
     return <Homepage />;
