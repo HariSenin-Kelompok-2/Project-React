@@ -1,12 +1,13 @@
-
+import { useParams } from "react-router-dom";
+import steamDataSet from "./steamDataset";
 
 const ProdDetailBody = () => {
+  const params = useParams();
+  const id = params.id
+  const gameData = steamDataSet[id];
+  
+  return(
     <>
-    {/* sign in question */}
-    <div id="question" className="bg-greyBg text-sm p-3">
-    <p><a href className="text-white">Sign In</a> to add this item to your wishlist, follow it, or mark it as ignored</p>
-  </div>
-  {/* friends ratings */}
   <div id="wrapper">
     <div className="prodSideBar flex-col mt-6 ml-4 max-w-2/6 max-h-full">
       <div id="reasonHeader" className="text-lg py-2 px-4 bg-black">
@@ -323,29 +324,34 @@ const ProdDetailBody = () => {
       </div>
       {/* game achievement */}
       <div className="gameAchievement p-4 text-greyFontColor text-xs">
-        <p>Include 1 Steam Achievements</p>
-        <img src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/730/f75dd04fa12445a8ec43be65fa16ff1b8d2bf82e.jpg" className="mt-4 w-16 h-16" />
+        <p>Include {gameData.achievement_count} Steam Achievements</p>
+        {gameData.achievement_images.map((_, index) => {
+        return <img src={gameData.achievement_images[index]} className="mt-4 w-16 h-16"/>
+        })}
       </div>
       <div className="pointShop max-w-full max-h-screen my-2 p-4">
         <div className="pointShopHeader flex mb-4 text-xs w-full">
           <p>Points Shop Items Available</p>
         </div>
         <div className="pointShopImg flex gap-1 w-16 h-16">
-          <img src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png" className="bg-black" />
-          <img src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c2a822b6422d7a2c9e72ec74bf54139db8723ef0.png" className="bg-black" />
-          <img src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png" className="bg-black" />
+        {gameData.point_shop_images.map((_, index) => {
+        return <img src={gameData.point_shop_images[index]} className="bg-black" />
+        })}
           <a href className="flex justify-center items-center bg-blueItemBg text-buttonColor rounded-sm text-sm text-center min-w-14 min-h-16">
-            View all 29
+            View all {gameData.point_shop_count}
           </a>
         </div>
       </div>
       {/* game genre */}
       <div className="prodGenre p-5 w-full text-xs">
-        <p className="text-headerFontColor leading-6"><span className="text-fontColor uppercase">Title:</span> Counter-Strike 2</p>
-        <p className="text-headerFontColor leading-6"><span className="text-fontColor uppercase">Genre:</span><a href> Action</a>,<a href> Free to Play</a></p>
-        <p className="text-headerFontColor leading-6"><span className="text-fontColor uppercase">Developer:</span> <a href>Valve</a></p>
-        <p className="text-headerFontColor leading-6"><span className="text-fontColor uppercase">Publisher:</span> <a href>Valve</a></p>
-        <p className="text-headerFontColor leading-6"><span className="text-fontColor uppercase">Release Date:</span> 22 Aug, 2012</p>
+        <p className="text-headerFontColor leading-6"><span className="text-fontColor uppercase">Title:</span> {gameData.game_name}</p>
+        <p className="text-headerFontColor leading-6"><span className="text-fontColor uppercase">Genre:</span>        
+        {gameData.genres.map((_, index) => {
+        return <span>{gameData.genres[index]}</span>
+        })}</p>
+        <p className="text-headerFontColor leading-6"><span className="text-fontColor uppercase">Developer:</span>{gameData.developers}</p>
+        <p className="text-headerFontColor leading-6"><span className="text-fontColor uppercase">Publisher:</span>{gameData.publishers}</p>
+        <p className="text-headerFontColor leading-6"><span className="text-fontColor uppercase">Release Date:</span>{gameData.release_date}</p>
         <div className="genreButtonHeader">
           <div className="genreButton bg-blueItemBg text-buttonColor p-1 mb-1 rounded-sm">
             <span><a href className="text-buttonColor">Visit the website</a></span>
@@ -373,7 +379,6 @@ const ProdDetailBody = () => {
         <span className="bg-buttonColorBg text-buttonColor rounded-sm py-2 px-4">⚑</span>
       </div>
       {/* gameAwards */}
-      <div id="block" />
       <div className="gameAwards">
         <p>Awards</p>
         <div className="gameAwardsBannerBG">
@@ -400,23 +405,21 @@ const ProdDetailBody = () => {
     {/* Game buying options */}
     <div id="cardWrapper">
       <div className="card p-4 mt-6 mb-2 rounded relative">
-        <h2 className="text-2xl font-semibold">Play Counter-Strike 2</h2>
+        <h2 className="text-2xl font-semibold">{gameData.offers[0]}</h2>
         <div className="gamePurchaseContainer text-base text-right absolute right-1">
           <div className="gamePurchaseButton py-2.5 pl-4 pr-0 bg-black rounded">
-            <span>Free To Play <span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded"><a href>Play Game</a></span></span>
+            <span>{gameData.price[0]} <span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded">{gameData.price[1]}</span></span>
           </div>
         </div>
       </div>
       <div className="card p-4 mt-6 rounded relative">
-        <h3 className="text-2xl font-semibold">Buy Prime Status Upgrade</h3>
-        <p className="text-sm">Counter-Strike 2 players with Prime Status are matched with other Prime Status players and are eligible to receive 
-          Prime-exclusive souvenir items, item drops, and weapon cases.
-        </p>
+        <h3 className="text-2xl font-semibold">{gameData.offers[1]}</h3>
+        <p className="text-sm">{gameData.offers_desc[0]}</p>
         <br />
-        <p className="text-sm">This package grants Prime Account Status in Counter-Strike 2.</p>
+        <p className="text-sm">{gameData.offers_desc[1]}</p>
         <div className="gamePurchaseContainer text-base text-right absolute right-1">
           <div className="gamePurchaseButton py-2.5 pl-4 pr-0 bg-black rounded">
-            <span>Rp 229 999<span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded"><a href>Add To Cart</a></span></span>
+            <span>{gameData.price[2]}<span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded"><a href>Add To Cart</a></span></span>
           </div>
         </div>
       </div>
@@ -424,22 +427,19 @@ const ProdDetailBody = () => {
         <p className="text-sm text-right rounded-sm">This product is not eligible for refund. <a href className="underline">Learn more</a></p>
       </div>
       <div className="card p-4 mt-6 rounded relative">
-        <h4 className="text-2xl font-semibold">Buy Valve Complete Pack <span className="bundle text-buttonColor font-extralight">Bundle <span className="tooltip text-greyFontColor text-xs">(?)</span></span></h4>    
-        <p className="text-sm">Buy this bundle to save 28% off all items!</p>
-        <div className="bundleImg flex overflow-clip">
-          <img src="https://cdn.cloudflare.steamstatic.com/steam/subs/7/capsule_sm_120.jpg?t=1447444801" alt="" />
-          <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/300/capsule_sm_120.jpg?t=1694209029" alt="" />
-          <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/20/capsule_sm_120.jpg?t=1579634708" alt="" />
-          <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/30/capsule_sm_120.jpg?t=1512413490" alt="" />
-          <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/40/capsule_sm_120.jpg?t=1568752159" alt="" />
-          <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/50/capsule_sm_120.jpg?t=1579628243" alt="" />
+        <h4 className="text-2xl font-semibold">{gameData.offers[2]} <span className="bundle text-buttonColor font-extralight">Bundle <span className="tooltip text-greyFontColor text-xs">(?)</span></span></h4>    
+        <p className="text-sm">{gameData.offers_desc[2]}</p>
+        <div className="bundleImg flex overflow-clip bg-black">
+        {gameData.bundle_images.map((_, index) => {
+        return <img src={gameData.bundle_images[index]} className="bg-black" />
+        })}
         </div>
         <div className="bundleInfo text-sm rounded-sm py-2 px-4 absolute m-1 right-[20vw]">
-          <span><a href>Bundle info</a></span>
+          <span>Bundle info</span>
         </div>
         <div className="gamePurchaseContainer text-base text-right absolute right-1">
           <div className="gamePurchaseButton m-1 py-2 px-2 bg-black rounded">
-            <span>Rp 229 999<span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded"><a href>Add To Cart</a></span></span>
+            <span>{gameData.price[2]}<span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded">Add To Cart</span></span>
           </div>
         </div>
       </div>
@@ -565,6 +565,6 @@ const ProdDetailBody = () => {
     </div>
   </div>
   </>
+)
 }
-
-export default ProdDetailBody
+export default ProdDetailBody;

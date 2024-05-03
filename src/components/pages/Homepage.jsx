@@ -168,9 +168,9 @@ const Homepage = () => {
                     <h2 className="text-white mb-2">FEATURED &amp; RECOMMENDED</h2>
                     <div className="flex flex-row h-full content-center w-full">
                         <div className="lg:w-2/3">
-                            <a href="product-detail/apexProdDetail.html">
+                            <Link to="/product-detail/0">
                                 <img className="w-full" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/capsule_616x353.jpg?t=1710268442" alt="Game Apex Legend" />
-                            </a>
+                            </Link>
                         </div>
                         <div className="bg-[#0B151E] md:block hidden lg:w-1/3">
                             <h3 className="text-white my-3 ml-3">Apex Legends™</h3>
