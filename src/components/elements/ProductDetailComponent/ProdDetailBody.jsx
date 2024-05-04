@@ -42,7 +42,7 @@ const ProdDetailBody = () => {
                             </span>
                             Recommended by 44 friends
                         </p>
-                        <div className="friendBlocks flex gap-2 mb-4 mb-4 ml-4">
+                        <div className="friendBlocks flex gap-2 mb-4 ml-4">
                             <img src="https://avatars.cloudflare.steamstatic.com/0bfd6a007df7f197f6b622848c60547bc3e611a0.jpg" />
                             <img src="https://avatars.cloudflare.steamstatic.com/775cd934d94b7e916caefbe3e64ba50191564162.jpg" />
                             <img src="https://avatars.cloudflare.steamstatic.com/18d4e24e9a47d8b6f2c93cb8a902799a86fc4ec8.jpg" />
