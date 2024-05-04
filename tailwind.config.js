@@ -30,7 +30,11 @@ export default {
       },
       boxShadow: {
         moreMenu: '0 0 3px #000'
+      },
+      spacing: {
+        prodSliderSize: '40vw'
       }
+      
     },
   },
   plugins: [],
