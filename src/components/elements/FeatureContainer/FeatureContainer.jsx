@@ -32,7 +32,7 @@ const FeatureContainer = ({ title, children, button = null, button2 = null, clas
                 )}
             </HeadingFeatures>
             {type === null && (
-                <div className="absolute gradient-arrow-left top-1/2 bottom-1/2 -translate-y-1/2 flex py-[3.9rem] px-3 -left-[3.3rem] justify-center items-center cursor-pointer" onClick={handlePrevious}>
+                <div className="absolute gradient-arrow-left top-1/2 bottom-1/2 -translate-y-1/2 lg:flex py-[3.9rem] px-3 -left-[3.3rem] justify-center items-center cursor-pointer hidden" onClick={handlePrevious}>
                     <div>
                         <i className="fa-solid fa-chevron-left text-white text-5xl" />
                     </div>
@@ -42,7 +42,7 @@ const FeatureContainer = ({ title, children, button = null, button2 = null, clas
                 {children}
             </Swiper>
             {type === null && (
-                <div className="absolute gradient-arrow-right top-1/2 bottom-1/2 -translate-y-1/2 flex py-[3.9rem] px-3 -right-[3.4rem] justify-center items-center cursor-pointer" onClick={handleNext}>
+                <div className="absolute gradient-arrow-right top-1/2 bottom-1/2 -translate-y-1/2 lg:flex py-[3.9rem] px-3 -right-[3.4rem] justify-center items-center cursor-pointer hidden" onClick={handleNext}>
                     <div>
                         <i className="fa-solid fa-chevron-right text-white text-5xl" />
                     </div>
