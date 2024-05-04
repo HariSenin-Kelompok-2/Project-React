@@ -1,3 +1,4 @@
+import CartAndNavbar from "../elements/CartAndNavbar/CartAndNavbar";
 import Footer from "../elements/Footer/Footer";
 import Header from "../elements/Header/Header";
 
@@ -6,33 +7,7 @@ const Cart = () => {
         <div className="lg:flex lg:flex-col lg:justify-between lg:min-h-screen bg-[#1b2838]">
             <Header />
             <main>
-                {/* Cart */}
-                <div className="flex justify-end text-xs mb-1 mx-[2vh] lg:mx-[10vh] xl:mx-[20vh] mt-[1rem]">
-                    <a href="cart.html" className="bg-[#5c7e10] px-6 py-1 text-center hover:bg-[#7ea64b] text-white">
-                        <i className="fa-sharp fa-solid fa-cart-shopping" /> <span>Cart (1)</span>
-                    </a>
-                </div>
-                {/* End Cart */}
-                {/* container start */}
-                <div className="bg-[#234282] text-white text-[0.4rem] md:text-sm mx-[2vh] lg:text-md lg:mx-[10vh] xl:mx-[20vh]">
-                    <div className="grid grid-cols-3 p-1 md:p-4">
-                        <div className="col-span-2">
-                            <a href className="mr-2 hover:text-[#38a4d2]">Your Store</a>
-                            <a href className="mr-2 hover:text-[#38a4d2]">New &amp; Noteworthy</a>
-                            <a href className="mr-2 hover:text-[#38a4d2]">Categories</a>
-                            <a href className="mr-2 hover:text-[#38a4d2]">Point Shop</a>
-                            <a href className="mr-2 hover:text-[#38a4d2]">News</a>
-                            <a href className="mr-2 hover:text-[#38a4d2]">Labs</a>
-                        </div>
-                        <div className="grid justify-end h-1">
-                            <button type="submit" className="bg-[#2682a9] md:p-1">
-                                <input type="text" placeholder="search" className="focus:outline-none text-white bg-[#2682a9]" />
-                                <i className="fas fa-search" style={{ color: 'black' }} />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                {/* container end */}
+                <CartAndNavbar />
                 {/* FEATURE : CART */}
                 <div className="container_content">
                     <div className="breadcrumb_container">
