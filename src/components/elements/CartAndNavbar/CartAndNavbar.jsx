@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const CartAndNavbar = () => {
     const navbarMenus = ["Your Store", "New & Noteworthy", "Categories", "Points Shop", "News", "Labs"];
 
@@ -5,9 +7,9 @@ const CartAndNavbar = () => {
         <div className="flex items-center flex-col text-white bg-no-repeat bg-[#1b2838] lg:px-4">
             {/* Cart */}
             <div className="text-sm hidden lg:mt-2 lg:max-w-[1100px] lg:flex lg:w-full">
-                <a href="cart.html" className="block bg-[#5c7e10] px-6 py-1 hover:bg-[#7ea64b] ml-auto">
-                    <i className="fa-sharp fa-solid fa-cart-shopping" /> <span>Cart (1)</span>
-                </a>
+                <Link to="/cart" className="block bg-[#5c7e10] px-6 py-1 hover:bg-[#7ea64b] ml-auto">
+                    <i className="fa-sharp fa-solid fa-cart-shopping" /> <span className="text-xs">Cart (1)</span>
+                </Link>
             </div>
 
             {/* Feature: NavBar */}
@@ -16,9 +18,9 @@ const CartAndNavbar = () => {
                     <ul className="flex flex-col lg:flex lg:flex-row lg:items-center">
                         {navbarMenus.map((menu, index) => (
                             <li key={index} className="">
-                                <a href="#" className="drop-shadow-lg text-white py-2 px-5 h-full content-center block font-medium lg:text-sm link-navbar-search">
+                                <Link to="/" className="drop-shadow-lg text-white py-2 px-5 h-full content-center block font-medium lg:text-sm link-navbar-search">
                                     {menu}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>

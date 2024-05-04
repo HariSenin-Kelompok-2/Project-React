@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const GameCard = ({ image, price, isDiscount = false, discountedPrice = null, discountValue = null, type = null }) => {
+const GameCard = ({ image, price, id, isDiscount = false, discountedPrice = null, discountValue = null, type = null }) => {
     return (
         <>
             {type === "midweek deal" ? (
-                <a href="#" className="shadow-card block">
+                <Link to={`/product/${id}`} className="shadow-card block">
                     <img src={image} alt="game" className="w-full" />
                     <div className="px-4 py-3 bg-[url('https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg')] bg-bottom bg-cover">
                         <p>MIDWEEK DEAL</p>
@@ -21,10 +22,10 @@ const GameCard = ({ image, price, isDiscount = false, discountedPrice = null, di
                             </div>
                         </div>
                     </div>
-                </a>
+                </Link>
             ) : (
                 <div className="gradient-game-cards group/game-card text-xs shadow-card">
-                    <a href="product-detail/ohDeerProdDetail.html">
+                    <Link to={`/product/${id}`}>
                         <img src={image} alt="game" />
                         <div className="p-1 flex">
                             {isDiscount ? (
@@ -45,7 +46,7 @@ const GameCard = ({ image, price, isDiscount = false, discountedPrice = null, di
                                 </div>
                             )}
                         </div>
-                    </a>
+                    </Link>
                     <button
                         id="gameCardMoreBtn"
                         className="absolute flex bg-white transition opacity-0 translate-x-1 right-1.5 top-1.5 px-2 py-[0.33rem] rounded-[0.15rem] shadow-moreMenu text-black gap-[0.15rem] group-hover/game-card:translate-x-0 group-hover/game-card:opacity-100 hover:bg-[#67c1f5] group/more-menu"
@@ -63,6 +64,7 @@ const GameCard = ({ image, price, isDiscount = false, discountedPrice = null, di
 GameCard.propTypes = {
     image: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     isDiscount: PropTypes.bool,
     discountedPrice: PropTypes.string,
     discountValue: PropTypes.string,

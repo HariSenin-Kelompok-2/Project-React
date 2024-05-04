@@ -13,6 +13,7 @@ import RecommendedJumbotron from "../elements/RecommendedJumbotron/RecommendedJu
 import BrowseSteam from "../elements/BrowseSteam/BrowseSteam";
 import Header from "../elements/Header/Header";
 import CartAndNavbar from "../elements/CartAndNavbar/CartAndNavbar";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
     return (
@@ -35,6 +36,7 @@ const Homepage = () => {
                 <FeatureContainer title="SPECIAL OFFERS" classProps="mb-4" slidesPerView={3} type={"recommended"}>
                     <SwiperSlide>
                         <GameCard
+                            id={10}
                             type="midweek deal"
                             image="https://cdn.akamai.steamstatic.com/steam/spotlights/df26f523ee36ed6609a7a786/spotlight_image_english.jpg?t=1714087103"
                             discountValue="-30%"
@@ -44,6 +46,7 @@ const Homepage = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <GameCard
+                            id={1}
                             type="midweek deal"
                             image="https://cdn.akamai.steamstatic.com/steam/spotlights/f11b6fb0223c1a2f55d07ab3/spotlight_image_english.jpg?t=1713302774"
                             discountValue="-65%"
@@ -52,7 +55,7 @@ const Homepage = () => {
                         />
                     </SwiperSlide>
                     <SwiperSlide className="flex flex-col gap-4">
-                        <a href="#" className="drop-shadow-md">
+                        <Link to="/product/5" className="shadow-card">
                             <img src="https://cdn.akamai.steamstatic.com/steam/apps/600090/header.jpg?t=1712077006" alt="" />
                             <div className="flex bg-[#addbf4] p-1 justify-between">
                                 <span className="block text-[#283846]">Today&apos;s Deal!</span>
@@ -68,8 +71,8 @@ const Homepage = () => {
                                     </div>
                                 </div>
                             </div>
-                        </a>
-                        <a href="#" className="drop-shadow-md">
+                        </Link>
+                        <Link to="/product/9" className="shadow-card">
                             <img src="https://cdn.akamai.steamstatic.com/steam/apps/1551360/header.jpg?t=1714086603" alt="" />
                             <div className="flex bg-[#addbf4] p-1 justify-between">
                                 <span className="block text-[#283846]">Today&apos;s Deal!</span>
@@ -85,7 +88,7 @@ const Homepage = () => {
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     </SwiperSlide>
                 </FeatureContainer>
 
@@ -112,26 +115,26 @@ const Homepage = () => {
                 <FeatureContainer classProps="mt-20" title="Under Rp 90 000" button="Under Rp 90 000" button2="Under Rp 45 000">
                     {under90kGameDatas.map((game, index) => (
                         <SwiperSlide key={index}>
-                            <GameCard image={game.image} price={game.price} isDiscount={game.isDiscount} discountedPrice={game.discountedPrice} discountValue={game.discountValue} />
+                            <GameCard id={game.id} image={game.image} price={game.price} isDiscount={game.isDiscount} discountedPrice={game.discountedPrice} discountValue={game.discountValue} />
                         </SwiperSlide>
                     ))}
                     {under90kGameDatas.map((game, index) => (
                         <SwiperSlide key={index}>
-                            <GameCard image={game.image} price={game.price} isDiscount={game.isDiscount} discountedPrice={game.discountedPrice} discountValue={game.discountValue} />
+                            <GameCard id={game.id} image={game.image} price={game.price} isDiscount={game.isDiscount} discountedPrice={game.discountedPrice} discountValue={game.discountValue} />
                         </SwiperSlide>
                     ))}
                 </FeatureContainer>
 
                 {/* Feature: Popular VR Games */}
                 <FeatureContainer title={"Popular VR Games"} button={"BROWSE ALL"}>
-                    {VRGameDatas.map((item, index) => (
+                    {VRGameDatas.map((game, index) => (
                         <SwiperSlide key={index}>
-                            <GameCard image={item.image} price={item.price} />
+                            <GameCard id={game.id} image={game.image} price={game.price} />
                         </SwiperSlide>
                     ))}
-                    {VRGameDatas.map((item, index) => (
+                    {VRGameDatas.map((game, index) => (
                         <SwiperSlide key={index}>
-                            <GameCard image={item.image} price={item.price} />
+                            <GameCard id={game.id} image={game.image} price={game.price} />
                         </SwiperSlide>
                     ))}
                 </FeatureContainer>

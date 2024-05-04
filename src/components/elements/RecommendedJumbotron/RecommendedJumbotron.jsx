@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import GameTag from "../GameTag";
 
 const RecommendedJumbotron = () => {
@@ -9,7 +10,7 @@ const RecommendedJumbotron = () => {
     ];
 
     return (
-        <a href="#" className="flex justify-center">
+        <Link to="product/0" className="flex justify-center">
             <div className="w-full shadow-card lg:shadow-none lg:w-2/3">
                 <div className="w-full">
                     <img className="w-full" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/capsule_616x353.jpg?t=1710268442" alt="Apex Legends Header Thumbnail" />
@@ -38,7 +39,7 @@ const RecommendedJumbotron = () => {
                     <span className="text-sm mt-auto font-light">Free to Play</span>
                 </div>
             </div>
-        </a>
+        </Link>
     );
 };
 

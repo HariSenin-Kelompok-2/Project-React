@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SignInButton from "./SignInBox/SignInButton";
 
 const SignInDialog = () => {
@@ -7,9 +8,9 @@ const SignInDialog = () => {
             <SignInButton />
             <span className="block">
                 Or{" "}
-                <a href="register.html" className="text-white hover:text-[#66c0f4]">
+                <Link to="/register" className="text-white hover:text-[#66c0f4]">
                     sign up
-                </a>{" "}
+                </Link>{" "}
                 and join Steam for free
             </span>
         </>

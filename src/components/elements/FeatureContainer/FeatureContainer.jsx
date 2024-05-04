@@ -4,7 +4,6 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "../../../assets/swiper.css";
 import OutlineButton from "./OutlineButton";
 import PropTypes from "prop-types";
 import { useCallback, useState } from "react";

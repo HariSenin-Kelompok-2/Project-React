@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import steamLogo from "../../../assets/images/steamlogo.png";
-import valveLogoFooter from "../../../assets/images/logo_valve_footer.png";
+import { Link } from "react-router-dom";
+import MobileMenuFooter from "./MobileMenuFooter";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,7 +30,35 @@ const Header = () => {
         };
     }, []);
 
+    const mobileMenus = ["login", "store", "community", "support"];
+    const desktopMenus = ["store", "community", "about", "support"];
 
+    const renderMobileMenus = () => {
+        return (
+            mobileMenus.map((menu) => {
+                const login = menu === "login" ? "/login" : "/";
+                return (
+                    <Link to={login} key="menu" className="text-[1.2rem] p-4 border-b-[0.1vh] border-[#bcbcbc]">
+                        {menu.toUpperCase()}
+                    </Link>
+                );
+            })
+        )
+        
+    }
+    const renderDesktopMenus = () => {
+        return (
+            desktopMenus.map((menu) => {
+                const login = menu === "login" ? "/login" : "/";
+                return (
+                    <Link key={menu} to={login} className="mr-2 hover:text-[#38a4d2] block text-[#dcdedf]">
+                        {menu.toUpperCase()}
+                    </Link>
+                );
+            })
+        )
+        
+    }
 
     return (
         <>
@@ -37,47 +66,13 @@ const Header = () => {
             {/* Mobile Menu */}
             <div ref={mobileMenuRef} id="mobile-menu" className={`bg-[#171a21] text-[#afb8b6] fixed top-0 left-0 h-full z-50 ${isMenuOpen ? "show" : ""}`}>
                 <div className="grid grid-rows-4 gap-4">
-                    <a href="login.html" className="text-[1.2rem] p-4 border-b-[0.1vh] border-[#bcbcbc]">
-                        LOGIN
-                    </a>
-                    <a href="#" className="text-[1.2rem] p-4 border-b-[0.1vh] border-[#bcbcbc]">
-                        STORE
-                    </a>
-                    <a href="#" className="text-[1.2rem] p-4 border-b-[0.1vh] border-[#bcbcbc]">
-                        COMMUNITY
-                    </a>
-                    <a href="#" className="text-[1.2rem] p-4 border-b-[0.1vh] border-[#bcbcbc]">
-                        SUPPORT
-                    </a>
+                    {renderMobileMenus()}
                     <p className="px-2 text-[1rem] text-[#6f7071]">Change language</p>
                     <p className="px-2 text-[1rem] text-[#6f7071]">Get the Steam Mobile App</p>
                     <p className="px-2 text-[1rem] text-[#6f7071]">View Desktop website</p>
                 </div>
 
-                <footer className="w-full absolute bottom-0 mb-4 p-4">
-                    <div className="h-full text-[0.6rem] lg:text-[18px]">
-                        <div className="w-[13vw] md:w-auto grid md:justify-end lg:mr-2">
-                            <img src={valveLogoFooter} className="w-full md:w-[100px]" alt="" />
-                        </div>
-                        <div>
-                            <p>
-                                © Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries.
-                                <a href="#" className="hover:text-white">
-                                    Privacy Policy
-                                </a>
-                                <a href="#" className="hover:text-white">
-                                    Legal
-                                </a>
-                                <a href="#" className="hover:text-white">
-                                    Steam Subscriber Agreement
-                                </a>
-                                <a href="#" className="hover:text-white">
-                                    Refunds
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </footer>
+                <MobileMenuFooter />
             </div>
             {/* Hamburger ON END */}
             {/* Hamburger Menu end */}
@@ -92,23 +87,12 @@ const Header = () => {
                         </button>
                     </div>
                     <div className="flex -ml-10 justify-center items-center col-span-9 lg:col-span-1 lg:justify-start my-4 lg:ml-0">
-                        <a href="">
+                        <Link to="/">
                             <img src={steamLogo} className="w-[15vh] md:w-auto" alt="steam" />
-                        </a>
+                        </Link>
                     </div>
                     <div className="hidden text-xl mt-[0.5vh] lg:flex lg:col-span-2 lg:justify-center lg:items-center lg:font-medium lg:gap-2">
-                        <a href="#" className="mr-2 hover:text-[#38a4d2] block text-[#dcdedf]">
-                            STORE
-                        </a>
-                        <a href="#" className="mr-2 hover:text-[#38a4d2] block text-[#dcdedf]">
-                            COMMUNITY
-                        </a>
-                        <a href="#" className="mr-2 hover:text-[#38a4d2] block text-[#dcdedf]">
-                            ABOUT
-                        </a>
-                        <a href="#" className="mr-2 hover:text-[#38a4d2] block text-[#dcdedf]">
-                            SUPPORT
-                        </a>
+                        {renderDesktopMenus()}
                     </div>
                     <div className="mt-[0.001rem] hidden sm:hidden md:hidden lg:block lg:pt-1">
                         <div className="flex justify-end gap-2 text-white text-xs">
@@ -116,9 +100,13 @@ const Header = () => {
                                 <i className="fa-solid fa-download mr-2" />
                                 install steam
                             </button>
-                            <a href="login.html" className="text-[#b8b6b4] hover:text-white">login</a>
+                            <Link to="/login" className="text-[#b8b6b4] hover:text-white">
+                                login
+                            </Link>
                             <span className="text-[#b8b6b4]">|</span>
-                            <a href="register.html" className="text-[#b8b6b4] hover:text-white">register</a>
+                            <Link to="/register" href="register.html" className="text-[#b8b6b4] hover:text-white">
+                                register
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,5 @@
 import Footer from "../elements/Footer/Footer";
 import Header from "../elements/Header/Header";
-import "../../assets/register.css";
 
 const Register = () => {
     return (
