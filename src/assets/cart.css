@@ -5,10 +5,6 @@
     font-family: "Motiva Sans",Arial,Helvetica,sans-serif;
 }
 
-body {
-    background: #1b2838;
-}
-
 .nav_1 {
     display: flex;
     flex-wrap: wrap;
@@ -64,13 +60,6 @@ body {
     font-weight: bold;
 }
 
-form {
-    display: inline-flex;
-    height: 30px;
-    width: 200px;
-    padding: 2px;
-    border-radius: 2px;
-}
 
 .search_data {
     width: 100%;
