@@ -4,7 +4,7 @@ const GameCard = ({ image, price, isDiscount = false, discountedPrice = null, di
     return (
         <>
             {type === "midweek deal" ? (
-                <a href="#" className="drop-shadow-md">
+                <a href="#" className="shadow-card block">
                     <img src={image} alt="game" className="w-full" />
                     <div className="px-4 py-3 bg-[url('https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg')] bg-bottom bg-cover">
                         <p>MIDWEEK DEAL</p>
@@ -23,7 +23,7 @@ const GameCard = ({ image, price, isDiscount = false, discountedPrice = null, di
                     </div>
                 </a>
             ) : (
-                <div className="gradient-game-cards group/game-card text-xs">
+                <div className="gradient-game-cards group/game-card text-xs shadow-card">
                     <a href="product-detail/ohDeerProdDetail.html">
                         <img src={image} alt="game" />
                         <div className="p-1 flex">

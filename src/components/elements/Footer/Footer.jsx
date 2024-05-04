@@ -1,10 +1,10 @@
 import FooterLinks from "./FooterLinks";
 
 const Footer = () => {
-    const footerLinks = ["About Valve", "Jobs", "Steamworks", "Steam Distribution", "Support", "Gift Cards", "Steam", "@steam"];
+    const footerLinks = ["About Valve", "Jobs", "Steamworks", "Distribution", "Support", "Gift Cards", "Steam", "@steam"];
 
     return (
-        <div className="bg-[#171A21] pb-10 px-10 smFooter:hidden font-sans">
+        <div className="bg-[#171A21] pb-10 px-10 smFooter:hidden font-sans text-xs">
             <div className="max-w-[1100px] mx-auto">
                 <section>
                     <div className="h-[2rem]" />
@@ -28,7 +28,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <hr className="mt-8" />
+                    <hr className="mt-2" />
                 </section>
                 <section>
                     <div className="flex justify-between mt-4">

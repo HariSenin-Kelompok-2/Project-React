@@ -9,13 +9,17 @@ const RecommendedJumbotron = () => {
     ];
 
     return (
-        <a href="#" className="flex flex-row justify-center">
-            <div className="lg:w-2/3 drop-shadow-md">
-                <div>
+        <a href="#" className="flex justify-center">
+            <div className="w-full shadow-card lg:shadow-none lg:w-2/3">
+                <div className="w-full">
                     <img className="w-full" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/capsule_616x353.jpg?t=1710268442" alt="Apex Legends Header Thumbnail" />
                 </div>
+                <div className="lg:hidden gradient-recommended p-1.5">
+                    <h3 className="font-semibold text-xl">Apex Legends™</h3>
+                    <p className="p-2 font-extralight text-sm">Free to Play</p>
+                </div>
             </div>
-            <div className="bg-[url('https://store.akamai.steamstatic.com/public/images/v6/home/background_maincap_2.jpg')] bg-cover hidden lg:flex lg:flex-col lg:w-1/3">
+            <div className=" bg-[url('https://store.akamai.steamstatic.com/public/images/v6/home/background_maincap_2.jpg')] bg-cover hidden lg:flex lg:flex-col lg:w-1/3">
                 <div className="h-[85px] flex items-center px-4">
                     <h3 className="text-3xl">Apex Legends™</h3>
                 </div>
