@@ -29,6 +29,11 @@ export default {
         mixed: '#B9A074'
       },
       boxShadow: {
+        moreMenu: '0 0 3px #000'
+      },
+      spacing: {
+        prodSliderSize: '40vw'
+      }
         moreMenu: '0 0 3px #000',
         card: '0 0 12px 2px #000'
       },
