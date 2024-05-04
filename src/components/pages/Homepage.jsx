@@ -3,7 +3,7 @@ import "../../assets/style.css";
 
 import SignInBox from "../elements/SignInBox/SignInBox";
 import FeatureContainer from "../elements/FeatureContainer/FeatureContainer";
-import { VRGameDatas, categories, under90kGameDatas } from "../../utils/datas";
+import { VRGameDatas, categories, midweekSpecialOffersData, todaySpecialOffersData, under90kGameDatas } from "../../utils/datas";
 import SignInBoxFooter from "../elements/SignInBoxFooter/SignInBoxFooter";
 import { SwiperSlide } from "swiper/react";
 import Footer from "../elements/Footer/Footer";
@@ -13,7 +13,6 @@ import RecommendedJumbotron from "../elements/RecommendedJumbotron/RecommendedJu
 import BrowseSteam from "../elements/BrowseSteam/BrowseSteam";
 import Header from "../elements/Header/Header";
 import CartAndNavbar from "../elements/CartAndNavbar/CartAndNavbar";
-import { Link } from "react-router-dom";
 
 const Homepage = () => {
     return (
@@ -33,62 +32,26 @@ const Homepage = () => {
                 </FeatureContainer>
 
                 {/* Feature: Special Offers */}
-                <FeatureContainer title="SPECIAL OFFERS" classProps="mb-4" slidesPerView={3} type={"recommended"}>
-                    <SwiperSlide>
-                        <GameCard
-                            id={10}
-                            type="midweek deal"
-                            image="https://cdn.akamai.steamstatic.com/steam/spotlights/df26f523ee36ed6609a7a786/spotlight_image_english.jpg?t=1714087103"
-                            discountValue="-30%"
-                            discountedPrice="140 000"
-                            price="200 000"
-                        />
+                <FeatureContainer title="SPECIAL OFFERS" classProps="mb-4" slidesPerView={3}>
+                    {midweekSpecialOffersData.map((data, index) => (
+                        <SwiperSlide key={index}>
+                            <GameCard id={data.id} type={data.type} image={data.image} discountValue={data.discountValue} discountedPrice={data.discountedPrice} price={data.price} />
+                        </SwiperSlide>
+                    ))}
+                    <SwiperSlide className="flex flex-col gap-2">
+                        {todaySpecialOffersData.map((data, index) => (
+                            <GameCard key={index} id={data.id} type={data.type} image={data.image} discountValue={data.discountValue} discountedPrice={data.discountedPrice} price={data.price} />
+                        ))}
                     </SwiperSlide>
-                    <SwiperSlide>
-                        <GameCard
-                            id={1}
-                            type="midweek deal"
-                            image="https://cdn.akamai.steamstatic.com/steam/spotlights/f11b6fb0223c1a2f55d07ab3/spotlight_image_english.jpg?t=1713302774"
-                            discountValue="-65%"
-                            discountedPrice="206 999"
-                            price="72 449"
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide className="flex flex-col gap-4">
-                        <Link to="/product/5" className="shadow-card">
-                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/600090/header.jpg?t=1712077006" alt="" />
-                            <div className="flex bg-[#addbf4] p-1 justify-between">
-                                <span className="block text-[#283846]">Today&apos;s Deal!</span>
-                                <div className="flex">
-                                    <div className="px-1 py-0.5 text-discount bg-[#4c6b22] flex">
-                                        <div className="my-auto block text-3xl font-[500]">-65%</div>
-                                    </div>
-                                    <div className="px-2 py-0.5 bg-[#344654]">
-                                        <span className="text-discountOriginalPrice before:content-[''] relative before:left-0 before:right-0 before:border-b before:absolute before:top-[43%] before:-skew-y-[8deg] before:border-discountOriginalPrice block text-xs text-right w-fit ml-auto">
-                                            Rp 206 999
-                                        </span>
-                                        <span className="text-discount">Rp 72 449</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
-                        <Link to="/product/9" className="shadow-card">
-                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/1551360/header.jpg?t=1714086603" alt="" />
-                            <div className="flex bg-[#addbf4] p-1 justify-between">
-                                <span className="block text-[#283846]">Today&apos;s Deal!</span>
-                                <div className="flex">
-                                    <div className="px-1 py-0.5 text-discount bg-[#4c6b22] flex">
-                                        <div className="my-auto block text-3xl font-[500]">-50%</div>
-                                    </div>
-                                    <div className="px-2 py-0.5 bg-[#344654] ">
-                                        <span className="text-discountOriginalPrice before:content-[''] relative before:left-0 before:right-0 before:border-b before:absolute before:top-[43%] before:-skew-y-[8deg] before:border-discountOriginalPrice block text-xs text-right w-fit ml-auto">
-                                            Rp 699 000
-                                        </span>
-                                        <span className="text-discount">Rp 349 500</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
+                    {midweekSpecialOffersData.map((data, index) => (
+                        <SwiperSlide key={index}>
+                            <GameCard id={data.id} type={data.type} image={data.image} discountValue={data.discountValue} discountedPrice={data.discountedPrice} price={data.price} />
+                        </SwiperSlide>
+                    ))}
+                    <SwiperSlide className="flex flex-col gap-2">
+                        {todaySpecialOffersData.map((data, index) => (
+                            <GameCard key={index} id={data.id} type={data.type} image={data.image} discountValue={data.discountValue} discountedPrice={data.discountedPrice} price={data.price} />
+                        ))}
                     </SwiperSlide>
                 </FeatureContainer>
 
