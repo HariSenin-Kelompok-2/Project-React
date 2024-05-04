@@ -6,7 +6,7 @@ import "./assets/cart.css";
 import "./assets/login.css";
 
 function App() {
-    return <Homepage />;
+    return <Register />;
 }
 
 export default App;
