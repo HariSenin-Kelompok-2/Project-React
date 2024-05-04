@@ -20,9 +20,6 @@ body {
 	background: linear-gradient(to right, rgb(169, 245, 255) 50%,rgb(192, 250, 255) 100%);
 }
 
-#mainVideo video {
-	max-width: 100%;
-}
 
 .prodFeat, .prodLang, .shareEmbedRow, .prodGenre, .pointShop, .gameAchievement, #recommendationReasons{
 	background: linear-gradient(to left, rgba(0, 0, 0, 0.612) 2%, rgba(13, 9, 62, 0.179) 100%); 
@@ -110,10 +107,6 @@ td:nth-child(3) {
 
 .bundleInfo {
 	background: linear-gradient( to right, #47bfff 5%, #1a44c2 60%);
-}
-
-.bundleImg {
-	border: 0.3rem solid rgb(27, 28, 54);
 }
 
 .disclaimer {

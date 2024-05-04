@@ -1,21 +1,24 @@
 import { useParams } from "react-router-dom";
 import steamDataSet from "./steamDataset";
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+
 
 const ProdDetailHeader = () => {
   const params = useParams();
   const id = params.id
   const gameData = steamDataSet[id];
   
-
   return (
     <>
       {/* product detail directory */}
       <div id="directory" className="text-fontColor text-sm">
-        <p>
-          <a href>All Games</a> &gt;
-          <a href>Free to Play Games</a> &gt;
-          <a href>{gameData.game_name}</a>
-        </p>
+        <p>{gameData.directory}</p>
       </div>
       {/* game title*/}
       <div id="gameName" className="flex justify-between">
@@ -84,17 +87,23 @@ const ProdDetailHeader = () => {
           </div>
         </div>
         {/* game preview */}
-        <div id="mainVideo" className="max-w-full max-h-full">
+        <div id="mainVideo">
           <video controls>
             <source
               src={gameData.movies}
               type="video/webm"
             />
           </video>
-          <div className="thumbnails flex justify-between gap-1 mt-1 overflow-scroll">
-            {gameData.screenshots.map((_, index) => {
-              return <img src={gameData.screenshots[index]} />
+          <div className="thumbnails flex justify-between gap-1 mt-1 w-full h-18">
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            slidesPerView={5}
+            className="lg:w-prodSliderSize lg:h-auto"
+            scrollbar={{ draggable: true }}>
+              {gameData.screenshots.map((_, index) => {
+                return <SwiperSlide><img src={gameData.screenshots[index]} /></SwiperSlide>
             })}
+          </Swiper>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import steamDataSet from "./steamDataset";
+import { Carousel } from "@material-tailwind/react";
 
 const ProdDetailBody = () => {
   const params = useParams();
@@ -423,15 +424,12 @@ const ProdDetailBody = () => {
           </div>
         </div>
       </div>
-      <div className="disclaimer p-6">
-        <p className="text-sm text-right rounded-sm">This product is not eligible for refund. <a href className="underline">Learn more</a></p>
-      </div>
       <div className="card p-4 mt-6 rounded relative">
         <h4 className="text-2xl font-semibold">{gameData.offers[2]} <span className="bundle text-buttonColor font-extralight">Bundle <span className="tooltip text-greyFontColor text-xs">(?)</span></span></h4>    
         <p className="text-sm">{gameData.offers_desc[2]}</p>
-        <div className="bundleImg flex overflow-clip bg-black">
+        <div className="bundleImg flex overflow-clip">
         {gameData.bundle_images.map((_, index) => {
-        return <img src={gameData.bundle_images[index]} className="bg-black" />
+        return <img src={gameData.bundle_images[index]} />
         })}
         </div>
         <div className="bundleInfo text-sm rounded-sm py-2 px-4 absolute m-1 right-[20vw]">
@@ -439,7 +437,7 @@ const ProdDetailBody = () => {
         </div>
         <div className="gamePurchaseContainer text-base text-right absolute right-1">
           <div className="gamePurchaseButton m-1 py-2 px-2 bg-black rounded">
-            <span>{gameData.price[2]}<span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded">Add To Cart</span></span>
+            <span>{gameData.price[3]}<span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded">Add To Cart</span></span>
           </div>
         </div>
       </div>
@@ -447,19 +445,19 @@ const ProdDetailBody = () => {
         <span>Content for this game <span className="browseButton py-0.5 px-2 mb-0.5 text-xs float-right capitalize"><a href>Browse all (1)</a></span></span> 
       </div>
       <div className="content text-xs">
-        <a href className="ml-4">Counter-Strike 2 Soundtrack<span className="float-right mr-4">Free</span></a>
+        <span className="ml-4">{gameData.game_content}</span>
+        <span className="float-right mr-4">{gameData.game_content_price}</span>
       </div>
       {/* game events */}
       <div className="eventHeader mt-24 text-sm font-medium uppercase">
         <span>Recent Events &amp; Announcements <span className="browseButton py-0.5 px-2 mb-0.5 text-xs float-right capitalize">View All</span></span>
       </div>
       <div id="wrapper">
-        <div className="w-full h-full">
-          <img src="https://clan.cloudflare.steamstatic.com/images/3381077/7ef81aae3930cd6fb1f1fe16864b1c2ec82d9940_400x225.png" alt="" />
-        </div>
-        <div className="w-full h-full">
-          <img src="https://clan.cloudflare.steamstatic.com/images/3381077/55f43a9845a5d85219965c6016fb4a122549cbd7_400x225.png" alt="" />
-        </div>
+        {gameData.event_images.map((_, index) => {
+        return <div className="w-full h-full">
+          <img src={gameData.event_images[index]} alt="" className="w-full"/>
+          </div>
+        })}
       </div>
       <div className="moreButton flex mt-4 mb-8">
         <svg height="100px" width="100px" viewBox="0 0 100 100" fill="currentColor" className="w-6 h-6">
@@ -478,35 +476,23 @@ const ProdDetailBody = () => {
             </path>
           </g>
         </svg>
-        <a href><p className="text-xs rounded-sm py-0.5 px-4 ml-2">See all updates (Latest∶ Mar 9)</p></a>
+        <a href><p className="text-xs rounded-sm py-0.5 px-4 ml-2">See all updates (Latest:{gameData.latest_update})</p></a>
       </div>
       {/* game description */}
       <div className="gameDesc text-greyFontColor">
         <span className="text-white text-xl">About this game</span>
         <hr />
-        <p className="text-base mt-4 mb-6">For over two decades, Counter-Strike has offered an elite competitive experience, one shaped by millions of players from 
-          across the globe. And now the next chapter in the CS story is about to begin. This is Counter-Strike 2.
-        </p>
-        <p className="text-base mt-4 mb-6">A free upgrade to CS:GO, Counter-Strike 2 marks the largest technical leap in Counter-Strike’s history. 
-          Built on the Source 2 engine, Counter-Strike 2 is modernized with realistic physically-based rendering, 
-          state of the art networking, and upgraded Community Workshop tools.
-        </p>
-        <p className="text-base mt-4 mb-6">
-          In addition to the classic objective-focused gameplay that Counter-Strike pioneered in 1999, Counter-Strike 2 features:
-        </p>
+        {gameData.about_the_game_img.map ((_,index) =>{
+          return <img src={gameData.about_the_game_img} className="w-full"/>
+        })}
+        {gameData.about_the_game.map((_, index) => {
+        return <p className="text-base mt-4 mb-6">{gameData.about_the_game[index]}</p>
+        })}
         <ul className="ml-4 mb-12 leading-8">
-          <li>All-new CS Ratings with the updated Premier mode</li>
-          <li>Global and Regional leaderboards</li>
-          <li>Upgraded and overhauled maps</li>
-          <li>Game-changing dynamic smoke grenades</li>
-          <li>Tick-rate-independent gameplay</li>
-          <li>Redesigned visual effects and audio</li>
-          <li>All items from CS:GO moving forward to CS2</li>
+        {gameData.about_the_game_list.map ((_, index) => {
+          return<li className="">{gameData.about_the_game_list[index]}</li>
+        })}
         </ul>
-        <span className="text-white text-xl">Mature Content Description</span>
-        <hr />
-        <p className="text-base mt-4 mb-6">The developers describe the content like this∶</p>
-        <p className="text-base mt-4 mb-6"><i>Includes intense violence and blood</i></p>
       </div>
       {/* game system requirement */}
       <div className="max-w-4xl rounded">
@@ -546,20 +532,6 @@ const ProdDetailBody = () => {
             <li className="list-none"><span className="text-greyFontColor">Storage:</span> 85 GB available space</li>
             <li className="list-none"><span className="text-greyFontColor">Sound Card:</span> Highly recommended</li>
           </ul>
-        </div>
-      </div>
-      {/* similar game recommendation */}
-      <div className="max-w-4xl mt-12 rounded">
-        <div className="text-base font-semibold uppercase">
-          More like this
-        </div>
-        <hr />
-        <div className="flex justify-between gap-1 mt-1 overflow-scroll">
-          <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_184x69.jpg?t=1710500518" />
-          <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/440/capsule_184x69.jpg?t=1695767057" />
-          <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/578080/capsule_184x69.jpg?t=1710727439" />
-          <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/444200/capsule_184x69.jpg?t=1710331913" />
-          <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/686810/capsule_184x69.jpg?t=1709289198" />
         </div>
       </div>
     </div>
