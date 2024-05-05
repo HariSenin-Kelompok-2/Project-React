@@ -3,7 +3,7 @@ import Header from "../elements/Header/Header";
 
 const Register = () => {
     return (
-        <div className="flex flex-col justify-between h-screen">
+        <div className="flex flex-col justify-between h-screen bg-[#212429]">
             <Header />
             <div className="container-register mt-8">
                 <h2 className="text-4xl font-thin my-8">CREATE YOUR ACCOUNT</h2>

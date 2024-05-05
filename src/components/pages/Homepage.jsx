@@ -18,7 +18,6 @@ const Homepage = () => {
     return (
         <>
             <Header />
-
             {/* Andi */}
             <CartAndNavbar />
 
@@ -66,7 +65,7 @@ const Homepage = () => {
                     ))}
                 </FeatureContainer>
 
-                {/* Feature: Sign In */}
+                {/* Sign In */}
                 <SignInBox />
 
                 {/* Feature: Browse Steam*/}
