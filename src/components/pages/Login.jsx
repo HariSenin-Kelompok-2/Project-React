@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Footer from "../elements/Footer/Footer";
 import Header from "../elements/Header/Header";
 
@@ -73,11 +74,11 @@ const Login = () => {
         <div className="register-section mt-8 flex flex-col md:flex-row items-center justify-center">
           <div className="md:w-1/2 text-white text-center md:text-left">
             <p>Don&apos;t have an account?</p>
-            <a href="register.html">
+            <Link to="/register">
               <button className="bg-blue-500 text-white rounded-md py-2 px-4 hover:bg-blue-600 transition duration-300">
                 Create one now!
               </button>
-            </a>
+            </Link>
           </div>
           <div className="md:w-1/2 text-white text-center md:text-right mt-4 md:mt-0">
             <p>
