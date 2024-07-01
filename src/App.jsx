@@ -1,44 +1,42 @@
-import Homepage from "./components/pages/Homepage";
-import Login from "./components/pages/Login";
-import Register from "./components/pages/Register";
-import ProductDetails from "./components/pages/ProductDetails";
-import Cart from "./components/pages/Cart";
-import './assets/index.css'
+import "./assets/index.css";
 import "./assets/cart.css";
 import "./assets/login.css";
 import "./assets/homepage.css";
 import "./assets/style.css";
-import "./assets/register.css";
-import "./assets/swiper.css";
 import "./assets/productDetailStyles.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./components/pages/HomePage";
+import LoginPage from "./components/pages/LoginPage";
+import RegisterPage from "./components/pages/RegisterPage";
+import CartPage from "./components/pages/CartPage";
+import ProductDetailsPage from "./components/pages/ProductDetailsPage";
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Homepage />,
-    },
-    {
-        path: "/login",
-        element: <Login />,
-    },
-    {
-        path: "/register",
-        element: <Register />,
-    },
-    {
-        path: "/cart",
-        element: <Cart />,
-    },
-    {
-        path: "/product/:id",
-        element: <ProductDetails />,
-    },
+  {
+    path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/register",
+    element: <RegisterPage />,
+  },
+  {
+    path: "/cart",
+    element: <CartPage />,
+  },
+  {
+    path: "/product/:id",
+    element: <ProductDetailsPage />,
+  },
 ]);
 
 function App() {
-    return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />;
 }
 
 export default App;

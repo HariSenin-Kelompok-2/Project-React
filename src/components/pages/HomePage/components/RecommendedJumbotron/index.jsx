@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import GameTag from "../GameTag";
+import GameTag from "./GameTag";
+
+const recommended4ImageDatas = [
+    "https://cdn.akamai.steamstatic.com/steam/apps/1172470/ss_ed4087e1f7e85905df637304ac4e511def7943e7.600x338.jpg",
+    "https://cdn.akamai.steamstatic.com/steam/apps/1172470/ss_a47a8c9b09393bd4cddfeb2891beb4d1eafb2897.600x338.jpg",
+    "https://cdn.akamai.steamstatic.com/steam/apps/1172470/ss_b5051a24edf949582756c313eebf6f61582ce25f.600x338.jpg",
+    "https://cdn.akamai.steamstatic.com/steam/apps/1172470/ss_c75144f4a9c3771806a72ff939752c15456aa557.600x338.jpg",
+];
 
 const RecommendedJumbotron = () => {
-    const recommended4ImageDatas = [
-        "https://cdn.akamai.steamstatic.com/steam/apps/1172470/ss_ed4087e1f7e85905df637304ac4e511def7943e7.600x338.jpg",
-        "https://cdn.akamai.steamstatic.com/steam/apps/1172470/ss_a47a8c9b09393bd4cddfeb2891beb4d1eafb2897.600x338.jpg",
-        "https://cdn.akamai.steamstatic.com/steam/apps/1172470/ss_b5051a24edf949582756c313eebf6f61582ce25f.600x338.jpg",
-        "https://cdn.akamai.steamstatic.com/steam/apps/1172470/ss_c75144f4a9c3771806a72ff939752c15456aa557.600x338.jpg",
-    ];
-
     return (
         <Link to="product/0" className="flex justify-center">
             <div className="w-full shadow-card lg:shadow-none lg:w-2/3">

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import Footer from "../elements/Footer/Footer";
-import Header from "../elements/Header/Header";
+import Footer from "../../elements/Footer/Footer";
+import Header from "../../elements/Header/Header";
 
-const Login = () => {
+const LoginPage = () => {
   return (
     <div className="bg-gray-900 text-white flex flex-col justify-between h-screen">
       <Header />
@@ -93,4 +93,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

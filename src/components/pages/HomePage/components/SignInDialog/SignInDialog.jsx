@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SignInButton from "./SignInBox/SignInButton";
+import SignInButton from "./SignInButton";
 
 const SignInDialog = () => {
     return (
