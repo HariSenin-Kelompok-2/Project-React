@@ -26,7 +26,8 @@ export default {
         iconBg: '#0E141B',
         blueItemBg: 'rgba(53, 94, 118, 0.337)',
         buyBg: '#5ba32b',
-        mixed: '#B9A074'
+        mixed: '#B9A074',
+        linkHoverColor: '#38a4d2'
       },
       boxShadow: {
         moreMenu: '0 0 3px #000',

@@ -7,7 +7,7 @@ const CartAndNavbar = () => {
         <div className="flex items-center flex-col text-white bg-no-repeat bg-[#1b2838] lg:px-4">
             {/* Cart */}
             <div className="text-sm hidden lg:mt-2 lg:max-w-[1100px] lg:flex lg:w-full">
-                <Link to="/cart" className="block bg-[#5c7e10] px-6 py-1 hover:bg-[#7ea64b] ml-auto">
+                <Link to="/cart" className="block bg-[#5c7e10] px-6 py-1 ml-auto hover:bg-[#7ea64b]">
                     <i className="fa-sharp fa-solid fa-cart-shopping" /> <span className="text-xs">Cart (1)</span>
                 </Link>
             </div>
@@ -26,7 +26,7 @@ const CartAndNavbar = () => {
                     </ul>
                     <div className="relative text-white w-full mt-2 mb-1 flex md:w-auto lg:mt-1">
                         <input
-                            className="w-full mx-1 border h-7 pb-0 border-gray-700 bg-[#60859bfa] pl-1 rounded-md text-sm focus:outline-none shadow-inner hover:border-white hover:border-32 placeholder:italic placeholder:text-[#283d4b] lg:ml-auto placeholder:text-lg lg:pr-16 lg:pl-2 lg:placeholder:text-sm"
+                            className="w-full mx-1 border h-7 pb-0 border-gray-700 bg-[#60859bfa] pl-1 rounded text-sm focus:outline-none shadow-inner hover:border-white hover:border-32 placeholder:italic placeholder:text-[#283d4b] lg:ml-auto placeholder:text-lg lg:pr-16 lg:pl-2 lg:placeholder:text-sm"
                             type="search"
                             name="search"
                             placeholder="search"

@@ -1,8 +1,8 @@
-import CartAndNavbar from "../elements/CartAndNavbar/CartAndNavbar";
-import Footer from "../elements/Footer/Footer";
-import Header from "../elements/Header/Header";
+import CartAndNavbar from "../../elements/CartAndNavbar/CartAndNavbar";
+import Footer from "../../elements/Footer/Footer";
+import Header from "../../elements/Header/Header";
 
-const Cart = () => {
+const CartPage = () => {
     return (
         <div className="lg:flex lg:flex-col lg:justify-between lg:min-h-screen bg-[#1b2838]">
             <Header />
@@ -91,4 +91,4 @@ const Cart = () => {
     );
 };
 
-export default Cart
+export default CartPage

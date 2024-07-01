@@ -1,11 +1,11 @@
-import ProdDetailBody from "../elements/ProductDetailComponent/ProdDetailBody";
-import ProdDetailHeader from "../elements/ProductDetailComponent/ProdDetailHeader";
+import ProdDetailBody from "./ProductDetailComponent/ProdDetailBody";
+import ProdDetailHeader from "./ProductDetailComponent/ProdDetailHeader";
 
-import Header from "../elements/Header/Header";
-import CartAndNavbar from "../elements/CartAndNavbar/CartAndNavbar";
-import Footer from "../elements/Footer/Footer";
+import Header from "../../elements/Header/Header";
+import CartAndNavbar from "../../elements/CartAndNavbar/CartAndNavbar";
+import Footer from "../../elements/Footer/Footer";
 
-const ProductDetails = () => {
+const ProductDetailsPage = () => {
     return (
         <div className="bg-steamBg">
             <Header />
@@ -21,4 +21,4 @@ const ProductDetails = () => {
     );
 };
 
-export default ProductDetails;
+export default ProductDetailsPage;
