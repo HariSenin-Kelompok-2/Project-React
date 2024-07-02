@@ -1,6 +1,5 @@
 import "./assets/index.css";
 import "./assets/cart.css";
-import "./assets/login.css";
 import "./assets/homepage.css";
 import "./assets/style.css";
 import "./assets/productDetailStyles.css";
