@@ -58,7 +58,7 @@ const Header = () => {
       {/* Hamburger Menu end */}
 
       {/* Header */}
-      <header className="bg-[#171a21] w-full px-5 py-1">
+      <header className="bg-[#171a21] w-full px-5 py-1 header-box-shadow">
         <div className="grid grid-cols-10 text-center text-white lg:grid-cols-4 lg:max-w-[1100px] mx-auto">
           <div className="col-span-1 flex justify-center items-center lg:hidden">
             {/* Hamburger Button */}
