@@ -3,8 +3,11 @@ import Footer from "../../elements/Footer/Footer";
 import RegisterSelectBox from "./components/RegisterSelectBox";
 import RegisterButton from "./components/RegisterButton";
 import RegisterAgeCheck from "./components/RegisterAgeCheck";
+import usePageTitle from "../../../hooks/usePageTitle";
 
 const RegisterPage = () => {
+  usePageTitle("Create Your Account");
+
   return (
     <>
       <Header />

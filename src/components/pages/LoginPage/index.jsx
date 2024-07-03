@@ -1,9 +1,11 @@
+import usePageTitle from "../../../hooks/usePageTitle";
 import Footer from "../../elements/Footer/Footer";
 import Header from "../../elements/Header/Header";
 import NewToSteamSection from "./components/NewToSteamSection";
 import SignInSection from "./components/SignInSection";
 
 const LoginPage = () => {
+  usePageTitle("Sign In");
   return (
     <>
       <Header />

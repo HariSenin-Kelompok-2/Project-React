@@ -10,6 +10,7 @@ import { VRGameDatas, categories, midweekSpecialOffersData, todaySpecialOffersDa
 import Footer from "../../elements/Footer/Footer";
 import SignInBox from "./components/SignInBox";
 import SignInBoxFooter from "./components/SignInBoxFooter";
+import usePageTitle from "../../../hooks/usePageTitle";
 
 const breakpoints = {
   0: {
@@ -17,11 +18,12 @@ const breakpoints = {
   },
   768: {
     slidesPerView: 3,
-    // spaceBetween: 40,
   },
 };
 
 const HomePage = () => {
+  usePageTitle("Welcome to Steam");
+  
   return (
     <>
       <Header />
