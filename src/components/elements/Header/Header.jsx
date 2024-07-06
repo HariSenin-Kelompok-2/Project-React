@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import steamLogo from "../../../assets/images/steamlogo.png";
 import { Link } from "react-router-dom";
 import MobileMenuFooter from "./MobileMenuFooter";
+import { useDispatch, useSelector } from "react-redux";
+import { removeLoginSession } from "../../../redux/slices/loginSlices";
 
 const mobileMenus = ["login", "store", "community", "support"];
 const desktopMenus = ["store", "community", "about", "support"];
@@ -9,11 +11,14 @@ const desktopMenus = ["store", "community", "about", "support"];
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUsernameBoxOpen, setIsUsernameBoxOpen] = useState(false);
+  const isLogin = useSelector(state => state.login.status);
 
   const hamburgerBtnRef = useRef(null);
   const mobileMenuRef = useRef(null);
   const usernameBoxRef = useRef(null);
   const usernameBtnRef = useRef(null);
+
+  const dispatch = useDispatch();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -94,31 +99,40 @@ const Header = () => {
                 <i className="fa-solid fa-download mr-2" />
                 Install steam
               </button>
-
-              <div className="flex gap-4 items-center">
-                <div ref={usernameBtnRef} className={`${isUsernameBoxOpen ? `text-white` : `text-[#b8b6b4]`}  self-start pt-1 cursor-pointer hover:text-white`} onClick={() => setIsUsernameBoxOpen(!isUsernameBoxOpen)}>
-                  Farbie <i className="fa-solid fa-caret-down"></i>
+              {!isLogin ? (
+                <div className="flex gap-2">
+                  <Link to="/login" className="text-[#b8b6b4] hover:text-white">
+                    login
+                  </Link>
+                  <span className="text-[#b8b6b4]">|</span>
+                  <Link to="/register" href="register.html" className="text-[#b8b6b4] hover:text-white">
+                    register
+                  </Link>
                 </div>
-                <div ref={usernameBoxRef} className={`${isUsernameBoxOpen ? "opacity-100 visible" : "opacity-0 invisible"} shadow-[0_0_12px_rgb(0,0,0)] absolute bg-[#3D4450] z-10 top-8 -translate-x-40 text-[#dcdedf] text-sm w-[210px] transition-all duration-200`}>
-                  <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">View my Profile</div>
-                  <div className="text-left hover:text-[#171d25] cursor-pointer px-5 py-3 truncate hover:bg-white">Account details: <span className="text-[#4cb4ff]">Farbie</span></div>
-                  <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">Store preferences</div>
-                  <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">Change Language</div>
-                  <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">Sign out of account...</div>
+              ) : (
+                <div className="flex gap-4 items-center">
+                  <div ref={usernameBtnRef} className={`${isUsernameBoxOpen ? `text-white` : `text-[#b8b6b4]`}  self-start pt-1 cursor-pointer hover:text-white`} onClick={() => setIsUsernameBoxOpen(!isUsernameBoxOpen)}>
+                    Farbie <i className="fa-solid fa-caret-down"></i>
+                  </div>
+                  <div
+                    ref={usernameBoxRef}
+                    className={`${
+                      isUsernameBoxOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                    } shadow-[0_0_12px_rgb(0,0,0)] absolute bg-[#3D4450] z-10 top-8 -translate-x-40 text-[#dcdedf] text-sm w-[210px] transition-all duration-200`}
+                  >
+                    <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">View my Profile</div>
+                    <div className="text-left hover:text-[#171d25] cursor-pointer px-5 py-3 truncate hover:bg-white">
+                      Account details: <span className="text-[#4cb4ff]">Farbie</span>
+                    </div>
+                    <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">Store preferences</div>
+                    <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">Change Language</div>
+                    <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3" onClick={() => dispatch(removeLoginSession())}>Sign out of account...</div>
+                  </div>
+                  <Link to={"/"} className="p-0.5 header-avatar">
+                    <img src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb.jpg" alt="" />
+                  </Link>
                 </div>
-                <Link to={"/"} className="p-0.5 header-avatar">
-                  <img src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb.jpg" alt="" />
-                </Link>
-              </div>
-              {/* <div className="flex gap-2">
-                <Link to="/login" className="text-[#b8b6b4] hover:text-white">
-                  login
-                </Link>
-                <span className="text-[#b8b6b4]">|</span>
-                <Link to="/register" href="register.html" className="text-[#b8b6b4] hover:text-white">
-                  register
-                </Link>
-              </div> */}
+              )}
             </div>
           </div>
         </div>

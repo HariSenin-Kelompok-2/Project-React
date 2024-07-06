@@ -1,9 +1,31 @@
+import { useDispatch, useSelector } from "react-redux";
 import LoginModules from "../../login.module.css";
+import { createLoginSession } from "../../../../../redux/slices/loginSlices";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isLogin = useSelector((state) => state.login.status);
+
+  const onSubmitFormHandler = (e) => {
+    e.preventDefault();
+    dispatch(createLoginSession());
+    navigate("/");
+  };
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate("/");
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLogin])
+
+
   return (
     <div className="max-w-[280px] mx-auto md:m-0 md:w-full md:max-w-none">
-      <form className="space-y-3">
+      <form className="space-y-3" onSubmit={onSubmitFormHandler}>
         <div>
           <label htmlFor="account_name" className="text-xs text-[#1999ff] font-medium">
             SIGN IN WITH ACCOUNT NAME
