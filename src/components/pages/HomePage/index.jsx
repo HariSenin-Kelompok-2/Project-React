@@ -11,6 +11,7 @@ import Footer from "../../elements/Footer/Footer";
 import SignInBox from "./components/SignInBox";
 import SignInBoxFooter from "./components/SignInBoxFooter";
 import usePageTitle from "../../../hooks/usePageTitle";
+import { useSelector } from "react-redux";
 
 const breakpoints = {
   0: {
@@ -23,7 +24,8 @@ const breakpoints = {
 
 const HomePage = () => {
   usePageTitle("Welcome to Steam");
-  
+  const isLogin = useSelector((state) => state.login.status );
+
   return (
     <>
       <Header />
@@ -79,7 +81,7 @@ const HomePage = () => {
         </FeatureContainer>
 
         {/* Sign In */}
-        <SignInBox />
+        {!isLogin && <SignInBox />}
 
         {/* Feature: Browse Steam*/}
         <FeatureContainer title="Browse Steam" type="browse steam">
@@ -87,7 +89,7 @@ const HomePage = () => {
         </FeatureContainer>
 
         {/* Feature: Under 90k */}
-        <FeatureContainer classProps="mt-20" title="Under Rp 90 000" button="Under Rp 90 000" button2="Under Rp 45 000" >
+        <FeatureContainer classProps="mt-20" title="Under Rp 90 000" button="Under Rp 90 000" button2="Under Rp 45 000">
           {under90kGameDatas.map((game, index) => (
             <SwiperSlide key={index}>
               <GameCard id={game.id} image={game.image} price={game.price} isDiscount={game.isDiscount} discountedPrice={game.discountedPrice} discountValue={game.discountValue} />
@@ -114,9 +116,10 @@ const HomePage = () => {
           ))}
         </FeatureContainer>
       </div>
+
+      {/* Footer */}
       <div className="bg-[#1B2838] pb-16">
-        {/* Footer */}
-        <SignInBoxFooter />
+        {!isLogin && <SignInBoxFooter />}
         <Footer />
       </div>
     </>
