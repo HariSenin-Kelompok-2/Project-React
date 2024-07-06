@@ -11,7 +11,7 @@ const desktopMenus = ["store", "community", "about", "support"];
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUsernameBoxOpen, setIsUsernameBoxOpen] = useState(false);
-  const isLogin = useSelector(state => state.login.status);
+  const isLogin = useSelector((state) => state.login.status);
 
   const hamburgerBtnRef = useRef(null);
   const mobileMenuRef = useRef(null);
@@ -112,7 +112,7 @@ const Header = () => {
               ) : (
                 <div className="flex gap-4 items-center">
                   <div ref={usernameBtnRef} className={`${isUsernameBoxOpen ? `text-white` : `text-[#b8b6b4]`}  self-start pt-1 cursor-pointer hover:text-white`} onClick={() => setIsUsernameBoxOpen(!isUsernameBoxOpen)}>
-                    Farbie <i className="fa-solid fa-caret-down"></i>
+                    johndoe <i className="fa-solid fa-caret-down"></i>
                   </div>
                   <div
                     ref={usernameBoxRef}
@@ -120,15 +120,19 @@ const Header = () => {
                       isUsernameBoxOpen ? "opacity-100 visible" : "opacity-0 invisible"
                     } shadow-[0_0_12px_rgb(0,0,0)] absolute bg-[#3D4450] z-10 top-8 -translate-x-40 text-[#dcdedf] text-sm w-[210px] transition-all duration-200`}
                   >
-                    <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">View my Profile</div>
+                    <Link to={"/profile"}>
+                      <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">View my Profile</div>
+                    </Link>
                     <div className="text-left hover:text-[#171d25] cursor-pointer px-5 py-3 truncate hover:bg-white">
-                      Account details: <span className="text-[#4cb4ff]">Farbie</span>
+                      Account details: <span className="text-[#4cb4ff]">johndoe</span>
                     </div>
                     <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">Store preferences</div>
                     <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">Change Language</div>
-                    <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3" onClick={() => dispatch(removeLoginSession())}>Sign out of account...</div>
+                    <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3" onClick={() => dispatch(removeLoginSession())}>
+                      Sign out of account...
+                    </div>
                   </div>
-                  <Link to={"/"} className="p-0.5 header-avatar">
+                  <Link to={"/profile"} className="p-0.5 background-avatar">
                     <img src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb.jpg" alt="" />
                   </Link>
                 </div>

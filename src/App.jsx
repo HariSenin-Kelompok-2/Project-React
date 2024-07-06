@@ -12,6 +12,7 @@ import CartPage from "./components/pages/CartPage";
 import ProductDetailsPage from "./components/pages/ProductDetailsPage";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import ProfilePage from "./components/pages/ProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -34,12 +35,16 @@ const router = createBrowserRouter([
     path: "/product/:id",
     element: <ProductDetailsPage />,
   },
+  {
+    path: "/profile",
+    element: <ProfilePage />,
+  },
 ]);
 
 function App() {
   return (
     <Provider store={store}>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </Provider>
   );
 }
