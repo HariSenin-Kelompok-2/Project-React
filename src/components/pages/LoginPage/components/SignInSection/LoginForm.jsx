@@ -1,42 +1,55 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import LoginModules from "../../login.module.css";
-import { createLoginSession } from "../../../../../redux/slices/loginSlices";
-import { useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../../../../redux/slices/authSlice";
 
 const LoginForm = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLogin = useSelector((state) => state.login.status);
 
-  const onSubmitFormHandler = (e) => {
-    e.preventDefault();
-    dispatch(createLoginSession());
-    navigate("/");
-  };
-
-  useEffect(() => {
-    if (isLogin) {
+  const Login = async (e) => {
+    try {
+      e.preventDefault();
+      await dispatch(loginUser({ username, password })).unwrap();
       navigate("/");
+    } catch (error) {
+      console.log(error);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLogin])
-
+  };
 
   return (
     <div className="max-w-[280px] mx-auto md:m-0 md:w-full md:max-w-none">
-      <form className="space-y-3" onSubmit={onSubmitFormHandler}>
+      <form className="space-y-3" onSubmit={Login}>
         <div>
           <label htmlFor="account_name" className="text-xs text-[#1999ff] font-medium">
             SIGN IN WITH ACCOUNT NAME
           </label>
-          <input type="text" id="account_name" name="account_name" className="w-full rounded-sm border-none px-3 py-2 focus-visible:outline-none bg-[#32353c] hover:bg-[#393c44]" required />
+          <input
+            value={username}
+            type="text"
+            id="account_name"
+            name="account_name"
+            className="w-full rounded-sm border-none px-3 py-2 focus-visible:outline-none bg-[#32353c] hover:bg-[#393c44]"
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
         </div>
         <div>
           <label htmlFor="password" className="text-[#afafaf] text-xs font-medium">
             PASSWORD
           </label>
-          <input type="password" id="password" name="password" className="w-full rounded-sm border-none px-3 py-2 focus-visible:outline-none bg-[#32353c] hover:bg-[#393c44]" required />
+          <input
+            value={password}
+            type="password"
+            id="password"
+            name="password"
+            className="w-full rounded-sm border-none px-3 py-2 focus-visible:outline-none bg-[#32353c] hover:bg-[#393c44]"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </div>
         <div>
           <label className="flex items-center relative cursor-pointer gap-1">

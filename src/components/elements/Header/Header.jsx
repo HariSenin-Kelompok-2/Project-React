@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import steamLogo from "../../../assets/images/steamlogo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MobileMenuFooter from "./MobileMenuFooter";
 import { useDispatch, useSelector } from "react-redux";
-import { removeLoginSession } from "../../../redux/slices/loginSlices";
+import { logoutUser } from "../../../redux/slices/authSlice";
 
 const mobileMenus = ["login", "store", "community", "support"];
 const desktopMenus = ["store", "community", "about", "support"];
@@ -11,7 +11,8 @@ const desktopMenus = ["store", "community", "about", "support"];
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUsernameBoxOpen, setIsUsernameBoxOpen] = useState(false);
-  const isLogin = useSelector((state) => state.login.status);
+  const isLogin = useSelector((state) => state.auth.isLogin);
+  const user = useSelector((state) => state.auth.user);
 
   const hamburgerBtnRef = useRef(null);
   const mobileMenuRef = useRef(null);
@@ -19,27 +20,24 @@ const Header = () => {
   const usernameBtnRef = useRef(null);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const logout = async () => {
+    await dispatch(logoutUser()).unwrap();
+    navigate("/login");
   };
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
+  const handleOutsideClick = (event) => {
+    if (!mobileMenuRef.current.contains(event.target) && !hamburgerBtnRef.current.contains(event.target)) {
+      setIsMenuOpen(false);
+    }
+    if (!usernameBoxRef.current.contains(event.target) && !usernameBtnRef.current.contains(event.target)) {
+      setIsUsernameBoxOpen(false);
+    }
   };
 
   useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (!mobileMenuRef.current.contains(event.target) && !hamburgerBtnRef.current.contains(event.target)) {
-        closeMenu();
-      }
-      if (!usernameBoxRef.current.contains(event.target) && !usernameBtnRef.current.contains(event.target)) {
-        setIsUsernameBoxOpen(false);
-      }
-    };
-
     document.body.addEventListener("click", handleOutsideClick);
-
     return () => {
       document.body.removeEventListener("click", handleOutsideClick);
     };
@@ -74,7 +72,7 @@ const Header = () => {
         <div className="grid grid-cols-10 text-center text-white lg:grid-cols-4 lg:max-w-[1100px] mx-auto">
           <div className="col-span-1 flex justify-center items-center lg:hidden">
             {/* Hamburger Button */}
-            <button id="hamburger-btn" ref={hamburgerBtnRef} className="text-white focus:outline-none" onClick={toggleMenu}>
+            <button id="hamburger-btn" ref={hamburgerBtnRef} className="text-white focus:outline-none" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <i className="fa-solid fa-bars" style={{ color: "#ffffff" }} />
             </button>
           </div>
@@ -112,7 +110,7 @@ const Header = () => {
               ) : (
                 <div className="flex gap-4 items-center">
                   <div ref={usernameBtnRef} className={`${isUsernameBoxOpen ? `text-white` : `text-[#b8b6b4]`}  self-start pt-1 cursor-pointer hover:text-white`} onClick={() => setIsUsernameBoxOpen(!isUsernameBoxOpen)}>
-                    johndoe <i className="fa-solid fa-caret-down"></i>
+                    {user.username} <i className="fa-solid fa-caret-down"></i>
                   </div>
                   <div
                     ref={usernameBoxRef}
@@ -124,11 +122,11 @@ const Header = () => {
                       <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">View my Profile</div>
                     </Link>
                     <div className="text-left hover:text-[#171d25] cursor-pointer px-5 py-3 truncate hover:bg-white">
-                      Account details: <span className="text-[#4cb4ff]">johndoe</span>
+                      Account details: <span className="text-[#4cb4ff]">{user.username}</span>
                     </div>
                     <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">Store preferences</div>
                     <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">Change Language</div>
-                    <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3" onClick={() => dispatch(removeLoginSession())}>
+                    <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3" onClick={logout}>
                       Sign out of account...
                     </div>
                   </div>

@@ -1,7 +1,21 @@
+import { useEffect } from "react";
 import Footer from "../../elements/Footer/Footer";
 import Header from "../../elements/Header/Header";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
+  const user = useSelector(state => state.auth.user);
+  const isLogin = useSelector(state => state.auth.isLogin);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLogin) {
+      navigate('/login');
+    }
+  }, [isLogin, navigate])
+
+
   return (
     <div className="bg-black">
       <Header />
@@ -12,10 +26,10 @@ const ProfilePage = () => {
           {/* Profile Header */}
           <div className="mb-8 sm:mt-4 sm:mb-11">
             <div className="flex flex-col mb-5 gap-2 pl-4 sm:hidden">
-              <h3 className="text-2xl font-light text-white">johndoe</h3>
+              <h3 className="text-2xl font-light text-white">{user?.username}</h3>
               <h4 className="text-xs">
                 <img src="https://community.akamai.steamstatic.com/public/images/countryflags/vn.gif" alt="country" className="inline mr-1" />
-                Vietnam
+                <span>{user?.Region.name}</span>
               </h4>
             </div>
             <div>
@@ -27,10 +41,10 @@ const ProfilePage = () => {
                     </div>
                   </div>
                   <div className="hidden sm:flex-col sm:gap-2 sm:flex sm:mt-2">
-                    <h3 className="text-2xl font-light text-white">johndoe</h3>
+                    <h3 className="text-2xl font-light text-white">{user?.username}</h3>
                     <h4 className="text-xs">
                       <img src="https://community.akamai.steamstatic.com/public/images/countryflags/vn.gif" alt="country" className="inline mr-1" />
-                      Vietnam
+                      <span>{user?.Region.name}</span>
                     </h4>
                     <div className="text-sm hidden mt-4 sm:block">along side with Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad at hic minima. Maiores vero natus sed! Odit, temporibus. Non, accusantium!</div>
                   </div>
