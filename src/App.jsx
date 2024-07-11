@@ -14,6 +14,7 @@ import ProfilePage from "./components/pages/ProfilePage";
 import AppInitializer from "./AppInitializer";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import EditProfilePage from "./components/pages/EditProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <ProfilePage />,
+  },
+  {
+    path: "/profile/edit",
+    element: <EditProfilePage />,
   },
 ]);
 

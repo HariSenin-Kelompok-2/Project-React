@@ -110,7 +110,7 @@ const Header = () => {
               ) : (
                 <div className="flex gap-4 items-center">
                   <div ref={usernameBtnRef} className={`${isUsernameBoxOpen ? `text-white` : `text-[#b8b6b4]`}  self-start pt-1 cursor-pointer hover:text-white`} onClick={() => setIsUsernameBoxOpen(!isUsernameBoxOpen)}>
-                    {user.username} <i className="fa-solid fa-caret-down"></i>
+                  {user?.username} <i className="fa-solid fa-caret-down"></i>
                   </div>
                   <div
                     ref={usernameBoxRef}
@@ -122,7 +122,7 @@ const Header = () => {
                       <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">View my Profile</div>
                     </Link>
                     <div className="text-left hover:text-[#171d25] cursor-pointer px-5 py-3 truncate hover:bg-white">
-                      Account details: <span className="text-[#4cb4ff]">{user.username}</span>
+                      Account details: <span className="text-[#4cb4ff]">{user?.username}</span>
                     </div>
                     <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">Store preferences</div>
                     <div className="text-left hover:text-[#171d25] cursor-pointer whitespace-nowrap hover:bg-white px-5 py-3">Change Language</div>

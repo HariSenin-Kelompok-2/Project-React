@@ -6,12 +6,20 @@ export const fetchUserData = createAsyncThunk("auth/fetchUserData", async () => 
   return response.data.data;
 });
 
-export const loginUser = createAsyncThunk("auth/loginUser", async (user, { dispatch }) => {
-  await axios.post("http://localhost:3001/api/user/login", {
-    username: user.username,
-    password: user.password,
-  });
-  dispatch(fetchUserData());
+export const loginUser = createAsyncThunk("auth/loginUser", async (user, { dispatch, rejectWithValue,  }) => {
+  try {
+    await axios.post("http://localhost:3001/api/user/login", {
+      username: user.username,
+      password: user.password,
+    });
+    dispatch(fetchUserData());
+  } catch (error) {
+    if (error.response) {
+      const message = error.response.data.message;
+      return rejectWithValue(message);
+    }
+    return rejectWithValue(error.message);
+  }
 });
 
 export const logoutUser = createAsyncThunk("auth/logoutUser", async (_, { dispatch }) => {
@@ -32,16 +40,10 @@ export const registerUser = createAsyncThunk("auth/registerUser", async (user, {
 
 const initialState = {
   isLogin: false,
-  user: {
-    username: "",
-    email: "",
-    Region: {
-      name: "",
-    },
-    productOwned: [],
-    Carts: [],
-    Reviews: [],
-  },
+  isError: false,
+  isSuccess: false,
+  isLoading: false,
+  user: null,
 };
 
 const authSlice = createSlice({
@@ -54,16 +56,7 @@ const authSlice = createSlice({
     });
     builder.addCase(fetchUserData.rejected, (state) => {
       state.isLogin = false;
-      state.user = {
-        username: "",
-        email: "",
-        Region: {
-          name: "",
-        },
-        productOwned: [],
-        Carts: [],
-        Reviews: [],
-      };
+      state.user = null;
     });
     builder.addCase(loginUser.fulfilled, (state) => {
       state.isLogin = true;
@@ -73,16 +66,7 @@ const authSlice = createSlice({
     });
     builder.addCase(logoutUser.fulfilled, (state) => {
       state.isLogin = false;
-      state.user = {
-        username: "",
-        email: "",
-        Region: {
-          name: "",
-        },
-        productOwned: [],
-        Carts: [],
-        Reviews: [],
-      };
+      state.user = null
     });
     builder.addCase(logoutUser.rejected, (state) => {
       state.isLogin = true;
