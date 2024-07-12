@@ -10,9 +10,11 @@ import LoginPage from "./components/pages/LoginPage";
 import RegisterPage from "./components/pages/RegisterPage";
 import CartPage from "./components/pages/CartPage";
 import ProductDetailsPage from "./components/pages/ProductDetailsPage";
+import ProfilePage from "./components/pages/ProfilePage";
+import AppInitializer from "./AppInitializer";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import ProfilePage from "./components/pages/ProfilePage";
+import EditProfilePage from "./components/pages/EditProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -39,12 +41,18 @@ const router = createBrowserRouter([
     path: "/profile",
     element: <ProfilePage />,
   },
+  {
+    path: "/profile/edit",
+    element: <EditProfilePage />,
+  },
 ]);
 
 function App() {
   return (
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <AppInitializer>
+        <RouterProvider router={router} />
+      </AppInitializer>
     </Provider>
   );
 }

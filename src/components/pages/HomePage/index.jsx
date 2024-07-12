@@ -24,7 +24,7 @@ const breakpoints = {
 
 const HomePage = () => {
   usePageTitle("Welcome to Steam");
-  const isLogin = useSelector((state) => state.login.status );
+  const isLogin = useSelector((state) => state.auth.isLogin );
 
   return (
     <>
