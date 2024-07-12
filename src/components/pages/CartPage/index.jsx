@@ -9,6 +9,7 @@ const CartPage = () => {
   usePageTitle("Shopping Cart");
 
   const [carts, setCarts] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     const getCarts = async () => {
@@ -16,7 +17,20 @@ const CartPage = () => {
         const response = await fetchCarts();
         const data = response.data;
         console.log(data);
+
         setCarts(data);
+
+        // Calculate total price
+        const total = data.reduce((acc, cart) => {
+          return (
+            // acc +
+            // parseFloat(cart.PriceList.price) *
+            //   (1 - cart.PriceList.discount / 100)
+            acc + parseFloat(cart.PriceList.price)
+          );
+        }, 0);
+
+        setTotalPrice(total);
       } catch (error) {
         console.error("Error loading carts:", error);
       }
@@ -64,7 +78,9 @@ const CartPage = () => {
                           </div>
                           <div className="price_container">
                             <span className="games_price">
-                              <div className="price">{cart.price}</div>
+                              <div className="price">
+                                {cart.PriceList.price}
+                              </div>
                             </span>
                           </div>
                           <div className="row_notes layout_dd">
@@ -115,7 +131,9 @@ const CartPage = () => {
               <div className="payment_card_container">
                 <div className="row mb-10">
                   <div className="estimatetotal">Estimate total</div>
-                  <div className="totalestimateprice">Rp 114 999</div>
+                  <div className="totalestimateprice">
+                    Rp {totalPrice.toLocaleString()}
+                  </div>
                 </div>
                 <div className="row mb-10 notePayment">
                   Sales tax will be calculated during checkout where applicable
