@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import steamDataSet from "./steamDataset";
+import ProdDetailOffers from "./ProdDetailOffers";
 
 const ProdDetailBody = () => {
     const params = useParams();
@@ -10,77 +11,27 @@ const ProdDetailBody = () => {
         <>
             <div id="wrapper">
                 <div className="prodSideBar flex-col mt-6 ml-4 max-w-2/6 max-h-full">
-                    <div id="reasonHeader" className="text-lg py-2 px-4 bg-black">
-                        <p>Is this game relevant to you?</p>
-                    </div>
-                    <div id="recommendationReasons" className="text-sm p-4 mb-2">
-                        <p className="reasonFor leading-10 text-greyFontColor flex gap-1">
-                            <span>
-                                <img src="https://store.cloudflare.steamstatic.com/public/images/v6/app/game_reasons_info.png" className="mt-3" />
-                            </span>
-                            998 hours played
-                        </p>
-                        <hr />
-                        <p className="reasonFor leading-10 text-greyFontColor flex gap-1">
-                            <span>
-                                <img src="https://store.cloudflare.steamstatic.com/public/images/v6/app/game_reasons_for.png" className="mt-3" />
-                            </span>
-                            User reviews:
-                            <span className="text-buttonColor">Very Positive</span>
-                        </p>
-                        <hr />
-                        <p className="reasonFor leading-10 text-greyFontColor flex gap-1">
-                            <span>
-                                <img src="https://store.cloudflare.steamstatic.com/public/images/v6/app/game_reasons_for.png" className="mt-3" />
-                            </span>
-                            In the top sellers
-                        </p>
-                        <hr />
-                        <p className="reasonFor leading-10 text-greyFontColor flex gap-1">
-                            <span>
-                                <img src="https://store.cloudflare.steamstatic.com/public/images/v6/app/game_reasons_for.png" className="mt-3" />
-                            </span>
-                            Recommended by 44 friends
-                        </p>
-                        <div className="friendBlocks flex gap-2 mb-4 ml-4">
-                            <img src="https://avatars.cloudflare.steamstatic.com/0bfd6a007df7f197f6b622848c60547bc3e611a0.jpg" />
-                            <img src="https://avatars.cloudflare.steamstatic.com/775cd934d94b7e916caefbe3e64ba50191564162.jpg" />
-                            <img src="https://avatars.cloudflare.steamstatic.com/18d4e24e9a47d8b6f2c93cb8a902799a86fc4ec8.jpg" />
-                            <img src="https://avatars.cloudflare.steamstatic.com/d13fe8eea64ea4d1bc9e12bdf13d4862cd75adff.jpg" />
-                            <img src="https://avatars.cloudflare.steamstatic.com/29479a0ba0b91fcd9a1074e38cf5193991baec33.jpg" />
-                            <img src="https://avatars.cloudflare.steamstatic.com/c871b186688af8421ee26d93323cdfb059efe23e.jpg" />
-                        </div>
-                        <p />
-                        <hr />
-                        <p className="reasonFor leading-10 text-greyFontColor flex gap-1">
-                            <span>
-                                <img src="https://store.cloudflare.steamstatic.com/public/images/v6/app/game_reasons_info.png" className="mt-3" />
-                            </span>
-                            <span className="text-buttonColor">141 friends</span>
-                            have played this game:
-                        </p>
-                        <div className="friendBlocks flex gap-2 mb-4 ml-4">
-                            <img src="https://avatars.cloudflare.steamstatic.com/0bfd6a007df7f197f6b622848c60547bc3e611a0.jpg" />
-                            <img src="https://avatars.cloudflare.steamstatic.com/775cd934d94b7e916caefbe3e64ba50191564162.jpg" />
-                            <img src="https://avatars.cloudflare.steamstatic.com/18d4e24e9a47d8b6f2c93cb8a902799a86fc4ec8.jpg" />
-                            <img src="https://avatars.cloudflare.steamstatic.com/d13fe8eea64ea4d1bc9e12bdf13d4862cd75adff.jpg" />
-                            <img src="https://avatars.cloudflare.steamstatic.com/29479a0ba0b91fcd9a1074e38cf5193991baec33.jpg" />
-                            <img src="https://avatars.cloudflare.steamstatic.com/c871b186688af8421ee26d93323cdfb059efe23e.jpg" />
-                        </div>
-                        <p />
-                    </div>
                     {/* product detail feature content */}
                     <div className="prodFeat flex p-4 max-w-2/6 max-h-2/5">
                         <div className="prodIconHead flex flex-col">
-                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_multiPlayer.png" />
-                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_cards.png" />
-                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_workshop.png" />
-                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_cart.png" />
-                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_vac.png" />
-                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_stats.png" />
-                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_remote_play.png" />
-                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_remote_play.png" />
-                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_remote_play.png" />
+                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" 
+                                src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_multiPlayer.png" />
+                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" 
+                                src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_cards.png" />
+                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" 
+                                src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_workshop.png" />
+                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" 
+                                src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_cart.png" />
+                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" 
+                                src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_vac.png" />
+                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" 
+                                src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_stats.png" />
+                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" 
+                                src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_remote_play.png" />
+                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" 
+                                src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_remote_play.png" />
+                            <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" 
+                                src="https://store.akamai.steamstatic.com/public/images/v6/ico/ico_remote_play.png" />
                         </div>
                         <div className="prodFeatHead w-full flex flex-col">
                             <div className="prodFeatContent p-0.5 ml-0.5 mb-0.5 text-xs w-full h-full max-w-full max-h-full text-buttonColor bg-blueItemBg">
@@ -409,96 +360,10 @@ const ProdDetailBody = () => {
                         </span>
                         <span className="bg-buttonColorBg text-buttonColor rounded-sm py-2 px-4">⚑</span>
                     </div>
-                    {/* gameAwards */}
-                    <div className="gameAwards">
-                        <p>Awards</p>
-                        <div className="gameAwardsBannerBG">
-                            <a href="https://store.steampowered.com/steamawards/2020">
-                                <div className="gameAwardsBannerEvent">
-                                    <div className="gameAwardsBannerAwards">The Steam Awards&nbsp;</div>
-                                    <div className="gameAwardsBannerYear">2020</div>
-                                </div>
-                                <div className="gameAwardsBannerContents">
-                                    <div className="gameAwardsBannerLeft">
-                                        <span className="gameAwardsBannerWinner">Winner</span>
-                                        <div className="gameAwardsBannerDesc">
-                                            Labor of Love <span>Award</span>
-                                        </div>
-                                    </div>
-                                    <div className="gameAwardsBannerRight">
-                                        <img src="https://cdn.cloudflare.steamstatic.com/store/promo/steamawards2020/trophy2020.png?v=3" />
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <a href="https://store.steampowered.com/steamawards/2020"></a>
-                    </div>
                 </div>
                 {/* Game buying options */}
                 <div id="cardWrapper">
-                    <div className="card p-4 mt-6 mb-2 rounded relative">
-                        <h2 className="text-2xl font-semibold">{gameData.offers[0]}</h2>
-                        <div className="gamePurchaseContainer text-base text-right absolute right-1">
-                            <div className="gamePurchaseButton py-2.5 pl-4 pr-0 bg-black rounded">
-                                <span>
-                                    {gameData.price[0]} <span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded">{gameData.price[1]}</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card p-4 mt-6 rounded relative">
-                        <h3 className="text-2xl font-semibold">{gameData.offers[1]}</h3>
-                        <p className="text-sm">{gameData.offers_desc[0]}</p>
-                        <br />
-                        <p className="text-sm">{gameData.offers_desc[1]}</p>
-                        <div className="gamePurchaseContainer text-base text-right absolute right-1">
-                            <div className="gamePurchaseButton py-2.5 pl-4 pr-0 bg-black rounded">
-                                <span>
-                                    {gameData.price[2]}
-                                    <span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded">
-                                        <a href>Add To Cart</a>
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card p-4 mt-6 rounded relative">
-                        <h4 className="text-2xl font-semibold">
-                            {gameData.offers[2]}{" "}
-                            <span className="bundle text-buttonColor font-extralight">
-                                Bundle <span className="tooltip text-greyFontColor text-xs">(?)</span>
-                            </span>
-                        </h4>
-                        <p className="text-sm">{gameData.offers_desc[2]}</p>
-                        <div className="bundleImg flex overflow-clip">
-                            {gameData.bundle_images.map((_, index) => {
-                                return <img key={index} src={gameData.bundle_images[index]} />;
-                            })}
-                        </div>
-                        <div className="bundleInfo text-sm rounded-sm py-2 px-4 absolute m-1 right-[20vw]">
-                            <span>Bundle info</span>
-                        </div>
-                        <div className="gamePurchaseContainer text-base text-right absolute right-1">
-                            <div className="gamePurchaseButton m-1 py-2 px-2 bg-black rounded">
-                                <span>
-                                    {gameData.price[3]}
-                                    <span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded">Add To Cart</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="contentHeader mt-24 text-sm font-medium uppercase">
-                        <span>
-                            Content for this game{" "}
-                            <span className="browseButton py-0.5 px-2 mb-0.5 text-xs float-right capitalize">
-                                <a href>Browse all (1)</a>
-                            </span>
-                        </span>
-                    </div>
-                    <div className="content text-xs">
-                        <span className="ml-4">{gameData.game_content}</span>
-                        <span className="float-right mr-4">{gameData.game_content_price}</span>
-                    </div>
+                    <ProdDetailOffers/>
                     {/* game events */}
                     <div className="eventHeader mt-24 text-sm font-medium uppercase">
                         <span>
