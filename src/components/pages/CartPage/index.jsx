@@ -9,12 +9,15 @@ const CartPage = () => {
   usePageTitle("Shopping Cart");
 
   const [carts, setCarts] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     const getCarts = async () => {
       try {
         const data = await fetchCarts();
-        setCarts(data);
+        setCarts(data.data);
+        console.log(data);
+        calculateTotalPrice(data.data);
       } catch (error) {
         console.error("Error loading carts:", error);
       }
@@ -23,12 +26,23 @@ const CartPage = () => {
     getCarts();
   }, []);
 
+  const formatPrice = (price) => {
+    return `Rp ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}`;
+  };
+
+  const calculateTotalPrice = (carts) => {
+    let total = 0;
+    carts.forEach((cart) => {
+      total += parseInt(cart.PriceList.price);
+    });
+    setTotalPrice(total);
+  };
+
   return (
     <div className="lg:flex lg:flex-col lg:justify-between lg:min-h-screen bg-[#1b2838]">
       <Header />
       <main>
         <CartAndNavbar />
-        {/* FEATURE : CART */}
         <div className="container_content">
           <div className="breadcrumb_container">
             <a href="#">
@@ -43,12 +57,16 @@ const CartPage = () => {
                 <div className="game_card_container" key={cart.id}>
                   <div className="game_card">
                     <div className="img_games">
-                      <img src={cart.imageUrl} alt={cart.title} />
+                      <img
+                        src={cart.PriceList.product.product_thumbnail}
+                        alt={cart.PriceList.product.name}
+                      />
                     </div>
                     <div className="detail_games">
                       <div className="games_details">
-                        <div className="titles">{cart.title}</div>
-                        {/* Icon windows & mac os */}
+                        <div className="titles">
+                          {cart.PriceList.product.name}
+                        </div>
                         <div className="row_notes row_icon">
                           <div className="icon_container">
                             <span className="icon">
@@ -63,10 +81,11 @@ const CartPage = () => {
                         </div>
                         <div className="price_container">
                           <span className="games_price">
-                            <div className="price">{cart.price}</div>
+                            <div className="price">
+                              {formatPrice(parseInt(cart.PriceList.price))}
+                            </div>
                           </span>
                         </div>
-                        {/* Button in details games card */}
                         <div className="row_notes layout_dd">
                           <div className="dropdown_container">
                             <div className="dropdown_layout dd_dialog_box dd_dialog_input">
@@ -97,11 +116,12 @@ const CartPage = () => {
               </div>
             </div>
             <div className="right_col">
-              {/* Payment Card */}
               <div className="payment_card_container">
                 <div className="row mb-10">
                   <div className="estimatetotal">Estimate total</div>
-                  <div className="totalestimateprice">Rp 114 999</div>
+                  <div className="totalestimateprice">
+                    {formatPrice(totalPrice)}
+                  </div>
                 </div>
                 <div className="row mb-10 notePayment">
                   Sales tax will be calculated during checkout where applicable
