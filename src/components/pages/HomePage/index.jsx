@@ -33,14 +33,14 @@ const HomePage = () => {
       <CartAndNavbar />
       <div className="bg-[#1b2838] pt-5 pb-10 px-4">
         {/* Feature: Recommended */}
-        <FeatureContainer title="Featured & Recommended" slidesPerView={1} type={"Recommended"}>
+        <FeatureContainer title="Featured & Recommended" slidesPerView={1} isUsingArrow={false}>
           <SwiperSlide>
             <RecommendedJumbotron />
           </SwiperSlide>
         </FeatureContainer>
 
         {/* Feature: Special Offers */}
-        <FeatureContainer title="SPECIAL OFFERS" classProps="mb-4" slidesPerView={3} breakpoints={breakpoints}>
+        <FeatureContainer title="SPECIAL OFFERS" classProps="mb-4" slidesPerView={3} breakpoints={breakpoints} slidesPerGroup={3}>
           {midweekSpecialOffersData.map((data, index) => (
             <SwiperSlide key={index}>
               <GameCard id={data.id} type={data.type} image={data.image} discountValue={data.discountValue} discountedPrice={data.discountedPrice} price={data.price} />
@@ -82,7 +82,7 @@ const HomePage = () => {
         {!isLogin && <SignInBox />}
 
         {/* Feature: Browse Steam*/}
-        <FeatureContainer title="Browse Steam" type="browse steam">
+        <FeatureContainer title="Browse Steam" isUsingArrow={false}>
           <BrowseSteam />
         </FeatureContainer>
 
