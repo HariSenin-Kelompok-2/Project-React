@@ -6,11 +6,21 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { useState } from "react";
 
 const ProdDetailHeader = () => {
     const params = useParams();
     const id = params.id;
     const gameData = steamDataSet[id];
+
+const [mainContent, setMainContent] = useState({
+        src: gameData.movies, 
+        type: 'video'
+    });
+
+const handleThumbnailClick = (src, type) => {
+        setMainContent({ src, type });
+    };
 
     return (
         <>
@@ -70,18 +80,42 @@ const ProdDetailHeader = () => {
                 </div>
                 {/* game preview */}
                 <div id="mainVideo">
-                    <video controls>
-                        <source src={gameData.movies} type="video/webm" />
-                    </video>
+                {mainContent.type === 'video' ? (
+                        <video controls>
+                            <source src={mainContent.src} type="video/webm" />
+                        </video>
+                    ) : (
+                        <img src={mainContent.src} alt="Main Preview" />
+                    )}
                     <div className="thumbnails flex justify-between gap-1 mt-1 w-full h-18">
-                        <Swiper modules={[Navigation, Pagination, Scrollbar, A11y]} slidesPerView={5} className="lg:w-prodSliderSize lg:h-auto" scrollbar={{ draggable: true }}>
+                        <Swiper 
+                            modules={[
+                                        Navigation, 
+                                        Pagination, 
+                                        Scrollbar, 
+                                        A11y]} 
+                            slidesPerView={5} 
+                            className="lg:w-prodSliderSize lg:h-auto" 
+                            scrollbar={{ draggable: true }}>
                             {gameData.screenshots.map((_, index) => {
                                 return (
                                     <SwiperSlide key={index}>
-                                        <img src={gameData.screenshots[index]} />
+                                        <img 
+                                            src={gameData.screenshots[index]} 
+                                            onclick = {()=> handleThumbnailClick(src, "image")}/>
                                     </SwiperSlide>
                                 );
                             })}
+                           {gameData.screenshots.map((src, index) => (
+                                <SwiperSlide key={index}>
+                                    <img
+                                        src={src}
+                                        alt={`Screenshot ${index + 1}`}
+                                        className="thumbnail"
+                                        onClick={() => handleThumbnailClick(src, 'image')}
+                                    />
+                                </SwiperSlide>
+                            ))}
                         </Swiper>
                     </div>
                 </div>
