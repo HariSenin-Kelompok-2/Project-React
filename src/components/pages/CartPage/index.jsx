@@ -62,7 +62,7 @@ const CartPage = () => {
     <div className="lg:flex lg:flex-col lg:justify-between lg:min-h-screen bg-[#1b2838]">
       <Header />
       <main>
-        <CartAndNavbar />
+        <CartAndNavbar cartCount={carts.length} />
         <div className="container_content">
           <div className="breadcrumb_container">
             <a href="#">
@@ -114,7 +114,11 @@ const CartPage = () => {
                               <div className="dropdown_container">
                                 <div className="dropdown_layout dd_dialog_box dd_dialog_input">
                                   <div className="dropdown">
-                                    <select name="option_gift" id="option_gift">
+                                    <select
+                                      name="option_gift"
+                                      id="option_gift"
+                                      className="dropdown"
+                                    >
                                       <option value="#">For my account</option>
                                       <option value="#">
                                         For my account: private
