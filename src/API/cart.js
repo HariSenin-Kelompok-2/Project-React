@@ -1,7 +1,6 @@
-// src/api.js
 import axios from "axios";
 
-const API_URL = "http://localhost:3001"; // Ganti dengan URL backend kamu
+const API_URL = "http://localhost:3001";
 
 export const fetchCarts = async () => {
   try {
