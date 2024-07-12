@@ -3,7 +3,7 @@ import CartAndNavbar from "../../elements/CartAndNavbar/CartAndNavbar";
 import Footer from "../../elements/Footer/Footer";
 import Header from "../../elements/Header/Header";
 import usePageTitle from "../../../hooks/usePageTitle";
-import { fetchCarts } from "../../../API/cart";
+import { getCarts, deleteCart, deleteAllCarts } from "../../../API/cart";
 
 const CartPage = () => {
   usePageTitle("Shopping Cart");
@@ -12,18 +12,17 @@ const CartPage = () => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    const getCarts = async () => {
+    const handleGetCarts = async () => {
       try {
-        const data = await fetchCarts();
-        setCarts(data.data);
-        console.log(data);
-        calculateTotalPrice(data.data);
+        const data = await getCarts();
+        setCarts(data.data || []);
+        calculateTotalPrice(data.data || []);
       } catch (error) {
         console.error("Error loading carts:", error);
       }
     };
 
-    getCarts();
+    handleGetCarts();
   }, []);
 
   const formatPrice = (price) => {
@@ -36,6 +35,27 @@ const CartPage = () => {
       total += parseInt(cart.PriceList.price);
     });
     setTotalPrice(total);
+  };
+
+  const handleRemoveCart = async (id) => {
+    try {
+      await deleteCart(id);
+      const updatedCarts = carts.filter((cart) => cart.id !== id);
+      setCarts(updatedCarts);
+      calculateTotalPrice(updatedCarts);
+    } catch (error) {
+      console.error(`Error removing cart with id ${id}:`, error);
+    }
+  };
+
+  const handleRemoveAllCarts = async () => {
+    try {
+      await deleteAllCarts();
+      setCarts([]);
+      setTotalPrice(0);
+    } catch (error) {
+      console.error("Error removing all carts:", error);
+    }
   };
 
   return (
@@ -52,69 +72,87 @@ const CartPage = () => {
           </div>
           <div className="container_title">Your Shopping Cart</div>
           <div className="content_cart">
-            <div className="left_col">
-              {carts.map((cart) => (
-                <div className="game_card_container" key={cart.id}>
-                  <div className="game_card">
-                    <div className="img_games">
-                      <img
-                        src={cart.PriceList.product.product_thumbnail}
-                        alt={cart.PriceList.product.name}
-                      />
-                    </div>
-                    <div className="detail_games">
-                      <div className="games_details">
-                        <div className="titles">
-                          {cart.PriceList.product.name}
+            {carts && carts.length === 0 ? (
+              <div className="empty_cart_message">Your cart is empty.</div>
+            ) : (
+              <div className="cart_contents">
+                <div className="left_col">
+                  {carts.map((cart) => (
+                    <div className="game_card_container" key={cart.id}>
+                      <div className="game_card">
+                        <div className="img_games">
+                          <img
+                            src={cart.PriceList.product.product_thumbnail}
+                            alt={cart.PriceList.product.name}
+                          />
                         </div>
-                        <div className="row_notes row_icon">
-                          <div className="icon_container">
-                            <span className="icon">
-                              <span className="windows_icon">
-                                <i className="fab fa-windows" />
-                              </span>
-                              <span className="apple_icon">
-                                <i className="fab fa-apple" />
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                        <div className="price_container">
-                          <span className="games_price">
-                            <div className="price">
-                              {formatPrice(parseInt(cart.PriceList.price))}
+                        <div className="detail_games">
+                          <div className="games_details">
+                            <div className="titles">
+                              {cart.PriceList.product.name}
                             </div>
-                          </span>
-                        </div>
-                        <div className="row_notes layout_dd">
-                          <div className="dropdown_container">
-                            <div className="dropdown_layout dd_dialog_box dd_dialog_input">
-                              <div className="dropdown">
-                                <select name="option_gift" id="option_gift">
-                                  <option value="#">For my account</option>
-                                  <option value="#">
-                                    For my account: private
-                                  </option>
-                                  <option value="#">This is a gift</option>
-                                </select>
+                            <div className="row_notes row_icon">
+                              <div className="icon_container">
+                                <span className="icon">
+                                  <span className="windows_icon">
+                                    <i className="fab fa-windows" />
+                                  </span>
+                                  <span className="apple_icon">
+                                    <i className="fab fa-apple" />
+                                  </span>
+                                </span>
                               </div>
                             </div>
-                          </div>
-                          <div className="crud_btn btn_add_rem">
-                            <div className="add_btn">Add</div>|
-                            <div className="remove_btn">Remove</div>
+                            <div className="price_container">
+                              <span className="games_price">
+                                <div className="price">
+                                  {formatPrice(parseInt(cart.PriceList.price))}
+                                </div>
+                              </span>
+                            </div>
+                            <div className="row_notes layout_dd">
+                              <div className="dropdown_container">
+                                <div className="dropdown_layout dd_dialog_box dd_dialog_input">
+                                  <div className="dropdown">
+                                    <select name="option_gift" id="option_gift">
+                                      <option value="#">For my account</option>
+                                      <option value="#">
+                                        For my account: private
+                                      </option>
+                                      <option value="#">This is a gift</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="crud_btn btn_add_rem">
+                                <div className="add_btn">Add</div>|
+                                <div
+                                  className="remove_btn"
+                                  onClick={() => handleRemoveCart(cart.id)}
+                                >
+                                  Remove
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  ))}
+                  <div className="interaction_btn">
+                    <button className="button_container">
+                      Continue Shopping
+                    </button>
+                    <button
+                      className="remove_container_btn"
+                      onClick={handleRemoveAllCarts}
+                    >
+                      Remove all items
+                    </button>
                   </div>
                 </div>
-              ))}
-              <div className="interaction_btn">
-                <button className="button_container">Continue Shopping</button>
-                <div className="remove_container_btn">Remove all items</div>
               </div>
-            </div>
+            )}
             <div className="right_col">
               <div className="payment_card_container">
                 <div className="row mb-10">
