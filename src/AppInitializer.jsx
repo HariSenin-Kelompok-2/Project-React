@@ -6,9 +6,13 @@ import { useEffect } from "react";
 const AppInitializer = ({ children }) => {
   const dispatch = useDispatch();
 
+  const checkLogin = async () => {
+    await dispatch(fetchUserData()).unwrap();
+  };
+
   useEffect(() => {
-    dispatch(fetchUserData());
-  }, [dispatch]);
+    checkLogin();
+  }, []);
 
   return <>{children}</>;
 };

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const ProfileBreadcumb = () => {
   const user = useSelector((state) => state.auth.user);
+  
   return (
     <div className="bg-[#3a3e47]/[0.5] p-4 flex items-center gap-5 md:gap-6 md:px-6 lg:px-8 xl: px-10">
       <div className="w-[64px]">

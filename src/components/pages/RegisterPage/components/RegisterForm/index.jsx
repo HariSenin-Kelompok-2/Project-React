@@ -3,26 +3,28 @@ import RegisterSelectBox from "./RegisterSelectBox";
 import RegisterButton from "./RegisterButton";
 import RegisterAgeCheck from "./RegisterAgeCheck";
 import { registerUser } from "../../../../../redux/slices/authSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 // eslint-disable-next-line react/prop-types
 const RegisterForm = ({ setFormErrors }) => {
-  usePageTitle("Create Your Account");
-  const isLogin = useSelector((state) => state.auth.isLogin);
+  const [errorMsg, setErrorMsg] = useState("");
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
+  usePageTitle("Create Your Account");
 
   const register = async (values) => {
     try {
-      console.log(values)
+      setErrorMsg("");
       await dispatch(registerUser(values)).unwrap();
       navigate("/");
     } catch (error) {
-      console.log(error);
+      setErrorMsg(error);
     }
   };
 
@@ -54,10 +56,6 @@ const RegisterForm = ({ setFormErrors }) => {
       isAgeCheck: Yup.boolean().oneOf([true], "You must agree to the Steam Subscriber Agreement to continue."),
     }),
   });
-
-  useEffect(() => {
-    if (isLogin) navigate("/");
-  }, [isLogin, navigate]);
 
   useEffect(() => {
     if (Object.keys(formik.touched).length === 0) {
@@ -129,6 +127,11 @@ const RegisterForm = ({ setFormErrors }) => {
       </div>
       <RegisterAgeCheck formik={formik} />
       <RegisterButton formik={formik} />
+      {errorMsg ? (
+        <div className="bg-black text-white p-3 border-2 border-[#b44040] text-lg">
+          <p>{errorMsg}</p>
+        </div>
+      ) : null}
     </form>
   );
 };

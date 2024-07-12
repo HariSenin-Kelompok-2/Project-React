@@ -23,12 +23,13 @@ const EditProfileGeneralForm = () => {
 
   const generalFormik = useFormik({
     initialValues: {
-      username: user?.username,
-      email: user?.email,
-      region: user?.Region.name,
-      bio: user?.bio,
+      username: user?.username || "",
+      email: user?.email || "",
+      region: user?.Region.name || "",
+      bio: user?.bio || "",
     },
     onSubmit: editUserGeneralhandler,
+    enableReinitialize: true,
     validationSchema: Yup.object().shape({
       username: Yup.string()
         .min(6)

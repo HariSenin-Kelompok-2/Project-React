@@ -1,9 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchUserData = createAsyncThunk("auth/fetchUserData", async () => {
-  const response = await axios.get("http://localhost:3001/api/user");
-  return response.data.data;
+export const fetchUserData = createAsyncThunk("auth/fetchUserData", async (_, { rejectWithValue }) => {
+  try {
+    const response = await axios.get("http://localhost:3001/api/user");
+    return response.data.data;
+  } catch (error) {
+    return rejectWithValue(error);
+  }
 });
 
 export const loginUser = createAsyncThunk("auth/loginUser", async (user, { dispatch, rejectWithValue }) => {
@@ -71,25 +75,40 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   extraReducers: (builder) => {
+    builder.addCase(fetchUserData.pending, (state) => {
+      state.isLoading = true;
+    });
     builder.addCase(fetchUserData.fulfilled, (state, action) => {
       state.isLogin = true;
+      state.isLoading = false;
       state.user = action.payload;
     });
     builder.addCase(fetchUserData.rejected, (state) => {
       state.isLogin = false;
       state.user = null;
+      state.isLoading = false;
+    });
+    builder.addCase(loginUser.pending, (state) => {
+      state.isLoading = true;
     });
     builder.addCase(loginUser.fulfilled, (state) => {
+      state.isLoading = false;
       state.isLogin = true;
     });
     builder.addCase(loginUser.rejected, (state) => {
+      state.isLoading = false;
       state.isLogin = false;
     });
+    builder.addCase(logoutUser.pending, (state) => {
+      state.isLoading = true;
+    });
     builder.addCase(logoutUser.fulfilled, (state) => {
+      state.isLoading = false;
       state.isLogin = false;
       state.user = null;
     });
     builder.addCase(logoutUser.rejected, (state) => {
+      state.isLoading = false;
       state.isLogin = true;
     });
   },

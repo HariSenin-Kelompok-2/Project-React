@@ -23,16 +23,14 @@ const breakpoints = {
 };
 
 const HomePage = () => {
-  usePageTitle("Welcome to Steam");
   const isLogin = useSelector((state) => state.auth.isLogin );
+  
+  usePageTitle("Welcome to Steam");
 
   return (
     <>
       <Header />
-      {/* Andi */}
       <CartAndNavbar />
-
-      {/* Fariz */}
       <div className="bg-[#1b2838] pt-5 pb-10 px-4">
         {/* Feature: Recommended */}
         <FeatureContainer title="Featured & Recommended" slidesPerView={1} type={"Recommended"}>
@@ -117,7 +115,6 @@ const HomePage = () => {
         </FeatureContainer>
       </div>
 
-      {/* Footer */}
       <div className="bg-[#1B2838] pb-16">
         {!isLogin && <SignInBoxFooter />}
         <Footer />

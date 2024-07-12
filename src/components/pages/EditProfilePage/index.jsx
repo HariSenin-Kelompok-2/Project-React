@@ -3,16 +3,14 @@ import Header from "../../elements/Header/Header";
 import EditProfileForm from "./components/EditProfileForm";
 import ProfileBreadcumb from "./components/ProfileBreadcumb";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import usePageTitle from "../../../hooks/usePageTitle";
+import useNeedLogin from "../../../hooks/useNeedLogin";
 
 const EditProfilePage = () => {
-  const isLogin = useSelector((state) => state.auth.isLogin);
-  const navigate = useNavigate();
+  const user = useSelector(state => state.auth.user)
 
-  useEffect(() => {
-    if (!isLogin) navigate("/login");
-  }, [isLogin, navigate]);
+  useNeedLogin();
+  usePageTitle(`Edit Profile || ${user?.username ?? ""}`, [user]);
 
   return (
     <div className="bg-[#242828]">
