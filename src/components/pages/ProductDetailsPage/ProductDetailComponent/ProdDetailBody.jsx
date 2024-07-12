@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import steamDataSet from "./steamDataset";
+import ProdDetailOffers from "./ProdDetailOffers";
 
 const ProdDetailBody = () => {
     const params = useParams();
@@ -436,57 +437,7 @@ const ProdDetailBody = () => {
                 </div>
                 {/* Game buying options */}
                 <div id="cardWrapper">
-                    <div className="card p-4 mt-6 mb-2 rounded relative">
-                        <h2 className="text-2xl font-semibold">{gameData.offers[0]}</h2>
-                        <div className="gamePurchaseContainer text-base text-right absolute right-1">
-                            <div className="gamePurchaseButton py-2.5 pl-4 pr-0 bg-black rounded">
-                                <span>
-                                    {gameData.price[0]} <span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded">{gameData.price[1]}</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card p-4 mt-6 rounded relative">
-                        <h3 className="text-2xl font-semibold">{gameData.offers[1]}</h3>
-                        <p className="text-sm">{gameData.offers_desc[0]}</p>
-                        <br />
-                        <p className="text-sm">{gameData.offers_desc[1]}</p>
-                        <div className="gamePurchaseContainer text-base text-right absolute right-1">
-                            <div className="gamePurchaseButton py-2.5 pl-4 pr-0 bg-black rounded">
-                                <span>
-                                    {gameData.price[2]}
-                                    <span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded">
-                                        <a href>Add To Cart</a>
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card p-4 mt-6 rounded relative">
-                        <h4 className="text-2xl font-semibold">
-                            {gameData.offers[2]}{" "}
-                            <span className="bundle text-buttonColor font-extralight">
-                                Bundle <span className="tooltip text-greyFontColor text-xs">(?)</span>
-                            </span>
-                        </h4>
-                        <p className="text-sm">{gameData.offers_desc[2]}</p>
-                        <div className="bundleImg flex overflow-clip">
-                            {gameData.bundle_images.map((_, index) => {
-                                return <img key={index} src={gameData.bundle_images[index]} />;
-                            })}
-                        </div>
-                        <div className="bundleInfo text-sm rounded-sm py-2 px-4 absolute m-1 right-[20vw]">
-                            <span>Bundle info</span>
-                        </div>
-                        <div className="gamePurchaseContainer text-base text-right absolute right-1">
-                            <div className="gamePurchaseButton m-1 py-2 px-2 bg-black rounded">
-                                <span>
-                                    {gameData.price[3]}
-                                    <span className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded">Add To Cart</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    <ProdDetailOffers/>
                     <div className="contentHeader mt-24 text-sm font-medium uppercase">
                         <span>
                             Content for this game{" "}
