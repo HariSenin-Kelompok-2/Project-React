@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Footer from "../../elements/Footer/Footer";
 import Header from "../../elements/Header/Header";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProductOwnedCard from "./components/ProductOwnedCard";
 
 const ProfilePage = () => {
@@ -55,7 +55,9 @@ const ProfilePage = () => {
                     <div className="font-light">Level</div>
                     <div className="w-8 h-8 border-2 rounded-full text-center text-base font-extralight flex items-center justify-center border-[#9b9b9b]">0</div>
                   </div>
-                  <button className="transition duration-100 rounded-sm text-[lightgray] bg-[#2b3444] px-2 py-1 hover:text-white hover:drop-shadow hover:bg-[#353e4e]">Edit Profile</button>
+                  <Link to="/profile/edit">
+                    <button className="transition duration-100 rounded-sm text-[lightgray] bg-[#2b3444] px-2 py-1 hover:text-white hover:drop-shadow hover:bg-[#353e4e]">Edit Profile</button>
+                  </Link>
                 </div>
               </div>
               <div className="p-2 text-sm sm:hidden">{user?.bio ?? "No information given."}</div>

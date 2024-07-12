@@ -8,7 +8,7 @@ const RegisterSelectBox = ({ formik }) => {
       onChange={formik.handleChange}
     >
       <option value="Indonesia">Indonesia</option>
-      <option value="Thailand">Thailand</option>
+      <option value="China">China</option>
       <option value="Vietnam">Vietnam</option>
     </select>
   );

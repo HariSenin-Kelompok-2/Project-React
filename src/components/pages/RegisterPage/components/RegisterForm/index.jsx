@@ -18,6 +18,7 @@ const RegisterForm = ({ setFormErrors }) => {
 
   const register = async (values) => {
     try {
+      console.log(values)
       await dispatch(registerUser(values)).unwrap();
       navigate("/");
     } catch (error) {
