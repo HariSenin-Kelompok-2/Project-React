@@ -10,6 +10,15 @@ export const fetchUserData = createAsyncThunk("auth/fetchUserData", async (_, { 
   }
 });
 
+export const deleteUser = createAsyncThunk("auth/deleteUser", async (_, { dispatch, rejectWithValue }) => {
+  try {
+    await axios.delete("http://localhost:3001/api/user");
+    dispatch(fetchUserData());
+  } catch (error) {
+    return rejectWithValue(error);
+  }
+});
+
 export const loginUser = createAsyncThunk("auth/loginUser", async (user, { dispatch, rejectWithValue }) => {
   try {
     await axios.post("http://localhost:3001/api/user/login", {
@@ -110,6 +119,19 @@ const authSlice = createSlice({
     builder.addCase(logoutUser.rejected, (state) => {
       state.isLoading = false;
       state.isLogin = true;
+    });
+    builder.addCase(deleteUser.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(deleteUser.fulfilled, (state) => {
+      state.isLoading = false;
+      state.isLogin = false;
+      state.user = null;
+    });
+    builder.addCase(deleteUser.rejected, (state) => {
+      state.isLoading = false;
+      state.isLogin = false;
+      state.user = null;
     });
   },
 });
