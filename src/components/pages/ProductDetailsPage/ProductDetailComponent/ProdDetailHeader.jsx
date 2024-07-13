@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 
 const ProdDetailHeader = (props) => {
     const params = useParams();
@@ -14,10 +14,22 @@ const ProdDetailHeader = (props) => {
     const gameData = steamDataSet[id];
     const product = props.products;
 
-const [mainContent, setMainContent] = useState({
-        src: product.video || product.ScrollThumbnails, 
-        type: product.video ? "video" : "image"
+    const [mainContent, setMainContent] = useState({
+        src: "", 
+        type: "video"
     });
+
+    useEffect(() => {
+        if (product && product.video) {
+            setMainContent({
+                src: product.video,
+                type: "video"
+            });
+        }  
+    }, [product]);
+
+    console.log(mainContent)
+ 
 
 const handleThumbnailClick = (src, type) => {
         setMainContent({ src, type });
@@ -29,7 +41,9 @@ const isRecommendLength = product?.Reviews?.filter((review => review.isRecommend
         <>
             {/* product detail directory */}
             <div id="directory" className="text-fontColor text-sm">
-                <p>{product.categories}</p>
+                <p>{product?.Categories?.map((category, index) => {
+                        return <span>{category.name} &gt; </span>;
+                })}</p>
             </div>
             {/* game title*/}
             <div id="gameName" className="flex justify-between">
@@ -41,7 +55,7 @@ const isRecommendLength = product?.Reviews?.filter((review => review.isRecommend
             {/* product detail side desc */}
             <div id="headerBg" className="flex flex-row-reverse pb-4 max-w-full max-h-full">
                 <div id="sideDesc" className="ml-4 min-w-60 w-screen max-w-full max-h-full">
-                    <img src={product.product_thumbnail} alt="header" className="min-w-full" />
+                    <img src={product.product_thumbnail} alt="header" className="w-full" />
                     <p className="mobileH1 text-3xl mt-4">{product.name}</p>
                     <div className="quickDesc">
                         <p className="text-sm my-2">{product.short_description}</p>
@@ -76,8 +90,8 @@ const isRecommendLength = product?.Reviews?.filter((review => review.isRecommend
                     {/* game tags */}
                     <div className="genreTag mt-2 mb-2 text-xs w-full">
                         <p className="text-fontColor">Popular user-defined tags for this product:</p>
-                        {gameData.categories.map((_, index) => {
-                            return <span key={index} className="text-buttonColor bg-greyBg rounded-sm py-1 px-1.5 mr-0.5">{gameData.categories[index]} </span>;
+                        {product?.Categories?.map((category, index) => {
+                            return <span className="text-buttonColor bg-greyBg rounded-sm py-1 px-1.5 mr-0.5">{category.name}</span>;
                         })}
                     </div>
                 </div>
@@ -85,8 +99,7 @@ const isRecommendLength = product?.Reviews?.filter((review => review.isRecommend
                 <div id="mainVideo"
                     className="w-full h-full">
                     {mainContent.type === 'video' ? (
-                        <video controls>
-                            <source src={mainContent.src} type="video" />
+                        <video controls src={mainContent.src} type="video">
                         </video>
                     ) : (
                         <img src={mainContent.src} alt="Main Preview" />
