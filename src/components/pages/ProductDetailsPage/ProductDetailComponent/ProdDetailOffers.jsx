@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import steamDataSet from "./steamDataset";
 import { useState, useEffect } from "react";
 import { addToCart } from "../../../../API/cart";
+import axios from "axios";
 
 const ProdDetailOffers = () => {
   const params = useParams();
@@ -40,34 +41,54 @@ const ProdDetailOffers = () => {
       return () => clearTimeout(timer);
     }
   }, [addToCartMessage]);
-
-  const offersElements = offers.map((offer, index) => (
-    <div className="card p-4 mt-6 mb-2 rounded relative" key={index}>
-      <p className="text-2xl font-semibold">
-        {typeof offer === "object" ? offer.name : offer || "Name not available"}
-      </p>
-      <div className="gamePurchaseContainer text-base text-right absolute right-1">
-        <div className="gamePurchaseButton pl-3 pr-0 bg-black rounded text-sm">
-          <span>
-            {prices[index] || "Price not available"}{" "}
-            <button
-              className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded"
-              onClick={() => handleAddToCart(index)}
-            >
-              Add to Cart
-            </button>
-          </span>
+  
+    const [products, setProducts] = useState([""]);
+  
+    const fetchProducts = async () => {
+      try {
+        const productResponse = await axios.get ("http://localhost:3001/api/products");
+        setProducts(productResponse.data);
+        console.log(productResponse.data)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    useEffect(() => {
+      fetchProducts();
+    },[])
+  
+    const showProductData = () => {
+      return products.map((product, index) => {
+        return (
+          <div className="card p-4 mt-6 mb-2 rounded relative" key={index}>
+        <p className="text-2xl font-semibold">
+          {typeof product === "object" ? product.name : offer || "Name not available"}
+        </p>
+        <div className="gamePurchaseContainer text-base text-right absolute right-1">
+          <div className="gamePurchaseButton pl-3 pr-0 bg-black rounded text-sm">
+            <span>
+              {product.price[index] || "Price not available"}{" "}
+              <button
+                className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded"
+                onClick={() => handleAddToCart(index)}
+              >
+                Add to Cart
+              </button>
+            </span>
+          </div>
         </div>
       </div>
-    </div>
-  ));
-
-  return (
-    <>
-      {addToCartMessage && <p>{addToCartMessage}</p>}
-      {offersElements}
-    </>
-  );
-};
+        )
+      })
+    }
+  
+    return (
+      <>
+        {addToCartMessage && <p>{addToCartMessage}</p>}
+        {showProductData()}
+      </>
+    );
+  };
 
 export default ProdDetailOffers;
