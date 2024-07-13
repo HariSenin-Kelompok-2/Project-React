@@ -1,3 +1,16 @@
+@import url('https://fonts.cdnfonts.com/css/motiva-sans');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #171a21;
+    font-family: "Motiva Sans",Arial,Helvetica,sans-serif;
+    overflow-x: hidden;
+    /* color: #c7d5e0; */
+}
+
 #mobile-menu {
     background-color: rgba(0, 0, 0);
     position: fixed;
