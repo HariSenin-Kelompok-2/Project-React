@@ -1,11 +1,15 @@
 import { useParams } from "react-router-dom";
 import steamDataSet from "./steamDataset";
 import ProdDetailOffers from "./ProdDetailOffers";
+import {useState, useEffect} from "react";
 
-const ProdDetailBody = () => {
+const ProdDetailBody = (props) => {
     const params = useParams();
     const id = params.id;
     const gameData = steamDataSet[id];
+    const products = props.products;
+    
+    console.log(product?.productFeatures)
 
     return (
         <>
@@ -86,47 +90,7 @@ const ProdDetailBody = () => {
                         <div className="prodFeatHead w-full flex flex-col">
                             <div className="prodFeatContent p-0.5 ml-0.5 mb-0.5 text-xs w-full h-full max-w-full max-h-full text-buttonColor bg-blueItemBg">
                                 <span>
-                                    <a href>Cross-Platform Multiplayer</a>
-                                </span>
-                            </div>
-                            <div className="prodFeatContent p-0.5 ml-0.5 mb-0.5 text-xs w-full h-full max-w-full max-h-full text-buttonColor bg-blueItemBg">
-                                <span>
-                                    <a href>Steam Trading Cards</a>
-                                </span>
-                            </div>
-                            <div className="prodFeatContent p-0.5 ml-0.5 mb-0.5 text-xs w-full h-full max-w-full max-h-full text-buttonColor bg-blueItemBg">
-                                <span>
-                                    <a href>Steam Workshop</a>
-                                </span>
-                            </div>
-                            <div className="prodFeatContent p-0.5 ml-0.5 mb-0.5 text-xs w-full h-full max-w-full max-h-full text-buttonColor bg-blueItemBg">
-                                <span>
-                                    <a href>In-App Purchases</a>
-                                </span>
-                            </div>
-                            <div className="prodFeatContent p-0.5 ml-0.5 mb-0.5 text-xs w-full h-full max-w-full max-h-full text-buttonColor bg-blueItemBg">
-                                <span>
-                                    <a href>Valve Anti-Cheat Enabled</a>
-                                </span>
-                            </div>
-                            <div className="prodFeatContent p-0.5 ml-0.5 mb-0.5 text-xs w-full h-full max-w-full max-h-full text-buttonColor bg-blueItemBg">
-                                <span>
-                                    <a href>Stats</a>
-                                </span>
-                            </div>
-                            <div className="prodFeatContent p-0.5 ml-0.5 mb-0.5 text-xs w-full h-full max-w-full max-h-full text-buttonColor bg-blueItemBg">
-                                <span>
-                                    <a href>Remote Play on Phone</a>
-                                </span>
-                            </div>
-                            <div className="prodFeatContent p-0.5 ml-0.5 mb-0.5 text-xs w-full h-full max-w-full max-h-full text-buttonColor bg-blueItemBg">
-                                <span>
-                                    <a href>Remote Play on Tablet</a>
-                                </span>
-                            </div>
-                            <div className="prodFeatContent p-0.5 ml-0.5 mb-0.5 text-xs w-full h-full max-w-full max-h-full text-buttonColor bg-blueItemBg">
-                                <span>
-                                    <a href>Remote Play on TV</a>
+                                    <a href>{product?.productFeatures?.name}</a>
                                 </span>
                             </div>
                         </div>
