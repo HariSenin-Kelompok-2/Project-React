@@ -8,11 +8,13 @@ import OutlineButton from "./OutlineButton";
 import PropTypes from "prop-types";
 import { useCallback, useState } from "react";
 
-const FeatureContainer = ({ title, children, button = null, button2 = null, classProps = "", slidesPerView = 4, type = null, breakpoints = null }) => {
-  const pagination = {
-    clickable: true,
-  };
+const pagination = {
+  clickable: true,
+};
+
+const FeatureContainer = ({ title, children, button = null, button2 = null, classProps = "", slidesPerView = 4, isUsingArrow = true, breakpoints = null, slidesPerGroup = 4 }) => {
   const [swiperRef, setSwiperRef] = useState();
+
   const handlePrevious = useCallback(() => {
     swiperRef?.slidePrev();
   }, [swiperRef]);
@@ -31,17 +33,17 @@ const FeatureContainer = ({ title, children, button = null, button2 = null, clas
           </>
         )}
       </HeadingFeatures>
-      {type === null && (
+      {isUsingArrow && (
         <div className="absolute gradient-arrow-left top-1/2 bottom-1/2 -translate-y-1/2 lg:flex py-[3.9rem] px-3 -left-[3.3rem] justify-center items-center cursor-pointer hidden" onClick={handlePrevious}>
           <div>
             <i className="fa-solid fa-chevron-left text-white text-5xl" />
           </div>
         </div>
       )}
-      <Swiper loop navigation modules={[Navigation, Pagination]} spaceBetween={8} slidesPerView={slidesPerView} pagination={pagination} onSwiper={setSwiperRef} breakpoints={breakpoints}>
+      <Swiper loop navigation modules={[Navigation, Pagination]} spaceBetween={8} slidesPerView={slidesPerView} pagination={pagination} onSwiper={setSwiperRef} breakpoints={breakpoints} slidesPerGroup={slidesPerGroup}>
         {children}
       </Swiper>
-      {type === null && (
+      {isUsingArrow && (
         <div className="absolute gradient-arrow-right top-1/2 bottom-1/2 -translate-y-1/2 lg:flex py-[3.9rem] px-3 -right-[3.4rem] justify-center items-center cursor-pointer hidden" onClick={handleNext}>
           <div>
             <i className="fa-solid fa-chevron-right text-white text-5xl" />
@@ -58,8 +60,9 @@ FeatureContainer.propTypes = {
   button2: PropTypes.string,
   children: PropTypes.node,
   classProps: PropTypes.string,
+  isUsingArrow: PropTypes.bool,
   slidesPerView: PropTypes.number,
-  type: PropTypes.string,
+  slidesPerGroup: PropTypes.number,
   breakpoints: PropTypes.object,
 };
 

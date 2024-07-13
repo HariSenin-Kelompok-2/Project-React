@@ -76,29 +76,6 @@ export const under90kGameDatas = [
     },
 ];
 
-export const VRGameDatas = [
-    {
-        id: 8,
-        image: "https://cdn.cloudflare.steamstatic.com/steam/apps/1079800/header_292x136.jpg?t=1709311461",
-        price: "206 999"
-    },
-    {
-        id: 11,
-        image: "https://cdn.cloudflare.steamstatic.com/steam/apps/611670/header_292x136.jpg?t=1564002443",
-        price: "114 999"
-    },
-    {
-        id: 3,
-        image: "https://cdn.cloudflare.steamstatic.com/steam/apps/629730/header_292x136.jpg?t=1701774481",
-        price: "135 999"
-    },
-    {
-        id: 4,
-        image: "https://cdn.cloudflare.steamstatic.com/steam/apps/1683340/header_292x136.jpg?t=1708002651",
-        price: "799 999"
-    }
-]
-
 export const midweekSpecialOffersData = [
     {   
         id: 10,

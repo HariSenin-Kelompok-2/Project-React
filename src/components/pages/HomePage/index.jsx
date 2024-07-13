@@ -6,12 +6,14 @@ import GameCard from "./components/GameCard";
 import CategoryCard from "./components/CategoryCard";
 import BrowseSteam from "./components/BrowseSteam";
 import FeatureContainer from "./components/FeatureContainer";
-import { VRGameDatas, categories, midweekSpecialOffersData, todaySpecialOffersData, under90kGameDatas } from "../../../utils/datas";
+import { categories, midweekSpecialOffersData, todaySpecialOffersData, under90kGameDatas } from "../../../utils/datas";
 import Footer from "../../elements/Footer/Footer";
 import SignInBox from "./components/SignInBox";
 import SignInBoxFooter from "./components/SignInBoxFooter";
 import usePageTitle from "../../../hooks/usePageTitle";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const breakpoints = {
   0: {
@@ -23,9 +25,23 @@ const breakpoints = {
 };
 
 const HomePage = () => {
-  const isLogin = useSelector((state) => state.auth.isLogin );
-  
+  const isLogin = useSelector((state) => state.auth.isLogin);
+  const [actionProducts, setActionProducts] = useState([]);
+
   usePageTitle("Welcome to Steam");
+
+  const getActionProducts = async () => {
+    const response = await axios.get("http://localhost:3001/api/category/3");
+    setActionProducts(response.data.category.products);
+  };
+
+  // const getAllProducts = async () => {
+  //   const response
+  // }
+
+  useEffect(() => {
+    getActionProducts();
+  }, []);
 
   return (
     <>
@@ -33,14 +49,14 @@ const HomePage = () => {
       <CartAndNavbar />
       <div className="bg-[#1b2838] pt-5 pb-10 px-4">
         {/* Feature: Recommended */}
-        <FeatureContainer title="Featured & Recommended" slidesPerView={1} type={"Recommended"}>
+        <FeatureContainer title="Featured & Recommended" slidesPerView={1} isUsingArrow={false}>
           <SwiperSlide>
             <RecommendedJumbotron />
           </SwiperSlide>
         </FeatureContainer>
 
         {/* Feature: Special Offers */}
-        <FeatureContainer title="SPECIAL OFFERS" classProps="mb-4" slidesPerView={3} breakpoints={breakpoints}>
+        <FeatureContainer title="SPECIAL OFFERS" classProps="mb-4" slidesPerView={3} breakpoints={breakpoints} slidesPerGroup={3}>
           {midweekSpecialOffersData.map((data, index) => (
             <SwiperSlide key={index}>
               <GameCard id={data.id} type={data.type} image={data.image} discountValue={data.discountValue} discountedPrice={data.discountedPrice} price={data.price} />
@@ -82,7 +98,7 @@ const HomePage = () => {
         {!isLogin && <SignInBox />}
 
         {/* Feature: Browse Steam*/}
-        <FeatureContainer title="Browse Steam" type="browse steam">
+        <FeatureContainer title="Browse Steam" isUsingArrow={false}>
           <BrowseSteam />
         </FeatureContainer>
 
@@ -100,19 +116,16 @@ const HomePage = () => {
           ))}
         </FeatureContainer>
 
-        {/* Feature: Popular VR Games */}
-        <FeatureContainer title={"Popular VR Games"} button={"BROWSE ALL"}>
-          {VRGameDatas.map((game, index) => (
-            <SwiperSlide key={index}>
-              <GameCard id={game.id} image={game.image} price={game.price} />
-            </SwiperSlide>
-          ))}
-          {VRGameDatas.map((game, index) => (
-            <SwiperSlide key={index}>
-              <GameCard id={game.id} image={game.image} price={game.price} />
-            </SwiperSlide>
-          ))}
-        </FeatureContainer>
+        {/* Feature: Popular Action Games */}
+        {actionProducts.length > 0 && (
+          <FeatureContainer title={"Popular Action Games"} button={"BROWSE ALL"}>
+            {actionProducts?.map((game, index) => (
+              <SwiperSlide key={index}>
+                <GameCard id={game.id} image={game.product_thumbnail} price={game.PriceLists[0].price} />
+              </SwiperSlide>
+            ))}
+          </FeatureContainer>
+        )}
       </div>
 
       <div className="bg-[#1B2838] pb-16">
