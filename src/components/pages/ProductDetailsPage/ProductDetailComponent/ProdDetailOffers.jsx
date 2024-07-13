@@ -49,18 +49,36 @@ const ProdDetailOffers = () => {
       <div className="gamePurchaseContainer text-base text-right absolute right-1">
         <div className="gamePurchaseButton pl-3 pr-0 bg-black rounded text-sm">
           <span>
-            {prices[index] || "Price not available"}{" "}
-            <button
-              className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded"
-              onClick={() => handleAddToCart(index)}
-            >
-              Add to Cart
-            </button>
+            {prices[index] === "Free to Play" ? (
+              <>
+                Free to Play
+                <button
+                  className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded"
+                  onClick={() => handlePlayGame(index)}
+                >
+                  Play Now
+                </button>
+              </>
+            ) : (
+              <>
+                {prices[index] || "Price not available"}{" "}
+                <button
+                  className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded"
+                  onClick={() => handleAddToCart(index)}
+                >
+                  Add to Cart
+                </button>
+              </>
+            )}
           </span>
         </div>
       </div>
     </div>
   ));
+
+  const handlePlayGame = (offerIndex) => {
+    alert(`Launching ${offers[offerIndex].name}!`);
+  };
 
   return (
     <>
