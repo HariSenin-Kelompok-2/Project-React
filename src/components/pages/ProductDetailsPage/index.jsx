@@ -1,6 +1,6 @@
 import ProdDetailBody from "./ProductDetailComponent/ProdDetailBody";
 import ProdDetailHeader from "./ProductDetailComponent/ProdDetailHeader";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../elements/Header/Header";
 import CartAndNavbar from "../../elements/CartAndNavbar/CartAndNavbar";
 import Footer from "../../elements/Footer/Footer";
@@ -12,6 +12,8 @@ const ProductDetailsPage = () => {
     const [products, setProducts] = useState([]);
     const params = useParams();
     const id = params.id;
+
+    const navigate = useNavigate();
   
     const fetchProducts = async () => {
       try {
@@ -19,7 +21,7 @@ const ProductDetailsPage = () => {
           setProducts(productResponse.data.data);
           console.log(productResponse.data.data)
       } catch (error) {
-        console.log(error);
+        navigate('/')
       }
     };
     

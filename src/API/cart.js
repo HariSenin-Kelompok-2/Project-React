@@ -2,17 +2,10 @@ import axios from "axios";
 
 const API_URL = "http://localhost:3001";
 
-export const addToCart = async (offerIndex, offers) => {
+export const addToCart = async (offerIndex) => {
   try {
-    let priceListId = null;
-    if (typeof offers[offerIndex] === "object") {
-      priceListId = offers[offerIndex].priceList_id;
-    } else {
-      offers[offerIndex];
-    }
-
     const response = await axios.post(`${API_URL}/api/carts`, {
-      priceListId: priceListId,
+      priceListId: offerIndex,
     });
     console.log("Item added to cart:", response.data);
     return response.data;

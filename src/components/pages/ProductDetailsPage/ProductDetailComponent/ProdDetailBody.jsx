@@ -1,7 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useParams } from "react-router-dom";
 import steamDataSet from "./steamDataset";
 import ProdDetailOffers from "./ProdDetailOffers";
-import {useState, useEffect} from "react";
 
 const ProdDetailBody = (props) => {
     const params = useParams();
@@ -75,7 +75,7 @@ const ProdDetailBody = (props) => {
                     {/* product detail feature content */}
                     <div className="prodFeat flex p-4 max-w-2/6 max-h-2/5">
                         <div className="prodIconHead flex flex-col">
-                            {product?.productFeatures?.map((feature, index) => (
+                            {product?.productFeatures?.map((feature) => (
                                 <img className="prodIcon p-0.5 mb-0.5 w-9 h-6 max-w-9 max-h-6 bg-iconBg" 
                                         src={feature.icon} />
                             ))}
@@ -274,21 +274,25 @@ const ProdDetailBody = (props) => {
                     </div>
                     {/* game achievement */}
                     <div className="gameAchievement p-4 text-greyFontColor text-xs">
-                        <p>Include {gameData.achievement_count} Steam Achievements</p>
-                        {gameData.achievement_images.map((_, index) => {
-                            return <img key={index} src={gameData.achievement_images[index]} className="mt-4 w-16 h-16" />;
-                        })}
+                        <p>Include {gameData?.achievement_count ?? 0} Steam Achievements</p>
+                        {gameData ? 
+                            gameData.achievement_images.map((_, index) => {
+                                return <img key={index} src={gameData.achievement_images[index]} className="mt-4 w-16 h-16" />;
+                            })
+                        : null }
                     </div>
                     <div className="pointShop max-w-full max-h-screen my-2 p-4">
                         <div className="pointShopHeader flex mb-4 text-xs w-full">
                             <p>Points Shop Items Available</p>
                         </div>
                         <div className="pointShopImg flex gap-1 w-16 h-16">
-                            {gameData.point_shop_images.map((_, index) => {
+                        {gameData ? 
+                            gameData.point_shop_images.map((_, index) => {
                                 return <img key={index} src={gameData.point_shop_images[index]} className="bg-black" />;
-                            })}
+                            })
+                            : null }
                             <a href className="flex justify-center items-center bg-blueItemBg text-buttonColor rounded-sm text-sm text-center min-w-14 min-h-16">
-                                View all {gameData.point_shop_count}
+                                View all {gameData?.point_shop_count ?? 0}
                             </a>
                         </div>
                     </div>
