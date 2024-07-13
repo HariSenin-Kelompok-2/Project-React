@@ -28,8 +28,8 @@ const ProdDetailHeader = (props) => {
         }  
     }, [product]);
 
-    console.log(mainContent)
- 
+    // console.log(mainContent)
+
 
 const handleThumbnailClick = (src, type) => {
         setMainContent({ src, type });

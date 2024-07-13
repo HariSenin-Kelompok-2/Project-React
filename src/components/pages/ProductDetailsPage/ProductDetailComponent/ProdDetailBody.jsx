@@ -396,7 +396,7 @@ const ProdDetailBody = (props) => {
                 </div>
                 {/* Game buying options */}
                 <div id="cardWrapper">
-                    <ProdDetailOffers/>
+                    <ProdDetailOffers product={product}/>
                     {/* game description */}
                     <div className="gameDesc text-greyFontColor">
                         <span className="text-white text-xl">About this game</span>
