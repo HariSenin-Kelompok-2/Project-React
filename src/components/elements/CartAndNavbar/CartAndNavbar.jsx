@@ -1,6 +1,25 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getCarts } from "../../../API/cart";
 
 const CartAndNavbar = ({ cartCount }) => {
+  const [fetchedCartCount, setFetchedCartCount] = useState(cartCount);
+
+  useEffect(() => {
+    if (cartCount === undefined) {
+      const fetchCartCount = async () => {
+        try {
+          const carts = await getCarts();
+          setFetchedCartCount(carts.cartCount);
+        } catch (error) {
+          console.error("Error fetching cart count:", error);
+        }
+      };
+
+      fetchCartCount();
+    }
+  }, [cartCount]);
+
   const navbarMenus = [
     "Your Store",
     "New & Noteworthy",
@@ -19,7 +38,9 @@ const CartAndNavbar = ({ cartCount }) => {
           className="block bg-[#5c7e10] px-6 py-1 ml-auto hover:bg-[#7ea64b]"
         >
           <i className="fa-sharp fa-solid fa-cart-shopping" />{" "}
-          <span className="text-xs">Cart ({cartCount})</span>
+          <span className="text-xs">
+            Cart ({cartCount !== undefined ? cartCount : fetchedCartCount})
+          </span>
         </Link>
       </div>
 

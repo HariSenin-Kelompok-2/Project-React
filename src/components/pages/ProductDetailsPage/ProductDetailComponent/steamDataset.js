@@ -4,14 +4,16 @@ const steamDataSet = [
     directory: "All Games > Free To Play Games > Apex Legends",
     game_name: "Apex Legends™",
     release_date: "5 Nov, 2020",
-    about_the_game:
-      ["Conquer with character in Apex Legends, a free-to-play* Hero shooter where legendary characters with powerful abilities team up to battle for fame & fortune on the fringes of the Frontier.",
-        "Master an ever-growing roster of diverse Legends, deep-tactical squad play, and bold, new innovations that go beyond the Battle Royale experience — all within a rugged world where anything goes. Welcome to the next evolution of Hero Shooter.",
-        "This game includes optional in-game purchases of virtual currency that can be used to acquire virtual in-game items, including a random selection of virtual in-game items.",
-        "Note that any unused Apex Coins will expire 180 days after the first date in which they are acquired or purchased. The oldest Apex Coins that are subject to expiration in your balance will always be used first when using them to make in-game purchases.",
-        "Apex Packs purchase is not available in Belgium."
-      ],
-    about_the_game_img: ["https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/extras/EA_APEX_STEAM-PDP_EN.jpg?t=1712869091"],
+    about_the_game: [
+      "Conquer with character in Apex Legends, a free-to-play* Hero shooter where legendary characters with powerful abilities team up to battle for fame & fortune on the fringes of the Frontier.",
+      "Master an ever-growing roster of diverse Legends, deep-tactical squad play, and bold, new innovations that go beyond the Battle Royale experience — all within a rugged world where anything goes. Welcome to the next evolution of Hero Shooter.",
+      "This game includes optional in-game purchases of virtual currency that can be used to acquire virtual in-game items, including a random selection of virtual in-game items.",
+      "Note that any unused Apex Coins will expire 180 days after the first date in which they are acquired or purchased. The oldest Apex Coins that are subject to expiration in your balance will always be used first when using them to make in-game purchases.",
+      "Apex Packs purchase is not available in Belgium.",
+    ],
+    about_the_game_img: [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/extras/EA_APEX_STEAM-PDP_EN.jpg?t=1712869091",
+    ],
     about_the_game_list: [],
     short_description:
       "Apex Legends is the award-winning, free-to-play Hero Shooter from Respawn Entertainment. Master an ever-growing roster of legendary characters with powerful abilities, and experience strategic squad play and innovative gameplay in the next evolution of Hero Shooter and Battle Royale.",
@@ -31,38 +33,47 @@ const steamDataSet = [
       "https://cdn.akamai.steamstatic.com/steam/apps/1172470/ss_ed4087e1f7e85905df637304ac4e511def7943e7.116x65.jpg?t=1708706824",
       "https://cdn.akamai.steamstatic.com/steam/apps/1172470/ss_d83cbff470fc50074354e342554bb0f95873c4cd.116x65.jpg?t=1708706824",
       "https://cdn.akamai.steamstatic.com/steam/apps/1172470/ss_98f91773af2d5b05d885bc39b13336e7acb23b0b.116x65.jpg?t=1708706824",
-      "https://cdn.akamai.steamstatic.com/steam/apps/1172470/ss_addcfffc4cb07dbde19cd033759054138aa2bc62.116x65.jpg?t=1708706824"
+      "https://cdn.akamai.steamstatic.com/steam/apps/1172470/ss_addcfffc4cb07dbde19cd033759054138aa2bc62.116x65.jpg?t=1708706824",
     ],
-    movies: "https://cdn.cloudflare.steamstatic.com/steam/apps/257000613/movie_max_vp9.webm?t=1707847290",
+    movies:
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/257000613/movie_max_vp9.webm?t=1707847290",
     Recent_Reviews: "Mostly Positive",
     All_Time_Reviews: "Very Positive",
     achievement_count: "12",
-    achievement_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/1172470/cde23ba5b41f315f5d399064ed0bb9ff51fc1342.jpg"],
-    point_shop_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/1172470/996291c8e2e641d3d82fb28588a490b622d500b9.png",
+    achievement_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/1172470/cde23ba5b41f315f5d399064ed0bb9ff51fc1342.jpg",
+    ],
+    point_shop_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/1172470/996291c8e2e641d3d82fb28588a490b622d500b9.png",
       "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/1172470/4f220cbff59baca61cc84756b119d148d3721b58.png",
-      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/1172470/d46a898a967af5151bafea5a4a15cb553bfa2608.png"],
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/1172470/d46a898a967af5151bafea5a4a15cb553bfa2608.png",
+    ],
     point_shop_count: "29",
     bought_status: "Play",
     price: ["Free to Play", "Play Game", "Rp 299 999", "Rp.320 000"],
-    offers: ["Play Apex Legends",
-      "Buy Battle Pass",
-      "Buy Apex Legends"],
+    offers: ["Play Apex Legends", "Buy Battle Pass", "Buy Apex Legends"],
     offers_desc: [],
     bundle_images: [],
     game_content: ["Apex Coins"],
     game_content_price: "Rp 135 555",
-    event_images: ["https://clan.cloudflare.steamstatic.com/images/38098458/11729a3f9a147e24bdc70728165467e483a749fe_400x225.png",
-      "https://clan.cloudflare.steamstatic.com/images/38098458/f708a3ff2fc95e2e4bf1ddce26a7b741bc2d3fff_400x225.jpg"],
-    latest_update: "Mar-9"
+    event_images: [
+      "https://clan.cloudflare.steamstatic.com/images/38098458/11729a3f9a147e24bdc70728165467e483a749fe_400x225.png",
+      "https://clan.cloudflare.steamstatic.com/images/38098458/f708a3ff2fc95e2e4bf1ddce26a7b741bc2d3fff_400x225.jpg",
+    ],
+    latest_update: "Mar-9",
   },
   {
     id: 2,
     directory: "All Games > Adventure Games > Rain World",
     game_name: "Rain World",
     release_date: "29 Mar, 2017",
-    about_the_game:
-      ["You are a slugcat. The world around you is full of danger, and you must face it – alone. Separated from your family in a devastating flood, you will need to find food and shelter between terrifying torrential downpours which threaten to drown all life. Climb through the ruins of an ancient civilization, evade the jaws of vicious predators, and discover new lands teeming with strange creatures and buried mysteries. Find your family before something makes a meal of you!", "Inspired by the simplicity and aesthetics of 16-bit classics, this survival platformer requires clever decision-making, both to catch your own prey and to avoid the jaws of hungry predators. Each ravenous foe in your path will be cunning, vicious and always on the hunt – eager to sink their teeth into you, or even each other. As a small, soft slugcat you must rely on stealth and wit rather than force: learn the ecosystem and turn their strengths to your advantage. Maybe then you can survive… Rain World!"],
-    about_the_game_img: ["https://cdn.akamai.steamstatic.com/steam/apps/312520/extras/RW_SteamGIF_02.jpg?t=1712787126"],
+    about_the_game: [
+      "You are a slugcat. The world around you is full of danger, and you must face it – alone. Separated from your family in a devastating flood, you will need to find food and shelter between terrifying torrential downpours which threaten to drown all life. Climb through the ruins of an ancient civilization, evade the jaws of vicious predators, and discover new lands teeming with strange creatures and buried mysteries. Find your family before something makes a meal of you!",
+      "Inspired by the simplicity and aesthetics of 16-bit classics, this survival platformer requires clever decision-making, both to catch your own prey and to avoid the jaws of hungry predators. Each ravenous foe in your path will be cunning, vicious and always on the hunt – eager to sink their teeth into you, or even each other. As a small, soft slugcat you must rely on stealth and wit rather than force: learn the ecosystem and turn their strengths to your advantage. Maybe then you can survive… Rain World!",
+    ],
+    about_the_game_img: [
+      "https://cdn.akamai.steamstatic.com/steam/apps/312520/extras/RW_SteamGIF_02.jpg?t=1712787126",
+    ],
     about_the_game_list: [],
     short_description:
       "You are a nomadic slugcat, both predator and prey in a broken ecosystem. Grab your spear and brave the industrial wastes, hunting enough food to survive, but be wary— other, bigger creatures have the same plan... and slugcats look delicious.",
@@ -87,39 +98,49 @@ const steamDataSet = [
     Recent_Reviews: "Very Positive",
     All_Time_Reviews: "Very Positive",
     achievement_count: "34",
-    achievement_images: ["https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/312520/d493eb9f3aa2856c25d186f5e96b62491665909c.jpg"],
-    point_shop_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
+    achievement_images: [
+      "https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/312520/d493eb9f3aa2856c25d186f5e96b62491665909c.jpg",
+    ],
+    point_shop_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
       "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c2a822b6422d7a2c9e72ec74bf54139db8723ef0.png",
-      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png"],
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png",
+    ],
     point_shop_count: "29",
     bought_status: "Play",
     price: ["Rp 72 449", "Add to Cart", "Rp 229 999", "Rp 399 999"],
-    offers: ["Buy Rain World",
+    offers: [
+      "Buy Rain World",
       "Buy Rain World Deluxe Edition",
-      "Buy Rain World Bundle"],
-    offers_desc: ["Counter-Strike 2 players with Prime Status are matched with other Prime Status players and are eligible to receiv Prime-exclusive souvenir items, item drops, and weapon cases.",
+      "Buy Rain World Bundle",
+    ],
+    offers_desc: [
+      "Counter-Strike 2 players with Prime Status are matched with other Prime Status players and are eligible to receiv Prime-exclusive souvenir items, item drops, and weapon cases.",
       "This package grants Prime Account Status in Counter-Strike 2",
-      "Buy this bundle to save 28% off all items!"],
+      "Buy this bundle to save 28% off all items!",
+    ],
     bundle_images: [],
     game_content: ["Rain World - Soundtrack"],
     game_content_price: "Rp 31 499",
-    event_images: ["https://clan.akamai.steamstatic.com/images/8051219/9c82fdf5d9d188c5cffd4ac8cd8ccae672e43b50_400x225.png",
-      "https://clan.akamai.steamstatic.com/images/8051219/ed147701dd3dd02859626bf52b138c451d4bf2a3_400x225.png"],
-    latest_update: "Apr 2"
+    event_images: [
+      "https://clan.akamai.steamstatic.com/images/8051219/9c82fdf5d9d188c5cffd4ac8cd8ccae672e43b50_400x225.png",
+      "https://clan.akamai.steamstatic.com/images/8051219/ed147701dd3dd02859626bf52b138c451d4bf2a3_400x225.png",
+    ],
+    latest_update: "Apr 2",
   },
   {
     id: 3,
     directory: "All Games > Indie Games > Escape The Backrooms",
     game_name: "Escape The Backrooms",
     release_date: "Aug 12, 2022",
-    about_the_game:
-      ["Explore the seemingly infinite expanse of eerily familiar levels in the backrooms based on the popular creepypasta lore. Each level features different ways to escape with danger along the way.",
-        "Realistic graphics, minimal user interfaces, and dreary ambience will ensure an immersive experience.",
-        "Explore the backrooms with a team of up to 4 players. Be warned, as teammates may no-clip into other areas of the map and every member of your team must find the exit alive to escape. No wanderer left behind.",
-        "Traverse though 20+ unique levels based on backrooms lore with regular content updates adding more. Each level features a different way to escape with various danger along the way.",
-        "Check every corner so you won't be caught off guard by one of 12 hostile entities in the backrooms, each with their own mechanics you'll need to quickly learn if you want to survive.",
-        "Communicate with your teammates with proximity voice chat. Be sure to not wander far away from your team, as you can easily get lost in the confusing expanse of the backrooms. Entities can also hear you, so stay quiet whenever you're near any danger."
-      ],
+    about_the_game: [
+      "Explore the seemingly infinite expanse of eerily familiar levels in the backrooms based on the popular creepypasta lore. Each level features different ways to escape with danger along the way.",
+      "Realistic graphics, minimal user interfaces, and dreary ambience will ensure an immersive experience.",
+      "Explore the backrooms with a team of up to 4 players. Be warned, as teammates may no-clip into other areas of the map and every member of your team must find the exit alive to escape. No wanderer left behind.",
+      "Traverse though 20+ unique levels based on backrooms lore with regular content updates adding more. Each level features a different way to escape with various danger along the way.",
+      "Check every corner so you won't be caught off guard by one of 12 hostile entities in the backrooms, each with their own mechanics you'll need to quickly learn if you want to survive.",
+      "Communicate with your teammates with proximity voice chat. Be sure to not wander far away from your team, as you can easily get lost in the confusing expanse of the backrooms. Entities can also hear you, so stay quiet whenever you're near any danger.",
+    ],
     about_the_game_img: [],
     about_the_game_list: [],
     short_description:
@@ -140,7 +161,7 @@ const steamDataSet = [
       "https://cdn.cloudflare.steamstatic.com/steam/apps/1825160/ss_dd0b55f044aa7ad76ac7a24f505f4bbfd909d623.116x65.jpg?t=1696615071",
       "https://cdn.cloudflare.steamstatic.com/steam/apps/1825160/ss_b3a21089c5315cbbf8d8b77ad06efedb2c1754a9.116x65.jpg?t=1696615071",
       "https://cdn.cloudflare.steamstatic.com/steam/apps/1825160/ss_5932175299f48d72b16875f1d34cfa7af77335cf.116x65.jpg?t=1696615071",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1825160/ss_6a123d63c73314b924b3b33a60ba2a9e7e4d1010.116x65.jpg?t=1696615071"
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1825160/ss_6a123d63c73314b924b3b33a60ba2a9e7e4d1010.116x65.jpg?t=1696615071",
     ],
     movies: [
       "https://cdn.cloudflare.steamstatic.com/steam/apps/256899680/movie480_vp9.webm?t=1659748851 ",
@@ -148,34 +169,42 @@ const steamDataSet = [
     Recent_Reviews: "Very Positive",
     All_Time_Reviews: "Very Positive",
     achievement_count: "30",
-    achievement_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/1943950/8491c68b99602f4d1d0a62d5596ddb140dca099a.jpg"],
-    point_shop_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
+    achievement_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/1943950/8491c68b99602f4d1d0a62d5596ddb140dca099a.jpg",
+    ],
+    point_shop_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
       "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c2a822b6422d7a2c9e72ec74bf54139db8723ef0.png",
-      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png"],
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png",
+    ],
     point_shop_count: "29",
     bought_status: "Play",
     price: ["Rp 69 999", "Add To Cart", "Rp 229 999", "Rp 199 999"],
-    offers: ["Buy Escape The Backrooms",
+    offers: [
       "Buy Escape The Backrooms",
-      "Buy Escape The Backrooms"],
+      "Buy Escape The Backrooms",
+      "Buy Escape The Backrooms",
+    ],
     offers_desc: [],
     bundle_images: [],
     game_content: ["Escape The Backrooms Soundtrack"],
     game_content_price: "Rp 149 999",
-    event_images: ["https://clan.cloudflare.steamstatic.com/images/42189581/0fcc7d59a6df941dce2737798f49d3db858b1758_400x225.png",
-      "https://clan.cloudflare.steamstatic.com/images/42189581/56d8711fd7df967cbb0d661d5c3bfefeb91c10c2_400x225.png"],
-    latest_update: "Jan-26"
+    event_images: [
+      "https://clan.cloudflare.steamstatic.com/images/42189581/0fcc7d59a6df941dce2737798f49d3db858b1758_400x225.png",
+      "https://clan.cloudflare.steamstatic.com/images/42189581/56d8711fd7df967cbb0d661d5c3bfefeb91c10c2_400x225.png",
+    ],
+    latest_update: "Jan-26",
   },
   {
     id: 4,
     directory: "All Games > Action Games > Blade And Sorcery",
     game_name: "Blade And Sorcery",
     release_date: "Dec 11, 2018",
-    about_the_game:
-      ["The era of the VR weightless, wiggle-sword combat is over. Blade & Sorcery is a medieval fantasy sandbox like no other, focusing on melee, ranged and magic combat that fully utilizes a unique and realistic physics driven interaction and combat system.",
-        "Built exclusively for VR, collisions are dictated by fine hitboxes, objects have weight and follow the laws of physics, creatures have full body physics and presence, and blades can be used to penetrate soft materials or deflect magic.",
-        "In Blade & Sorcery, the combat is limited only by your own creativity. Choose your weapon, choose your stance, choose your fighting style; Be the powerful warrior, ranger or sorcerer you always dreamed of becoming!"
-      ],
+    about_the_game: [
+      "The era of the VR weightless, wiggle-sword combat is over. Blade & Sorcery is a medieval fantasy sandbox like no other, focusing on melee, ranged and magic combat that fully utilizes a unique and realistic physics driven interaction and combat system.",
+      "Built exclusively for VR, collisions are dictated by fine hitboxes, objects have weight and follow the laws of physics, creatures have full body physics and presence, and blades can be used to penetrate soft materials or deflect magic.",
+      "In Blade & Sorcery, the combat is limited only by your own creativity. Choose your weapon, choose your stance, choose your fighting style; Be the powerful warrior, ranger or sorcerer you always dreamed of becoming!",
+    ],
     about_the_game_img: [],
     about_the_game_list: [],
     short_description:
@@ -196,7 +225,7 @@ const steamDataSet = [
       "https://cdn.cloudflare.steamstatic.com/steam/apps/629730/ss_aa84f60594357440c74c7a93e512a67547ba1627.116x65.jpg?t=1701774481",
       "https://cdn.cloudflare.steamstatic.com/steam/apps/629730/ss_98cb3b4ef9981f001a4cd36a7d1ed0d166635a62.116x65.jpg?t=1701774481",
       "https://cdn.cloudflare.steamstatic.com/steam/apps/629730/ss_857bd0df98cc1c86a680689e552fbd0393df4060.116x65.jpg?t=1701774481",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/629730/ss_e2eb4990df02020a6eabd2b3afb67d8e88bdf2db.116x65.jpg?t=1701774481"
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/629730/ss_e2eb4990df02020a6eabd2b3afb67d8e88bdf2db.116x65.jpg?t=1701774481",
     ],
     movies: [
       "https://cdn.cloudflare.steamstatic.com/steam/apps/256857498/movie_max_vp9.webm?t=1635255825",
@@ -204,35 +233,46 @@ const steamDataSet = [
     Recent_Reviews: "Overwhemingly Positive",
     All_Time_Reviews: "Overwhemingly Positive",
     achievement_count: "30",
-    achievement_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/1943950/8491c68b99602f4d1d0a62d5596ddb140dca099a.jpg"],
-    point_shop_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
+    achievement_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/1943950/8491c68b99602f4d1d0a62d5596ddb140dca099a.jpg",
+    ],
+    point_shop_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
       "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c2a822b6422d7a2c9e72ec74bf54139db8723ef0.png",
-      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png"],
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png",
+    ],
     point_shop_count: "29",
     bought_status: "Play",
     price: ["Rp 108 999", "Add To Cart", "Rp 229 999", "Rp 399 999"],
-    offers: ["Buy Blade And Sorcery",
+    offers: [
+      "Buy Blade And Sorcery",
       "Buy Blade And Sorcery Upgrade",
-      "Buy Blade And Sorcery"],
+      "Buy Blade And Sorcery",
+    ],
     offers_desc: [],
     bundle_images: [],
     game_content: ["Blade And Sorcery Soundtrack"],
     game_content_price: "Rp 149 999",
-    event_images: ["https://clan.cloudflare.steamstatic.com/images/33834682/ac248746272da65b73b1a72e72cdc442a24eeab0_400x225.jpg",
-      "https://clan.cloudflare.steamstatic.com/images/33834682/8534c27cb12e5476315d8bf9a37dd2ca0ff9b39d_400x225.jpg"],
-    latest_update: "Jan-26"
+    event_images: [
+      "https://clan.cloudflare.steamstatic.com/images/33834682/ac248746272da65b73b1a72e72cdc442a24eeab0_400x225.jpg",
+      "https://clan.cloudflare.steamstatic.com/images/33834682/8534c27cb12e5476315d8bf9a37dd2ca0ff9b39d_400x225.jpg",
+    ],
+    latest_update: "Jan-26",
   },
   {
     id: 5,
     directory: "All Games > Simulation Games > Kayak VR: Mirage",
     game_name: "Kayak VR: Mirage",
     release_date: "12 Jul, 2022",
-    about_the_game:
-      ["Kayak VR: Mirage is a jaw-dropping and exhilarating journey through beautiful and unique locations, tailor-made for Virtual Reality. Maneuver our fully physically accurate kayak around checkpoints and crown yourself the fastest, or take it easy and use the free roam mode for a leisurely trip and enjoy the scenery.",
-        "Features"
-      ],
-    about_the_game_img: ["https://cdn.cloudflare.steamstatic.com/steam/apps/1683340/extras/roadmap-banner.png?t=1708002651"],
-    about_the_game_list: ["Beautiful and varied locations to explore or race through, featuring multiple times of day and weather conditions.",
+    about_the_game: [
+      "Kayak VR: Mirage is a jaw-dropping and exhilarating journey through beautiful and unique locations, tailor-made for Virtual Reality. Maneuver our fully physically accurate kayak around checkpoints and crown yourself the fastest, or take it easy and use the free roam mode for a leisurely trip and enjoy the scenery.",
+      "Features",
+    ],
+    about_the_game_img: [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1683340/extras/roadmap-banner.png?t=1708002651",
+    ],
+    about_the_game_list: [
+      "Beautiful and varied locations to explore or race through, featuring multiple times of day and weather conditions.",
       "Cutting-edge graphics that push the limits of what VR is capable of.",
       "Fully physics-based kayaking for an authentic experience that really makes you feel like you're on the water.",
       "Free roam mode for a more serene experience through the levels.",
@@ -246,7 +286,7 @@ const steamDataSet = [
       "A music selection that always fits with the environment and mode you're playing in.",
       "Optimized to run well across a range of PC's, enabling a high-fidelity experience on high-end rigs while maintaining good performance on lower-end rigs.",
       "Support for FidelityFX.",
-      "Support for DLSS (compatible with NVIDIA RTX Cards only)."
+      "Support for DLSS (compatible with NVIDIA RTX Cards only).",
     ],
     short_description:
       "Kayak VR: Mirage is a jaw-dropping and exhilarating journey through beautiful locations, made for Virtual Reality. Maneuver our fully physically accurate kayak around checkpoints and crown yourself the fastest, or take it easy and use the free roam mode and enjoy the scenery.",
@@ -266,7 +306,7 @@ const steamDataSet = [
       "https://cdn.cloudflare.steamstatic.com/steam/apps/629730/ss_aa84f60594357440c74c7a93e512a67547ba1627.116x65.jpg?t=1701774481",
       "https://cdn.cloudflare.steamstatic.com/steam/apps/629730/ss_98cb3b4ef9981f001a4cd36a7d1ed0d166635a62.116x65.jpg?t=1701774481",
       "https://cdn.cloudflare.steamstatic.com/steam/apps/629730/ss_857bd0df98cc1c86a680689e552fbd0393df4060.116x65.jpg?t=1701774481",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/629730/ss_e2eb4990df02020a6eabd2b3afb67d8e88bdf2db.116x65.jpg?t=1701774481"
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/629730/ss_e2eb4990df02020a6eabd2b3afb67d8e88bdf2db.116x65.jpg?t=1701774481",
     ],
     movies: [
       "https://cdn.cloudflare.steamstatic.com/steam/apps/256895866/movie480_vp9.webm?t=1683187598",
@@ -274,32 +314,54 @@ const steamDataSet = [
     Recent_Reviews: "Mixed",
     All_Time_Reviews: "Very Positive",
     achievement_count: "30",
-    achievement_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/1683340/ada598eaf75117336f579329c3943ee259ecd754.jpg"],
-    point_shop_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
+    achievement_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/1683340/ada598eaf75117336f579329c3943ee259ecd754.jpg",
+    ],
+    point_shop_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
       "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c2a822b6422d7a2c9e72ec74bf54139db8723ef0.png",
-      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png"],
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png",
+    ],
     point_shop_count: "29",
     bought_status: "Play",
     price: ["Rp 189 999", "Add To Cart", "Rp 229 999", "Rp 399 999"],
-    offers: ["Buy Kayak VR: Mirage",
+    offers: [
+      "Buy Kayak VR: Mirage",
       "Buy Kayak VR: Mirage Upgrade",
-      "Buy Kayak VR: Mirage"],
+      "Buy Kayak VR: Mirage",
+    ],
     offers_desc: [],
     bundle_images: [],
     game_content: ["Buy Kayak VR: Mirage Soundtrack"],
     game_content_price: "Rp 149 999",
-    event_images: ["https://cdn.cloudflare.steamstatic.com/steam/apps/1683340/extras/discord-banner-alt8.png?t=1708002651"],
-    latest_update: "Jan-26"
+    event_images: [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1683340/extras/discord-banner-alt8.png?t=1708002651",
+    ],
+    latest_update: "Jan-26",
   },
   {
     id: 6,
     directory: "All Games > Indie Games > The Coma: Recut",
     game_name: "The Coma: Recut",
     release_date: "23 Sep, 2017",
-    about_the_game:
-      ["The good news is your school is about to explode. The bad news is...you’re trapped in it with her.", "The Coma is back, recut and remastered. Explore this horror-fest of the Korea indie cult classic with an all new visual upgrade and mechanics"],
-    about_the_game_img: ["https://cdn.akamai.steamstatic.com/steam/apps/600090/extras/Steam_Description_3.png?t=1714563926"],
-    about_the_game_list: ["2D hand illustrated visuals.", "A unique infusion of Korean horror in the survival-adventure genre.", "Listen carefully to footsteps revealing the killer’s approach.", "Run and hide from the world’s most relentless psycho-killer.", "Avoid poisonous tentacles and clawing shadows as you explore.", "Avoid poisonous tentacles and clawing shadows as you explore.", "Work together with the others who are trapped here. But can they be trusted?", "Crouch in the shadows during intense moments as the Killer searches for you.", "Reveal the startling mystery of your school through maps, notes, and exploration."],
+    about_the_game: [
+      "The good news is your school is about to explode. The bad news is...you’re trapped in it with her.",
+      "The Coma is back, recut and remastered. Explore this horror-fest of the Korea indie cult classic with an all new visual upgrade and mechanics",
+    ],
+    about_the_game_img: [
+      "https://cdn.akamai.steamstatic.com/steam/apps/600090/extras/Steam_Description_3.png?t=1714563926",
+    ],
+    about_the_game_list: [
+      "2D hand illustrated visuals.",
+      "A unique infusion of Korean horror in the survival-adventure genre.",
+      "Listen carefully to footsteps revealing the killer’s approach.",
+      "Run and hide from the world’s most relentless psycho-killer.",
+      "Avoid poisonous tentacles and clawing shadows as you explore.",
+      "Avoid poisonous tentacles and clawing shadows as you explore.",
+      "Work together with the others who are trapped here. But can they be trusted?",
+      "Crouch in the shadows during intense moments as the Killer searches for you.",
+      "Reveal the startling mystery of your school through maps, notes, and exploration.",
+    ],
     short_description:
       "You are Youngho, a Korean high school student trapped and relentlessly pursued by a psychotic killer in the hellish corridors of Sehwa High. Run, hide, explore, and survive while piecing together the mystery The Coma in this remastered version of the Korean cult classic.",
     header_image:
@@ -324,37 +386,45 @@ const steamDataSet = [
     All_Time_Reviews: "Very Positive",
     achievement_count: "0",
     achievement_images: [],
-    point_shop_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
+    point_shop_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
       "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c2a822b6422d7a2c9e72ec74bf54139db8723ef0.png",
-      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png"],
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png",
+    ],
     point_shop_count: "29",
     bought_status: "Play",
     price: ["Rp 13 099", "Add To Cart", "Rp 5 911 603", "Rp 40 394"],
-    offers: ["Buy The Coma: Recut",
+    offers: [
+      "Buy The Coma: Recut",
       "Buy Headup Games Complete BUNDLE",
-      "Buy The Coma: Back to School Bundle BUNDLE"],
+      "Buy The Coma: Back to School Bundle BUNDLE",
+    ],
     offers_desc: [],
     bundle_images: [],
     game_content: ["The Coma: Recut - Soundtrack & Art Pack"],
     game_content_price: "Rp 9 999",
-    event_images: ["https://clan.akamai.steamstatic.com/images/29663532/066ae18e841b421bebece575f376f18b57ca1047_400x225.jpg"],
-    latest_update: "May-1"
+    event_images: [
+      "https://clan.akamai.steamstatic.com/images/29663532/066ae18e841b421bebece575f376f18b57ca1047_400x225.jpg",
+    ],
+    latest_update: "May-1",
   },
   {
     id: 7,
     directory: "All Games > Action Games > Oh Deer",
     game_name: "Oh Deer",
     release_date: "15 Mar, 2024",
-    about_the_game:
-      ["Oh Deer is a multiplayer hide-and-seek game where one player plays as a hunter and up to four others play as deer.",
-        "Hunter Role",
-        "The hunter's role is to use sound, gadgets, and pure skill to locate and eliminate the other players before nightfall. However, knowing if the deer in your sights is a player or not is the true challenge.",
-        "Deer Role",
-        "The Deer's role is to hide from the hunter by blending in with a handful of AI deer scattered around the map. Eating food is a priority to keep hunger at bay. But improper timing when eating could mean the difference between life and death.",
-        "The Map",
-        "Forests are the perfect place to hide. With lots of trees, bushes, and cute flowers, deer can live happily for years without any worries. That is, until hunting season begins... Tall trees, thick bushes, and plenty of shade sets up a perfect ambush."
-      ],
-    about_the_game_img: ["https://cdn.cloudflare.steamstatic.com/steam/apps/2708450/extras/GIF_Hunter.gif?t=1710877806"],
+    about_the_game: [
+      "Oh Deer is a multiplayer hide-and-seek game where one player plays as a hunter and up to four others play as deer.",
+      "Hunter Role",
+      "The hunter's role is to use sound, gadgets, and pure skill to locate and eliminate the other players before nightfall. However, knowing if the deer in your sights is a player or not is the true challenge.",
+      "Deer Role",
+      "The Deer's role is to hide from the hunter by blending in with a handful of AI deer scattered around the map. Eating food is a priority to keep hunger at bay. But improper timing when eating could mean the difference between life and death.",
+      "The Map",
+      "Forests are the perfect place to hide. With lots of trees, bushes, and cute flowers, deer can live happily for years without any worries. That is, until hunting season begins... Tall trees, thick bushes, and plenty of shade sets up a perfect ambush.",
+    ],
+    about_the_game_img: [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/2708450/extras/GIF_Hunter.gif?t=1710877806",
+    ],
     about_the_game_list: [],
     short_description:
       "One Hunter, and up to four more friends disguised as deer. In this thrilling game of hide-and-seek where every move could be the last. Will you blend in with the herd or stand out? Oh Deer...",
@@ -374,7 +444,7 @@ const steamDataSet = [
       "https://cdn.cloudflare.steamstatic.com/steam/apps/2708450/ss_1e3c2dfd5107e7a01bcb47a299897a858de5be8b.116x65.jpg?t=1710877806",
       "https://cdn.cloudflare.steamstatic.com/steam/apps/2708450/ss_ff9d03db1c6fb67e0612720d818b1e651a422dd4.116x65.jpg?t=1710877806",
       "https://cdn.cloudflare.steamstatic.com/steam/apps/2708450/ss_dbe1ebc1af9f40927ab14c8f48f2468463b07eda.116x65.jpg?t=1710877806",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/2708450/ss_9f8699b19e8c703dee924875a824c5d109bf75df.116x65.jpg?t=1710877806"
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/2708450/ss_9f8699b19e8c703dee924875a824c5d109bf75df.116x65.jpg?t=1710877806",
     ],
     movies: [
       "https://cdn.cloudflare.steamstatic.com/steam/apps/256906135/movie480_vp9.webm?t=1663254571",
@@ -382,31 +452,38 @@ const steamDataSet = [
     Recent_Reviews: "Very Positive",
     All_Time_Reviews: "Overwhemingly Positive",
     achievement_count: "54",
-    achievement_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/739630/97ba2ccc3cc84404981394ada6d8c1d6f12a8bb5.jpg"],
-    point_shop_images: ["hhttps://steamcommunity.com/economy/profilebackground/items/739630/bdff9e373c2a5ca9de09aef4072d4f2f4ea64270.jpg?size=64x0",
+    achievement_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/739630/97ba2ccc3cc84404981394ada6d8c1d6f12a8bb5.jpg",
+    ],
+    point_shop_images: [
+      "hhttps://steamcommunity.com/economy/profilebackground/items/739630/bdff9e373c2a5ca9de09aef4072d4f2f4ea64270.jpg?size=64x0",
       "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c2a822b6422d7a2c9e72ec74bf54139db8723ef0.png",
-      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png"],
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png",
+    ],
     point_shop_count: "29",
     bought_status: "Play",
     price: ["Rp 90 999", "Add To Cart", "Rp 195 999", "Rp 259 999"],
-    offers: ["Buy Oh Deer",
-      "Buy Oh Deer Deluxe Edition",
-      "Buy Oh Deer"],
+    offers: ["Buy Oh Deer", "Buy Oh Deer Deluxe Edition", "Buy Oh Deer"],
     offers_desc: [],
     bundle_images: [],
     game_content: ["Oh Deer Pass"],
     game_content_price: "Rp 119 999",
-    event_images: ["https://cdn.cloudflare.steamstatic.com/steam/apps/2708450/extras/Steam_Banner_Oh_Deer.png?t=1710877806"],
-    latest_update: "Apr-10"
-  }, {
+    event_images: [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/2708450/extras/Steam_Banner_Oh_Deer.png?t=1710877806",
+    ],
+    latest_update: "Apr-10",
+  },
+  {
     id: 8,
     directory: "All Games > Indie Games > Phasmophobia",
     game_name: "Phasmophobia",
     release_date: "19 Sep, 2020",
-    about_the_game:
-      ["Phasmophobia is a 4-player, online co-op, psychological horror game. You and your team of paranormal investigators will enter haunted locations filled with paranormal activity and try to gather as much evidence as you can. Use your ghost-hunting equipment to find and record evidence to sell on to a ghost removal team."],
+    about_the_game: [
+      "Phasmophobia is a 4-player, online co-op, psychological horror game. You and your team of paranormal investigators will enter haunted locations filled with paranormal activity and try to gather as much evidence as you can. Use your ghost-hunting equipment to find and record evidence to sell on to a ghost removal team.",
+    ],
     about_the_game_img: [],
-    about_the_game_list: ["Immersive Experience: Realistic graphics and sounds as well as a minimal user interface ensure a totally immersive experience that will keep you on your toes.",
+    about_the_game_list: [
+      "Immersive Experience: Realistic graphics and sounds as well as a minimal user interface ensure a totally immersive experience that will keep you on your toes.",
       "Unique Ghosts: Identify over 20 different ghost types, each with unique traits, personalities, and abilities to make each investigation feel different from the last.",
       "Equipment: Use well-known ghost-hunting equipment such as EMF Readers, Spirit Boxes, Thermometers, and Night Vision Cameras to find clues and gather as much paranormal evidence as you can. Find Cursed Possessions that grant information or abilities in exchange for your sanity.",
       "Full Voice Recognition: The Ghosts are listening! Use your actual voice to interact with the Ghosts through Ouija Boards and EVP Sessions using a Spirit Box.",
@@ -415,7 +492,7 @@ const steamDataSet = [
       "Teamwork: Dive in head first, get your hands dirty searching for evidence while fighting for your life. If you're not feeling up to the task, play it safe and support your team from the truck by monitoring the investigation with CCTV and motion sensors.",
       "Custom Difficulty: Create your own games to tailor the difficulty to your or your group's needs, with proportional rewards and come up with crazy game modes of your own!",
       "Co-operate: Play alongside your friends with up to 4 players in this co-op horror where teamwork is key to your success.",
-      "Play together: Phasmophobia supports all players together, play with your friends with any combination of input types."
+      "Play together: Phasmophobia supports all players together, play with your friends with any combination of input types.",
     ],
     short_description:
       "Phasmophobia is a 4 player online co-op psychological horror. Paranormal activity is on the rise and it’s up to you and your team to use all the ghost-hunting equipment at your disposal in order to gather as much evidence as you can.",
@@ -435,7 +512,7 @@ const steamDataSet = [
       "https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_f0377c02897de8831a5f032f13a6dc0f994516d5.116x65.jpg?t=1702309974",
       "https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_ce1062b9312afbc12000f980087ede8fa718445d.116x65.jpg?t=1702309974",
       "https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_8032ff1ebe2aad6871c45b30458d7a6c868f2212.116x65.jpg?t=1702309974",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_b446d0ca191cf5a183ac3cc9538a59aa7575c14c.116x65.jpg?t=1702309974"
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_b446d0ca191cf5a183ac3cc9538a59aa7575c14c.116x65.jpg?t=1702309974",
     ],
     movies: [
       "https://cdn.cloudflare.steamstatic.com/steam/apps/256776660/movie480.webm?t=1583525286",
@@ -443,33 +520,45 @@ const steamDataSet = [
     Recent_Reviews: "Very Positive",
     All_Time_Reviews: "Overwhemingly Positive",
     achievement_count: "15",
-    achievement_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/739630/97ba2ccc3cc84404981394ada6d8c1d6f12a8bb5.jpg"],
-    point_shop_images: ["https://steamcommunity.com/economy/profilebackground/items/739630/bdff9e373c2a5ca9de09aef4072d4f2f4ea64270.jpg?size=64x0",
+    achievement_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/739630/97ba2ccc3cc84404981394ada6d8c1d6f12a8bb5.jpg",
+    ],
+    point_shop_images: [
+      "https://steamcommunity.com/economy/profilebackground/items/739630/bdff9e373c2a5ca9de09aef4072d4f2f4ea64270.jpg?size=64x0",
       "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/739630/abf78c37fcaa05cd39f891c2cf92a407df2dcf1a.png",
-      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/739630/3fa53a9f83afef3fd16d6b9aecfcba9036055d5d.png"],
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/739630/3fa53a9f83afef3fd16d6b9aecfcba9036055d5d.png",
+    ],
     point_shop_count: "29",
     bought_status: "Play",
     price: ["Rp 89 999", "Add To Cart", "Rp 195 999", "Rp 259 999"],
-    offers: ["Buy Phasmophobia",
+    offers: [
+      "Buy Phasmophobia",
       "Buy Phasmophobia Deluxe Edition",
-      "Buy Phasmophobia"],
+      "Buy Phasmophobia",
+    ],
     offers_desc: [],
     bundle_images: [],
     game_content: ["Phasmophobia Soundtrack"],
     game_content_price: "Rp 119 999",
-    event_images: ["https://clan.cloudflare.steamstatic.com/images/37002678/ea09e1c4dfcbceaa251252b2bcf413555c74de98_400x225.png",
-      "https://clan.cloudflare.steamstatic.com/images/37002678/b58a00ce478f9d93fa4eaeb316dbc85d6eadedae_400x225.png"
+    event_images: [
+      "https://clan.cloudflare.steamstatic.com/images/37002678/ea09e1c4dfcbceaa251252b2bcf413555c74de98_400x225.png",
+      "https://clan.cloudflare.steamstatic.com/images/37002678/b58a00ce478f9d93fa4eaeb316dbc85d6eadedae_400x225.png",
     ],
-    latest_update: "Apr-10"
-  }, {
+    latest_update: "Apr-10",
+  },
+  {
     id: 9,
     directory: "All Games > Action Games > Pistol Whip",
     game_name: "Pistol Whip",
     release_date: "7 Nov, 2019",
-    about_the_game:
-      ["Winner of VR GOTY at the 2020 DICE Awards, this Physical FPS is fueled by dynamic tracks, dreamscape visuals, and easy to learn, tough to master gunplay. Inspired by iconic action cinema, the only thing that goes harder than this title’s soundtrack is you. Conquer the leaderboards, flow to the music with your own rhythmic patterns, or go all out as a dual-wielding deadeye with nothing to lose."],
-    about_the_game_img: ["https://cdn.cloudflare.steamstatic.com/steam/apps/1079800/extras/PW_storefront-divider_Game-features__650.png?t=1709311461"],
-    about_the_game_list: ["An Action-Rhythm Rush. Take aim and fire on the beat as you barrel through Scene after Scene. Find your flow, rack up points, become unstoppable.",
+    about_the_game: [
+      "Winner of VR GOTY at the 2020 DICE Awards, this Physical FPS is fueled by dynamic tracks, dreamscape visuals, and easy to learn, tough to master gunplay. Inspired by iconic action cinema, the only thing that goes harder than this title’s soundtrack is you. Conquer the leaderboards, flow to the music with your own rhythmic patterns, or go all out as a dual-wielding deadeye with nothing to lose.",
+    ],
+    about_the_game_img: [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1079800/extras/PW_storefront-divider_Game-features__650.png?t=1709311461",
+    ],
+    about_the_game_list: [
+      "An Action-Rhythm Rush. Take aim and fire on the beat as you barrel through Scene after Scene. Find your flow, rack up points, become unstoppable.",
       "The Big Gun: That’s you. Take on special Scenes inspired by iconic movies, and become deadeye legend.",
       "Full Voice Recognition: The Ghosts are listening! Use your actual voice to interact with the Ghosts through Ouija Boards and EVP Sessions using a Spirit Box.The Big Gun: That’s you. Take on special Scenes inspired by iconic movies, and become deadeye legend.",
       "Absurdly Customizable. Dig into the Styles system to overhaul core mechanics to your exact preferences. Make Pistol Whip a part of your fitness routine, or tweak your loadout to fit your accessibility needs.",
@@ -477,7 +566,8 @@ const steamDataSet = [
       "Cinematic Campaigns. Ride into the wild, wild west with Smoke & Thunder, or face down a technicolour Robopocalypse in 2089.",
       "A Dancefloor Fever Dream. Fall into vivid fantasias, shimmering nightmares, and skylines that pulse with the beat—then blast your way back out.",
       "Co-operate: Play alongside your friends with up to 4 players in this co-op horror where teamwork is key to your success.",
-      "Play together: Phasmophobia supports all players together, play with your friends with any combination of input types.Songs To Get Reckless To. From Devora’s furious desert rock to the driving basslines of Apashe, this soundtrack will have you feeling invincible."],
+      "Play together: Phasmophobia supports all players together, play with your friends with any combination of input types.Songs To Get Reckless To. From Devora’s furious desert rock to the driving basslines of Apashe, this soundtrack will have you feeling invincible.",
+    ],
     short_description:
       "Enter: the ultimate action hero. Pistol Whip is a physical action-rhythm game where film-inspired gunplay and blood-pumping beats collide. Blast, duck and dodge your way through fever dream Scenes, build unique rhythms in a ballet of bullets and claim glory on the leaderboards. Includes mod support!",
     header_image:
@@ -496,7 +586,7 @@ const steamDataSet = [
       "https://cdn.cloudflare.steamstatic.com/steam/apps/1079800/ss_8003a78c23c0bc180dd253fc9afda16c7e11ab5f.116x65.jpg?t=1709311461",
       "https://cdn.cloudflare.steamstatic.com/steam/apps/1079800/ss_fc8b672ce463bf86c3ca2bd1810119d1ce86937a.116x65.jpg?t=1709311461",
       "https://cdn.cloudflare.steamstatic.com/steam/apps/1079800/ss_6dfbda14cf63b67e2944ebd34f30281f41ef49ae.116x65.jpg?t=1709311461",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1079800/ss_d4b4e1f1aa1e514d1bd401ec08fd38f8c2db23ed.116x65.jpg?t=1709311461"
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1079800/ss_d4b4e1f1aa1e514d1bd401ec08fd38f8c2db23ed.116x65.jpg?t=1709311461",
     ],
     movies: [
       "https://cdn.cloudflare.steamstatic.com/steam/apps/256921527/movie480_vp9.webm?t=1702324573",
@@ -504,40 +594,50 @@ const steamDataSet = [
     Recent_Reviews: "Very Positive",
     All_Time_Reviews: "Overwhemingly Positive",
     achievement_count: "25",
-    achievement_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/1079800/c6e0cc092a803f71bed2362389cc2d50b5ba6bd8.jpg"],
-    point_shop_images: ["https://steamcommunity.com/economy/profilebackground/items/739630/bdff9e373c2a5ca9de09aef4072d4f2f4ea64270.jpg?size=64x0",
+    achievement_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/1079800/c6e0cc092a803f71bed2362389cc2d50b5ba6bd8.jpg",
+    ],
+    point_shop_images: [
+      "https://steamcommunity.com/economy/profilebackground/items/739630/bdff9e373c2a5ca9de09aef4072d4f2f4ea64270.jpg?size=64x0",
       "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/739630/abf78c37fcaa05cd39f891c2cf92a407df2dcf1a.png",
-      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/739630/3fa53a9f83afef3fd16d6b9aecfcba9036055d5d.png"],
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/739630/3fa53a9f83afef3fd16d6b9aecfcba9036055d5d.png",
+    ],
     point_shop_count: "29",
     bought_status: "Play",
     price: ["Rp 89 999", "Add To Cart", "Rp 195 999", "Rp 259 999"],
-    offers: ["Buy Pistol Whip",
+    offers: [
+      "Buy Pistol Whip",
       "Buy Pistol Whip Deluxe Edition",
-      "Buy Pistol Whip + SoundTrack"],
+      "Buy Pistol Whip + SoundTrack",
+    ],
     offers_desc: [],
-    bundle_images: ["https://cdn.cloudflare.steamstatic.com/steam/apps/1079800/capsule_sm_120.jpg?t=1709311461",
+    bundle_images: [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1079800/capsule_sm_120.jpg?t=1709311461",
       "https://cdn.cloudflare.steamstatic.com/steam/apps/1190950/capsule_sm_120.jpg?t=1695861145",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1567510/capsule_sm_120.jpg?t=1695861190"
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1567510/capsule_sm_120.jpg?t=1695861190",
     ],
     game_content: ["Pistol Whip Official Soundtrack"],
     game_content_price: "Rp 106 999",
-    event_images: ["https://clan.cloudflare.steamstatic.com/images/35882631/aa50e3e1865fb9b5bcd8b3e9dd6121f9c99c0c71_400x225.png",
-      "https://clan.cloudflare.steamstatic.com/images/35882631/3bb0f7b054a54fbf106595c825886200da85ef83_400x225.png"
+    event_images: [
+      "https://clan.cloudflare.steamstatic.com/images/35882631/aa50e3e1865fb9b5bcd8b3e9dd6121f9c99c0c71_400x225.png",
+      "https://clan.cloudflare.steamstatic.com/images/35882631/3bb0f7b054a54fbf106595c825886200da85ef83_400x225.png",
     ],
-    latest_update: "Apr-10"
+    latest_update: "Apr-10",
   },
   {
     id: 10,
     directory: "All Games > Racing Games > Forza Horizon 5",
     game_name: "Forza Horizon 5",
     release_date: "9 Nov, 2021",
-    about_the_game:
-      ["Your Ultimate Horizon Adventure awaits! Explore the vibrant and ever-evolving open world landscapes of Mexico with limitless, fun driving action in hundreds of the world’s greatest cars.",
-        "This is Your Horizon Adventure Lead breathtaking expeditions across the vibrant and ever-evolving open world landscapes of Mexico with limitless, fun driving action in hundreds of the world’s greatest cars.",
-        "This is a Diverse Open World Explore a world of striking contrast and beauty. Discover living deserts, lush jungles, historic cities, hidden ruins, pristine beaches, vast canyons and a towering snow-capped volcano.",
-        "This is an Adventurous Open World Immerse yourself in a deep campaign with hundreds of challenges that reward you for engaging in the activities you love. Meet new characters and choose the outcomes of their Horizon Story missions."
-      ],
-    about_the_game_img: ["https://cdn.akamai.steamstatic.com/steam/apps/1551360/extras/ForzaHorizon5_01_BuggyBeach_600x100.png?t=1714086603"],
+    about_the_game: [
+      "Your Ultimate Horizon Adventure awaits! Explore the vibrant and ever-evolving open world landscapes of Mexico with limitless, fun driving action in hundreds of the world’s greatest cars.",
+      "This is Your Horizon Adventure Lead breathtaking expeditions across the vibrant and ever-evolving open world landscapes of Mexico with limitless, fun driving action in hundreds of the world’s greatest cars.",
+      "This is a Diverse Open World Explore a world of striking contrast and beauty. Discover living deserts, lush jungles, historic cities, hidden ruins, pristine beaches, vast canyons and a towering snow-capped volcano.",
+      "This is an Adventurous Open World Immerse yourself in a deep campaign with hundreds of challenges that reward you for engaging in the activities you love. Meet new characters and choose the outcomes of their Horizon Story missions.",
+    ],
+    about_the_game_img: [
+      "https://cdn.akamai.steamstatic.com/steam/apps/1551360/extras/ForzaHorizon5_01_BuggyBeach_600x100.png?t=1714086603",
+    ],
     about_the_game_list: [],
     short_description:
       "Explore the vibrant open world landscapes of Mexico with limitless, fun driving action in the world’s greatest cars. Blast off into Forza Horizon 5: Hot Wheels or Conquer the Sierra Nueva in the ultimate Horizon Rally Adventure experience. Requires Forza Horizon 5 game, expansion sold separately.",
@@ -555,7 +655,7 @@ const steamDataSet = [
       "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_3654a5988db68f9b47740f9f6a9299682c365599.116x65.jpg?t=1714086603",
       "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_0bc32360d32b21abdf889422385cd753862dd73e.116x65.jpg?t=1714086603",
       "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_1da0673f82eccc3c9d222237dec40e36bf10eef3.116x65.jpg?t=1714086603",
-      "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_78e4f63e05d50e59b9966ba8da9a53dbf84fd8f4.116x65.jpg?t=1714086603"
+      "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_78e4f63e05d50e59b9966ba8da9a53dbf84fd8f4.116x65.jpg?t=1714086603",
     ],
     movies: [
       "https://cdn.akamai.steamstatic.com/steam/apps/256875134/movie480_vp9.webm?t=1647525311",
@@ -563,36 +663,48 @@ const steamDataSet = [
     Recent_Reviews: "Very Positive",
     All_Time_Reviews: "Very Positive",
     achievement_count: "137",
-    achievement_images: ["https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/1551360/11f6a0ad00983caf7c97d7dd5171293b0e12c3c9.jpg"],
-    point_shop_images: ["https://steamcommunity.com/economy/profilebackground/items/1551360/a86849a891172229fdb4900bbd34dfbf1f4e58fc.jpg?size=64x0",
+    achievement_images: [
+      "https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/1551360/11f6a0ad00983caf7c97d7dd5171293b0e12c3c9.jpg",
+    ],
+    point_shop_images: [
+      "https://steamcommunity.com/economy/profilebackground/items/1551360/a86849a891172229fdb4900bbd34dfbf1f4e58fc.jpg?size=64x0",
       "https://steamcommunity.com/economy/profilebackground/items/1551360/c63abdc9d97fa394778798858e6417412cbcd0c5.jpg?size=64x0",
-      "https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/1551360/a91768ffc1bf5ca3ba9934381449b38732f1729d.png"],
+      "https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/1551360/a91768ffc1bf5ca3ba9934381449b38732f1729d.png",
+    ],
     point_shop_count: "14",
     bought_status: "Play",
-    price: ["Rp 349 500", "Add to Cart", "Rp 899 000", "Rp 999 000"],
-    offers: ["Buy Forza Horizon 5 - Standard Edition",
+    price: ["Rp 349 500", "Rp 899 000", "Rp 999 000"],
+    offers: [
+      "Buy Forza Horizon 5 - Standard Edition",
       "Buy Forza Horizon 5 - Deluxe Edition",
-      "Buy Forza Horizon 5 Premium Add-Ons"],
+      "Buy Forza Horizon 5 Premium Add-Ons",
+    ],
     offers_desc: [],
     bundle_images: [],
     game_content: ["Forza Horizon 5 Car Pass"],
     game_content_price: "Rp 219 000",
-    event_images: ["https://clan.akamai.steamstatic.com/images/40722422/143048fe8ce4412c7406d629da77ac7fffea8b1f_400x225.png",
-      "https://clan.akamai.steamstatic.com/images/40722422/7045ed1ad918996f1450e36b2860ac6b4bad7c6c_400x225.png"
+    event_images: [
+      "https://clan.akamai.steamstatic.com/images/40722422/143048fe8ce4412c7406d629da77ac7fffea8b1f_400x225.png",
+      "https://clan.akamai.steamstatic.com/images/40722422/7045ed1ad918996f1450e36b2860ac6b4bad7c6c_400x225.png",
     ],
-    latest_update: "Apr-10"
+    latest_update: "Apr-10",
+    // ! id
+    product_id: 3,
+    priceList_id: 3,
   },
   {
     id: 11,
     directory: "All Games > Action Games > Jusant",
     game_name: "Jusant",
     release_date: "31 Oct, 2023",
-    about_the_game:
-      ["Jusant is a brand-new action-puzzle climbing game and a meditative journey to the top of a tall tower. Challenge yourself at your own pace, explore different paths, and unravel the secrets from a bygone civilization.",
-        "Master your climbing tools and watch your stamina meter to successfully navigate this mysterious and changing tower. As you go higher and hone your skills, you’ll have to figure out how best to use the tools at your disposal to get to where you want to go. Explore alternative paths to find clues about what happened here.",
-        "Play at your own pace. As you climb, you’ll come across breathtaking biomes full of flora and fauna, accompanied by a peaceful and atmospheric soundtrack. Brace yourself on arid, windy slopes, seek refuge in tunnels lit only by bioluminescence, and more.",
-      ],
-    about_the_game_img: ["https://cdn.akamai.steamstatic.com/steam/apps/1977170/extras/JUSANT-EN-Bandeau_Steam_1.png?t=1712583405"],
+    about_the_game: [
+      "Jusant is a brand-new action-puzzle climbing game and a meditative journey to the top of a tall tower. Challenge yourself at your own pace, explore different paths, and unravel the secrets from a bygone civilization.",
+      "Master your climbing tools and watch your stamina meter to successfully navigate this mysterious and changing tower. As you go higher and hone your skills, you’ll have to figure out how best to use the tools at your disposal to get to where you want to go. Explore alternative paths to find clues about what happened here.",
+      "Play at your own pace. As you climb, you’ll come across breathtaking biomes full of flora and fauna, accompanied by a peaceful and atmospheric soundtrack. Brace yourself on arid, windy slopes, seek refuge in tunnels lit only by bioluminescence, and more.",
+    ],
+    about_the_game_img: [
+      "https://cdn.akamai.steamstatic.com/steam/apps/1977170/extras/JUSANT-EN-Bandeau_Steam_1.png?t=1712583405",
+    ],
     about_the_game_list: [],
     short_description:
       "Enjoy meditative vibes in Jusant, an action-puzzle climbing game. Scale an immeasurably tall tower and ascend to new heights alongside your watery companion. Master your climbing tools, find your way up through diverse biomes, and piece together the tower’s past.",
@@ -608,39 +720,44 @@ const steamDataSet = [
       "https://cdn.akamai.steamstatic.com/steam/apps/1977170/ss_6f917526327053f0eed0f0f9cad418f63df909be.116x65.jpg?t=1712583405",
       "https://cdn.akamai.steamstatic.com/steam/apps/1977170/ss_63d8b664496f63336f755312508fdac4b117e2ff.116x65.jpg?t=1712583405",
       "https://cdn.akamai.steamstatic.com/steam/apps/1977170/ss_2a2aacbd9110b701cb65b7d6baead26edc73c801.116x65.jpg?t=1712583405",
-      "https://cdn.akamai.steamstatic.com/steam/apps/1977170/ss_a0afced7958efd91d0bc584ff1d5d4cf85d870ff.116x65.jpg?t=1712583405"
+      "https://cdn.akamai.steamstatic.com/steam/apps/1977170/ss_a0afced7958efd91d0bc584ff1d5d4cf85d870ff.116x65.jpg?t=1712583405",
     ],
-    movies: "https://cdn.akamai.steamstatic.com/steam/apps/256983888/movie480_vp9.webm?t=1700582401",
+    movies:
+      "https://cdn.akamai.steamstatic.com/steam/apps/256983888/movie480_vp9.webm?t=1700582401",
     Recent_Reviews: "Very Positive",
     All_Time_Reviews: "Very Positive",
     achievement_count: "21",
-    achievement_images: ["https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/1977170/a5b77d9f4566662eab3ba832326665e00d40e490.jpg"],
-    point_shop_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
+    achievement_images: [
+      "https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/1977170/a5b77d9f4566662eab3ba832326665e00d40e490.jpg",
+    ],
+    point_shop_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
       "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c2a822b6422d7a2c9e72ec74bf54139db8723ef0.png",
-      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png"],
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png",
+    ],
     point_shop_count: "29",
     bought_status: "Play",
     price: ["Rp 140 000", "Add to Cart", "Rp 299 999", "Rp.320 000"],
-    offers: ["Buy Jusant",
-      "Buy Jusant Soundtrack Bundle",
-      "Buy Jusant Bundle"],
+    offers: ["Buy Jusant", "Buy Jusant Soundtrack Bundle", "Buy Jusant Bundle"],
     offers_desc: [],
     bundle_images: [],
     game_content: ["Jusant: Original Soundtrack"],
     game_content_price: "Rp 64 000",
-    event_images: ["https://clan.akamai.steamstatic.com/images/44237183/fa9e92f0e76901a2674e73d262b78ec6e4769231_400x225.png",
-      "https://clan.akamai.steamstatic.com/images/44237183/1e28368341ea53c8dd52f2dfb07bfc3cd86d02c4_400x225.png"],
-    latest_update: "Feb 8"
+    event_images: [
+      "https://clan.akamai.steamstatic.com/images/44237183/fa9e92f0e76901a2674e73d262b78ec6e4769231_400x225.png",
+      "https://clan.akamai.steamstatic.com/images/44237183/1e28368341ea53c8dd52f2dfb07bfc3cd86d02c4_400x225.png",
+    ],
+    latest_update: "Feb 8",
   },
   {
     id: 12,
     directory: "All Games > RPG Games > The Elder Scrolls V: Skyrim VR",
     game_name: "The Elder Scrolls V: Skyrim VR",
     release_date: "3 Apr, 2018",
-    about_the_game:
-      ["A true, full-length open-world game for VR has arrived from award-winning developers, Bethesda Game Studios. Skyrim VR reimagines the complete epic fantasy masterpiece with an unparalleled sense of scale, depth, and immersion. From battling ancient dragons to exploring rugged mountains and more, Skyrim VR brings to life a complete open world for you to experience any way you choose. Skyrim VR includes the critically-acclaimed core game and official add-ons – Dawnguard, Hearthfire, and Dragonborn.",
-        "Dragons, long lost to the passages of the Elder Scrolls, have returned to Tamriel and the future of the Empire hangs in the balance. As Dragonborn, the prophesied hero born with the power of The Voice, you are the only one who can stand amongst them.",
-      ],
+    about_the_game: [
+      "A true, full-length open-world game for VR has arrived from award-winning developers, Bethesda Game Studios. Skyrim VR reimagines the complete epic fantasy masterpiece with an unparalleled sense of scale, depth, and immersion. From battling ancient dragons to exploring rugged mountains and more, Skyrim VR brings to life a complete open world for you to experience any way you choose. Skyrim VR includes the critically-acclaimed core game and official add-ons – Dawnguard, Hearthfire, and Dragonborn.",
+      "Dragons, long lost to the passages of the Elder Scrolls, have returned to Tamriel and the future of the Empire hangs in the balance. As Dragonborn, the prophesied hero born with the power of The Voice, you are the only one who can stand amongst them.",
+    ],
     about_the_game_img: [],
     about_the_game_list: [],
     short_description:
@@ -656,39 +773,48 @@ const steamDataSet = [
       "https://cdn.akamai.steamstatic.com/steam/apps/611670/ss_3737964d741715847d62317e6598c86847cb1cfa.116x65.jpg?t=1564002443",
       "https://cdn.akamai.steamstatic.com/steam/apps/611670/ss_5a9d0f4c3a98873de13e64934e6bf46058aabb25.116x65.jpg?t=1564002443",
       "https://cdn.akamai.steamstatic.com/steam/apps/611670/ss_d3fac3f1b058881c7f208cfd8bd53a04e39837c9.116x65.jpg?t=1564002443",
-      "https://cdn.akamai.steamstatic.com/steam/apps/611670/ss_73a051ca47e7aba7d9307c916aa2757a47af39d4.116x65.jpg?t=1564002443"
+      "https://cdn.akamai.steamstatic.com/steam/apps/611670/ss_73a051ca47e7aba7d9307c916aa2757a47af39d4.116x65.jpg?t=1564002443",
     ],
-    movies: "https://cdn.akamai.steamstatic.com/steam/apps/256711431/movie480.webm?t=1521039659",
+    movies:
+      "https://cdn.akamai.steamstatic.com/steam/apps/256711431/movie480.webm?t=1521039659",
     Recent_Reviews: "Very Positive",
     All_Time_Reviews: "Mostly Positive",
     achievement_count: "75",
-    achievement_images: ["https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/611670/0a1b47b28556ff20ec88acc0aca0ef6793cd5383.jpg"],
-    point_shop_images: ["https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
+    achievement_images: [
+      "https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/611670/0a1b47b28556ff20ec88acc0aca0ef6793cd5383.jpg",
+    ],
+    point_shop_images: [
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c30260bb120bf1379f075802653c8eb86da7a7e9.png",
       "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/c2a822b6422d7a2c9e72ec74bf54139db8723ef0.png",
-      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png"],
+      "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/730/08763b38c214a554b5e83c5a39a048495b6ecee6.png",
+    ],
     point_shop_count: "29",
     bought_status: "Play",
     price: ["Rp 799 000", "Add to Cart", "Rp 1 299 999", "Rp.2 320 000"],
-    offers: ["Buy The Elder Scrolls V: Skyrim VR",
+    offers: [
+      "Buy The Elder Scrolls V: Skyrim VR",
       "Buy The Elder Scrolls V: Skyrim VR Upgraded",
-      "Buy The Elder Scrolls V: Skyrim VR"],
+      "Buy The Elder Scrolls V: Skyrim VR",
+    ],
     offers_desc: [],
     bundle_images: [],
     game_content: ["The Elder Scrolls Soundtrack"],
     game_content_price: "Rp 24 000",
-    event_images: ["https://cdn.akamai.steamstatic.com/steam/apps/489830/extras/Skyrim-AnnivEdition_Steam_MainCapsule_616x353-01.jpg?t=1701807334"],
-    latest_update: "Nov 11"
+    event_images: [
+      "https://cdn.akamai.steamstatic.com/steam/apps/489830/extras/Skyrim-AnnivEdition_Steam_MainCapsule_616x353-01.jpg?t=1701807334",
+    ],
+    latest_update: "Nov 11",
   },
   {
     id: 13,
     directory: "All Games > Action Games > STAR WARS Jedi: Fallen Order™",
     game_name: "STAR WARS Jedi: Fallen Order™",
     release_date: "15 Nov, 2019",
-    about_the_game:
-      ["A galaxy-spanning adventure awaits in Star Wars Jedi: Fallen Order, a new third-person action-adventure title from Respawn Entertainment. This narratively driven, single-player game puts you in the role of a Jedi Padawan who narrowly escaped the purge of Order 66 following the events of Episode 3: Revenge of the Sith. On a quest to rebuild the Jedi Order, you must pick up the pieces of your shattered past to complete your training, develop new powerful Force abilities and master the art of the iconic lightsaber - all while staying one step ahead of the Empire and its deadly Inquisitors.",
-        "While mastering your abilities, players will engage in cinematically charged lightsaber and Force combat designed to deliver the kind of intense Star Wars lightsaber battles as seen in the films. Players will need to approach enemies strategically, sizing up strengths and weaknesses while cleverly utilizing your Jedi training to overcome your opponents and solve the mysteries that lay in your path.",
-        "Star Wars fans will recognize iconic locations, weapons, gear and enemies while also meeting a roster of fresh characters, locations, creatures, droids and adversaries new to Star Wars. As part of this authentic Star Wars story, fans will delve into a galaxy recently seized by the Empire. As a Jedi hero-turned-fugitive, players will need to fight for survival while exploring the mysteries of a long-extinct civilization all in an effort to rebuild the remnants of the Jedi Order as the Empire seeks to erase the Jedi completely."
-      ],
+    about_the_game: [
+      "A galaxy-spanning adventure awaits in Star Wars Jedi: Fallen Order, a new third-person action-adventure title from Respawn Entertainment. This narratively driven, single-player game puts you in the role of a Jedi Padawan who narrowly escaped the purge of Order 66 following the events of Episode 3: Revenge of the Sith. On a quest to rebuild the Jedi Order, you must pick up the pieces of your shattered past to complete your training, develop new powerful Force abilities and master the art of the iconic lightsaber - all while staying one step ahead of the Empire and its deadly Inquisitors.",
+      "While mastering your abilities, players will engage in cinematically charged lightsaber and Force combat designed to deliver the kind of intense Star Wars lightsaber battles as seen in the films. Players will need to approach enemies strategically, sizing up strengths and weaknesses while cleverly utilizing your Jedi training to overcome your opponents and solve the mysteries that lay in your path.",
+      "Star Wars fans will recognize iconic locations, weapons, gear and enemies while also meeting a roster of fresh characters, locations, creatures, droids and adversaries new to Star Wars. As part of this authentic Star Wars story, fans will delve into a galaxy recently seized by the Empire. As a Jedi hero-turned-fugitive, players will need to fight for survival while exploring the mysteries of a long-extinct civilization all in an effort to rebuild the remnants of the Jedi Order as the Empire seeks to erase the Jedi completely.",
+    ],
     about_the_game_img: [],
     about_the_game_list: [],
     short_description:
@@ -705,28 +831,37 @@ const steamDataSet = [
       "https://cdn.akamai.steamstatic.com/steam/apps/1172380/ss_fad6cb499482042a9a2fe8f606f767c991424cdd.116x65.jpg?t=1701206847",
       "https://cdn.akamai.steamstatic.com/steam/apps/1172380/ss_0fcc7ad097befc7be78fbd2382be6649b3a7e7e7.116x65.jpg?t=1701206847",
       "https://cdn.akamai.steamstatic.com/steam/apps/1172380/ss_bd9ea6ac0dc139132a05f80065364f3c8c1d71c4.116x65.jpg?t=1701206847",
-      "https://cdn.akamai.steamstatic.com/steam/apps/1172380/ss_b76c3e22424cff02441d13448f4d8dfda89c11bd.116x65.jpg?t=1701206847"
+      "https://cdn.akamai.steamstatic.com/steam/apps/1172380/ss_b76c3e22424cff02441d13448f4d8dfda89c11bd.116x65.jpg?t=1701206847",
     ],
-    movies: "https://cdn.akamai.steamstatic.com/steam/apps/256765709/movie480.webm?t=1572357561",
+    movies:
+      "https://cdn.akamai.steamstatic.com/steam/apps/256765709/movie480.webm?t=1572357561",
     Recent_Reviews: "Very Positive",
     All_Time_Reviews: "Very Positive",
     achievement_count: "39",
-    achievement_images: ["https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/1172380/853e354f1e8bcda9c10c61d74dbc9d1837365e61.jpg"],
-    point_shop_images: ["https://steamcommunity.com/economy/profilebackground/items/1172380/058a0dfcc069d94e8f053e17bf072a4b22c4adbb.jpg?size=64x0",
+    achievement_images: [
+      "https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/1172380/853e354f1e8bcda9c10c61d74dbc9d1837365e61.jpg",
+    ],
+    point_shop_images: [
+      "https://steamcommunity.com/economy/profilebackground/items/1172380/058a0dfcc069d94e8f053e17bf072a4b22c4adbb.jpg?size=64x0",
       "https://steamcommunity.com/economy/profilebackground/items/1172380/fa4f463deb9799d93a3b89fb7324ce6982c46356.jpg?size=64x0",
-      "https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/1172380/db18d1b0851a9981442fcecaffb74362492e130a.png"],
+      "https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/1172380/db18d1b0851a9981442fcecaffb74362492e130a.png",
+    ],
     point_shop_count: "8",
     bought_status: "Play",
     price: ["Rp 47 900", "Add to Cart", "Rp 56 900", "Rp 350 505"],
-    offers: ["Buy STAR WARS Jedi: Fallen Order",
+    offers: [
+      "Buy STAR WARS Jedi: Fallen Order",
       "Buy STAR WARS Jedi: Fallen Orde Deluxe Edition",
-      "Buy STAR WARS Jedi Bundle"],
+      "Buy STAR WARS Jedi Bundle",
+    ],
     offers_desc: [],
     bundle_images: [],
     game_content: ["STAR WARS Jedi: Fallen Order - Soundtrack"],
     game_content_price: "Rp 34 000",
-    event_images: ["https://clan.akamai.steamstatic.com/images/36090644/2064e339a8f4534b2678b897e4bfb57c86abd6c3_400x225.png"],
-    latest_update: "Nov 22"
+    event_images: [
+      "https://clan.akamai.steamstatic.com/images/36090644/2064e339a8f4534b2678b897e4bfb57c86abd6c3_400x225.png",
+    ],
+    latest_update: "Nov 22",
   },
 ];
 
