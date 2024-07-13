@@ -675,9 +675,9 @@ const steamDataSet = [
     bought_status: "Play",
     price: ["Rp 349 500", "Rp 899 000", "Rp 999 000"],
     offers: [
-      "Buy Forza Horizon 5 - Standard Edition",
-      "Buy Forza Horizon 5 - Deluxe Edition",
-      "Buy Forza Horizon 5 Premium Add-Ons",
+      { name: "Buy Forza Horizon 5 - Standard Edition", priceList_id: 3 },
+      { name: "Buy Forza Horizon 5 - Deluxe Edition", priceList_id: 4 },
+      { name: "Buy Forza Horizon 5 - Premium Edition", priceList_id: 5 },
     ],
     offers_desc: [],
     bundle_images: [],
@@ -689,8 +689,8 @@ const steamDataSet = [
     ],
     latest_update: "Apr-10",
     // ! id
-    product_id: 3,
-    priceList_id: 3,
+    // product_id: 3,
+    // priceList_id: 3,
   },
   {
     id: 11,
