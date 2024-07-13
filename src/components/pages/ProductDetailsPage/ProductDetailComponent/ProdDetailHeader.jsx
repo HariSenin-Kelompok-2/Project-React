@@ -6,31 +6,48 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 
-const ProdDetailHeader = () => {
+const ProdDetailHeader = (props) => {
     const params = useParams();
     const id = params.id;
     const gameData = steamDataSet[id];
+    const product = props.products;
 
-const [mainContent, setMainContent] = useState({
-        src: gameData.movies, 
-        type: 'video'
+    const [mainContent, setMainContent] = useState({
+        src: "", 
+        type: "video"
     });
+
+    useEffect(() => {
+        if (product && product.video) {
+            setMainContent({
+                src: product.video,
+                type: "video"
+            });
+        }  
+    }, [product]);
+
+    console.log(mainContent)
+ 
 
 const handleThumbnailClick = (src, type) => {
         setMainContent({ src, type });
     };
-
+    
+const isRecommendLength = product?.Reviews?.filter((review => review.isRecommend === true)).length
+    
     return (
         <>
             {/* product detail directory */}
             <div id="directory" className="text-fontColor text-sm">
-                <p>{gameData.directory}</p>
+                <p>{product?.Categories?.map((category, index) => {
+                        return <span>{category.name} &gt; </span>;
+                })}</p>
             </div>
             {/* game title*/}
             <div id="gameName" className="flex justify-between">
-                <h1 className="text-3xl mb-4">{gameData.game_name}</h1>
+                <h1 className="text-3xl mb-4">{product.name}</h1>
                 <a href>
                     <button className="bg-buttonColorBg text-buttonColor pt-2 pr-4 pb-2 pl-4 rounded-sm">Community Hub</button>
                 </a>
@@ -38,10 +55,10 @@ const handleThumbnailClick = (src, type) => {
             {/* product detail side desc */}
             <div id="headerBg" className="flex flex-row-reverse pb-4 max-w-full max-h-full">
                 <div id="sideDesc" className="ml-4 min-w-60 w-screen max-w-full max-h-full">
-                    <img src={gameData.header_image} alt="header" className="min-w-full" />
-                    <p className="mobileH1 text-3xl mt-4">{gameData.game_name}</p>
+                    <img src={product.product_thumbnail} alt="header" className="w-full" />
+                    <p className="mobileH1 text-3xl mt-4">{product.name}</p>
                     <div className="quickDesc">
-                        <p className="text-sm my-2">{gameData.short_description}</p>
+                        <p className="text-sm my-2">{product.short_description}</p>
                     </div>
                     {/* game ratings */}
                     <div className="reviews flex text-xs">
@@ -63,31 +80,31 @@ const handleThumbnailClick = (src, type) => {
                             </p>
                         </div>
                         <div className="reviewsScore ml-4 text-buttonColor flex flex-col">
-                            <span>{gameData.Recent_Reviews}</span>
-                            <span>{gameData.All_Time_Reviews}</span>
-                            <span className="text-fontColor leading-8">{gameData.release_date}</span>
-                            <span>{gameData.developers}</span>
-                            <span>{gameData.publishers}</span>
+                            <span className={`${isRecommendLength < 10 ? "text-red-500" : "text-blue-500"}`}>{isRecommendLength < 5 ? "Negative" : "Positive"}</span>
+                            <span className={`${isRecommendLength < 10 ? "text-red-500" : "text-blue-500"}`}>{isRecommendLength < 5 ? "Negative" : "Positive"}</span>
+                            <span className="text-fontColor leading-8">{product.release_date}</span>
+                            <span>{product.developer}</span>
+                            <span>{product.publisher}</span>
                         </div>
                     </div>
                     {/* game tags */}
                     <div className="genreTag mt-2 mb-2 text-xs w-full">
                         <p className="text-fontColor">Popular user-defined tags for this product:</p>
-                        {gameData.categories.map((_, index) => {
-                            return <span key={index} className="text-buttonColor bg-greyBg rounded-sm py-1 px-1.5 mr-0.5">{gameData.categories[index]} </span>;
+                        {product?.Categories?.map((category, index) => {
+                            return <span className="text-buttonColor bg-greyBg rounded-sm py-1 px-1.5 mr-0.5">{category.name}</span>;
                         })}
                     </div>
                 </div>
                 {/* game preview */}
-                <div id="mainVideo">
-                {mainContent.type === 'video' ? (
-                        <video controls>
-                            <source src={mainContent.src} type="video/webm" />
+                <div id="mainVideo"
+                    className="w-full h-full">
+                    {mainContent.type === 'video' ? (
+                        <video controls src={mainContent.src} type="video">
                         </video>
                     ) : (
                         <img src={mainContent.src} alt="Main Preview" />
                     )}
-                    <div className="thumbnails flex justify-between gap-1 mt-1 w-full h-18">
+                    <div className="thumbnails flex justify-between gap-1 mt-1 w-full h-full">
                         <Swiper 
                             modules={[
                                         Navigation, 
@@ -97,22 +114,13 @@ const handleThumbnailClick = (src, type) => {
                             slidesPerView={5} 
                             className="lg:w-prodSliderSize lg:h-auto" 
                             scrollbar={{ draggable: true }}>
-                            {gameData.screenshots.map((_, index) => {
-                                return (
-                                    <SwiperSlide key={index}>
-                                        <img 
-                                            src={gameData.screenshots[index]} 
-                                            onclick = {()=> handleThumbnailClick(src, "image")}/>
-                                    </SwiperSlide>
-                                );
-                            })}
-                           {gameData.screenshots.map((src, index) => (
+                           {product?.ScrollThumbnails?.map((src, index) => (
                                 <SwiperSlide key={index}>
                                     <img
-                                        src={src}
+                                        src={src.img}
                                         alt={`Screenshot ${index + 1}`}
                                         className="thumbnail"
-                                        onClick={() => handleThumbnailClick(src, 'image')}
+                                        onClick={() => handleThumbnailClick(src.img, 'image')}
                                     />
                                 </SwiperSlide>
                             ))}

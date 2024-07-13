@@ -15,7 +15,7 @@ const ProdDetailOffers = () => {
   const reloadPage = () => {
     window.location.reload();
   };
-
+``
   const handleAddToCart = async (offerIndex) => {
     try {
       const response = await addToCart(offerIndex, offers);
@@ -42,7 +42,7 @@ const ProdDetailOffers = () => {
   }, [addToCartMessage]);
 
   const offersElements = offers.map((offer, index) => (
-    <div className="card p-4 mt-6 mb-2 rounded relative" key={index}>
+    <div className="card p-4 mt-6 mb-2 rounded relative w-full" key={index}>
       <p className="text-2xl font-semibold">
         {typeof offer === "object" ? offer.name : offer || "Name not available"}
       </p>
