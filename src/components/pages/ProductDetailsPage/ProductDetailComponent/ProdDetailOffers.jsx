@@ -1,5 +1,4 @@
-import { useParams } from "react-router-dom";
-import steamDataSet from "./steamDataset";
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { addToCart } from "../../../../API/cart";
 
@@ -8,27 +7,21 @@ const formatPrice = (price) => {
 };
 
 const ProdDetailOffers = (props) => {
-  const params = useParams();
-  const id = parseInt(params.id);
-  const gameData = steamDataSet[id];
-  const offers = gameData.offers;
-  const prices = gameData.price;
-
   const [addToCartMessage, setAddToCartMessage] = useState("");
 
   const reloadPage = () => {
     window.location.reload();
   };
-``
+
   const handleAddToCart = async (offerIndex) => {
     try {
-      const response = await addToCart(offerIndex, offers);
-      setAddToCartMessage(`Added ${offers[offerIndex].name} to cart!`);
-      alert(`Added ${offers[offerIndex].name} to cart!`);
+      const response = await addToCart(offerIndex);
+      console.log(response)
+      setAddToCartMessage(`Added to cart!`);
+      alert(`Added to cart!`);
       reloadPage();
     } catch (error) {
-      const errorMessage =
-        error.response?.data?.message || "Failed to add item to cart.";
+      const errorMessage = error.response?.data?.message || "Failed to add item to cart.";
       console.error("Error adding to cart:", errorMessage);
       setAddToCartMessage(errorMessage);
       alert(errorMessage);
@@ -45,41 +38,35 @@ const ProdDetailOffers = (props) => {
     }
   }, [addToCartMessage]);
 
-  // PUNYA KITA
-  const product = props.product
-  const PriceList = product?.PriceLists
+  // Punya mas der
+  const product = props.product;
+  const PriceList = product?.PriceLists;
   const discount = (discountValue, normalPrice) => {
     // {((offer?.discount / 100) * offer?.price )}
-    return (discountValue / 100) * normalPrice 
-  }
-  
-  console.log(PriceList)
+    return (discountValue / 100) * normalPrice;
+  };
+
+  console.log(PriceList);
 
   const offersElements = PriceList?.map((offer, index) => (
     <div className="card p-4 mt-6 mb-2 rounded relative w-full" key={index}>
       <p className="text-2xl font-semibold">
-        Buy {product?.name} {offer?.offerName} 
+        Buy {product?.name} {offer?.offerName}
       </p>
       <div className="text-base text-right absolute right-1">
         <div className="pl-3 pr-0 bg-black rounded text-sm">
           <span>
             {/* {formatPrice(offer?.price)}; */}
-            {offer?.discount > 0 ? 
-            ( 
+            {offer?.discount > 0 ? (
               <>
-              <span className="bg-lime-300 p-2 text-lg text-green-500">{offer?.discount} % </span>
+                <span className="bg-lime-300 p-2 text-lg text-green-500">{offer?.discount} % </span>
                 <span className="line-through ">{formatPrice(offer?.price)} </span>
                 <span className="text-discount"> {formatPrice(offer?.price - discount(offer?.discount, parseInt(offer?.price)))} </span>
               </>
-            ) 
-            : 
-            (
+            ) : (
               <span>{formatPrice(offer?.price)}</span>
-            ) }
-            <button
-              className="m-1 bg-buyBg py-2 px-4 rounded"
-              onClick={() => handleAddToCart(offer.id)}
-            >
+            )}
+            <button className="m-1 bg-buyBg py-2 px-4 rounded" onClick={() => handleAddToCart(offer.id)}>
               Add to Cart
             </button>
           </span>
@@ -95,6 +82,5 @@ const ProdDetailOffers = (props) => {
     </>
   );
 };
-
 
 export default ProdDetailOffers;

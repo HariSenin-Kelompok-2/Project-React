@@ -27,21 +27,28 @@ const breakpoints = {
 const HomePage = () => {
   const isLogin = useSelector((state) => state.auth.isLogin);
   const [actionProducts, setActionProducts] = useState([]);
+  const [openWorldProducts, setOpenWorldProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
 
   usePageTitle("Welcome to Steam");
 
-  const getActionProducts = async () => {
-    const response = await axios.get("http://localhost:3001/api/category/3");
-    setActionProducts(response.data.category.products);
+  const getProductsByCategory = async (id, setter) => {
+    const response = await axios.get("http://localhost:3001/api/category/" + id);
+    setter(response.data.category.products);
   };
 
-  // const getAllProducts = async () => {
-  //   const response
-  // }
+  const getAllProducts = async () => {
+    const response = await axios.get("http://localhost:3001/api/products");
+    setAllProducts(response.data.data);
+  };
 
   useEffect(() => {
-    getActionProducts();
+    getProductsByCategory(3, setActionProducts);
+    getProductsByCategory(1, setOpenWorldProducts);
+    getAllProducts();
   }, []);
+
+  // console.log(allProducts);
 
   return (
     <>
@@ -98,26 +105,23 @@ const HomePage = () => {
         {!isLogin && <SignInBox />}
 
         {/* Feature: Browse Steam*/}
-        <FeatureContainer title="Browse Steam" isUsingArrow={false}>
+        <FeatureContainer title="Browse Steam" isUsingArrow={false} classProps="mb-16">
           <BrowseSteam />
         </FeatureContainer>
 
         {/* Feature: Under 90k */}
-        <FeatureContainer classProps="mt-20" title="Under Rp 90 000" button="Under Rp 90 000" button2="Under Rp 45 000">
-          {under90kGameDatas.map((game, index) => (
-            <SwiperSlide key={index}>
-              <GameCard id={game.id} image={game.image} price={game.price} isDiscount={game.isDiscount} discountedPrice={game.discountedPrice} discountValue={game.discountValue} />
-            </SwiperSlide>
-          ))}
-          {under90kGameDatas.map((game, index) => (
-            <SwiperSlide key={index}>
-              <GameCard id={game.id} image={game.image} price={game.price} isDiscount={game.isDiscount} discountedPrice={game.discountedPrice} discountValue={game.discountValue} />
-            </SwiperSlide>
-          ))}
-        </FeatureContainer>
+        {openWorldProducts?.length > 0 && (
+          <FeatureContainer title={"Popular Open World Games"} button={"BROWSE ALL"}>
+            {openWorldProducts?.slice().reverse().slice(0,8).map((game, index) => (
+              <SwiperSlide key={index}>
+                <GameCard id={game.id} image={game.product_thumbnail} price={game.PriceLists[0].price} />
+              </SwiperSlide>
+            ))}
+          </FeatureContainer>
+        )}
 
         {/* Feature: Popular Action Games */}
-        {actionProducts.length > 0 && (
+        {actionProducts?.length > 0 && (
           <FeatureContainer title={"Popular Action Games"} button={"BROWSE ALL"}>
             {actionProducts?.map((game, index) => (
               <SwiperSlide key={index}>
