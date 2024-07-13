@@ -25,7 +25,7 @@ const ProdDetailOffers = () => {
       reloadPage();
     } catch (error) {
       const errorMessage =
-        error.response?.data?.message || "Failed to add item to cart.";
+      error.response?.data?.message || "Failed to add item to cart.";
       console.error("Error adding to cart:", errorMessage);
       setAddToCartMessage(errorMessage);
       alert(errorMessage);
@@ -42,13 +42,13 @@ const ProdDetailOffers = () => {
     }
   }, [addToCartMessage]);
   
-    const [products, setProducts] = useState([""]);
+    const [products, setProducts] = useState([]);
   
     const fetchProducts = async () => {
       try {
-        const productResponse = await axios.get ("http://localhost:3001/api/products");
-        setProducts(productResponse.data);
-        console.log(productResponse.data)
+        const productResponse = await axios.get ("http://localhost:3001/api/products/" )
+          setProducts(productResponse.data.data);
+          console.log(productResponse.data.data)
       } catch (error) {
         console.log(error);
       }
@@ -63,12 +63,12 @@ const ProdDetailOffers = () => {
         return (
           <div className="card p-4 mt-6 mb-2 rounded relative" key={index}>
         <p className="text-2xl font-semibold">
-          {typeof product === "object" ? product.name : offer || "Name not available"}
+          {typeof product === "object" ? product.name : "Name not available"}
         </p>
         <div className="gamePurchaseContainer text-base text-right absolute right-1">
           <div className="gamePurchaseButton pl-3 pr-0 bg-black rounded text-sm">
             <span>
-              {product.price[index] || "Price not available"}{" "}
+              Rp.{product?.PriceLists[0]?.price || "Price not available"}{" "}
               <button
                 className="gamePurchase m-1 bg-buyBg py-2 px-4 rounded"
                 onClick={() => handleAddToCart(index)}
