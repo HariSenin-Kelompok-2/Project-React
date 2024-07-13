@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+const formatPrice = (price) => {
+  return `Rp ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}`;
+};
+
 const GameCard = ({ image, price, id, isDiscount = false, discountedPrice = null, discountValue = null, type = null }) => {
   return (
     <>
@@ -64,7 +68,7 @@ const GameCard = ({ image, price, id, isDiscount = false, discountedPrice = null
                 </>
               ) : (
                 <div className="px-1 py-0.5 bg-[#141f2c66]">
-                  <span className="text-white">Rp {price}</span>
+                  <span className="text-white">{formatPrice(price)}</span>
                 </div>
               )}
             </div>

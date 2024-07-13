@@ -60,7 +60,7 @@ FeatureContainer.propTypes = {
   button2: PropTypes.string,
   children: PropTypes.node,
   classProps: PropTypes.string,
-  isUsingArrow: PropTypes.boolean,
+  isUsingArrow: PropTypes.bool,
   slidesPerView: PropTypes.number,
   slidesPerGroup: PropTypes.number,
   breakpoints: PropTypes.object,

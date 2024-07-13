@@ -12,6 +12,8 @@ import SignInBox from "./components/SignInBox";
 import SignInBoxFooter from "./components/SignInBoxFooter";
 import usePageTitle from "../../../hooks/usePageTitle";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const breakpoints = {
   0: {
@@ -24,8 +26,22 @@ const breakpoints = {
 
 const HomePage = () => {
   const isLogin = useSelector((state) => state.auth.isLogin );
+  const [actionProducts, setActionProducts] = useState([]);
   
   usePageTitle("Welcome to Steam");
+
+  const getActionProducts = async () => {
+    const response = await axios.get("http://localhost:3001/api/category/3");
+    setActionProducts(response.data.category.products);
+  }
+
+  // const getAllProducts = async () => {
+  //   const response
+  // }
+
+  useEffect(() => {
+    getActionProducts();
+  }, [])
 
   return (
     <>
@@ -100,16 +116,17 @@ const HomePage = () => {
           ))}
         </FeatureContainer>
 
-        {/* Feature: Popular VR Games */}
-        <FeatureContainer title={"Popular VR Games"} button={"BROWSE ALL"}>
-          {VRGameDatas.map((game, index) => (
+
+        {/* Feature: Popular Action Games */}
+        <FeatureContainer title={"Popular Action Games"} button={"BROWSE ALL"}>
+          {actionProducts?.map((game, index) => (
             <SwiperSlide key={index}>
-              <GameCard id={game.id} image={game.image} price={game.price} />
+              <GameCard id={game.id} image={game.product_thumbnail} price={game.PriceLists[0].price} />
             </SwiperSlide>
           ))}
           {VRGameDatas.map((game, index) => (
             <SwiperSlide key={index}>
-              <GameCard id={game.id} image={game.image} price={game.price} />
+              <GameCard id={game.id} image={game.image} price={"100000"} />
             </SwiperSlide>
           ))}
         </FeatureContainer>
