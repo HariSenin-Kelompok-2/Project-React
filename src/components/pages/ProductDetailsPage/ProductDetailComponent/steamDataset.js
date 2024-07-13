@@ -108,7 +108,7 @@ const steamDataSet = [
     ],
     point_shop_count: "29",
     bought_status: "Play",
-    price: ["Rp 72 449", "Add to Cart", "Rp 229 999", "Rp 399 999"],
+    price: ["Rp 72 449", "Rp 229 999", "Rp 399 999"],
     offers: [
       "Buy Rain World",
       "Buy Rain World Deluxe Edition",
@@ -179,7 +179,7 @@ const steamDataSet = [
     ],
     point_shop_count: "29",
     bought_status: "Play",
-    price: ["Rp 69 999", "Add To Cart", "Rp 229 999", "Rp 199 999"],
+    price: ["Rp 69 999",  "Rp 229 999", "Rp 199 999"],
     offers: [
       "Buy Escape The Backrooms",
       "Buy Escape The Backrooms",
@@ -243,7 +243,7 @@ const steamDataSet = [
     ],
     point_shop_count: "29",
     bought_status: "Play",
-    price: ["Rp 108 999", "Add To Cart", "Rp 229 999", "Rp 399 999"],
+    price: ["Rp 108 999", "Rp 229 999", "Rp 399 999"],
     offers: [
       "Buy Blade And Sorcery",
       "Buy Blade And Sorcery Upgrade",
@@ -324,7 +324,7 @@ const steamDataSet = [
     ],
     point_shop_count: "29",
     bought_status: "Play",
-    price: ["Rp 189 999", "Add To Cart", "Rp 229 999", "Rp 399 999"],
+    price: ["Rp 189 999", "Rp 229 999", "Rp 399 999"],
     offers: [
       "Buy Kayak VR: Mirage",
       "Buy Kayak VR: Mirage Upgrade",
@@ -393,7 +393,7 @@ const steamDataSet = [
     ],
     point_shop_count: "29",
     bought_status: "Play",
-    price: ["Rp 13 099", "Add To Cart", "Rp 5 911 603", "Rp 40 394"],
+    price: ["Rp 13 099", "Rp 5 911 603", "Rp 40 394"],
     offers: [
       "Buy The Coma: Recut",
       "Buy Headup Games Complete BUNDLE",
@@ -462,7 +462,7 @@ const steamDataSet = [
     ],
     point_shop_count: "29",
     bought_status: "Play",
-    price: ["Rp 90 999", "Add To Cart", "Rp 195 999", "Rp 259 999"],
+    price: ["Rp 90 999", "Rp 195 999", "Rp 259 999"],
     offers: ["Buy Oh Deer", "Buy Oh Deer Deluxe Edition", "Buy Oh Deer"],
     offers_desc: [],
     bundle_images: [],
@@ -530,7 +530,7 @@ const steamDataSet = [
     ],
     point_shop_count: "29",
     bought_status: "Play",
-    price: ["Rp 89 999", "Add To Cart", "Rp 195 999", "Rp 259 999"],
+    price: ["Rp 89 999", "Rp 195 999", "Rp 259 999"],
     offers: [
       "Buy Phasmophobia",
       "Buy Phasmophobia Deluxe Edition",
@@ -604,7 +604,7 @@ const steamDataSet = [
     ],
     point_shop_count: "29",
     bought_status: "Play",
-    price: ["Rp 89 999", "Add To Cart", "Rp 195 999", "Rp 259 999"],
+    price: ["Rp 89 999", "Rp 195 999", "Rp 259 999"],
     offers: [
       "Buy Pistol Whip",
       "Buy Pistol Whip Deluxe Edition",
@@ -737,7 +737,7 @@ const steamDataSet = [
     ],
     point_shop_count: "29",
     bought_status: "Play",
-    price: ["Rp 140 000", "Add to Cart", "Rp 299 999", "Rp.320 000"],
+    price: ["Rp 140 000",  "Rp 299 999", "Rp.320 000"],
     offers: ["Buy Jusant", "Buy Jusant Soundtrack Bundle", "Buy Jusant Bundle"],
     offers_desc: [],
     bundle_images: [],
@@ -790,7 +790,7 @@ const steamDataSet = [
     ],
     point_shop_count: "29",
     bought_status: "Play",
-    price: ["Rp 799 000", "Add to Cart", "Rp 1 299 999", "Rp.2 320 000"],
+    price: ["Rp 799 000",  "Rp 1 299 999", "Rp.2 320 000"],
     offers: [
       "Buy The Elder Scrolls V: Skyrim VR",
       "Buy The Elder Scrolls V: Skyrim VR Upgraded",
@@ -848,7 +848,7 @@ const steamDataSet = [
     ],
     point_shop_count: "8",
     bought_status: "Play",
-    price: ["Rp 47 900", "Add to Cart", "Rp 56 900", "Rp 350 505"],
+    price: ["Rp 47 900", "Rp 56 900", "Rp 350 505"],
     offers: [
       "Buy STAR WARS Jedi: Fallen Order",
       "Buy STAR WARS Jedi: Fallen Orde Deluxe Edition",
