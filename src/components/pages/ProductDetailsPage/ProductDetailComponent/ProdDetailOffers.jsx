@@ -47,7 +47,7 @@ const ProdDetailOffers = () => {
         {typeof offer === "object" ? offer.name : offer || "Name not available"}
       </p>
       <div className="gamePurchaseContainer text-base text-right absolute right-1">
-        <div className="gamePurchaseButton py-2.5 pl-4 pr-0 bg-black rounded">
+        <div className="gamePurchaseButton pl-3 pr-0 bg-black rounded text-sm">
           <span>
             {prices[index] || "Price not available"}{" "}
             <button
