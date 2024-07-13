@@ -6,7 +6,7 @@ import GameCard from "./components/GameCard";
 import CategoryCard from "./components/CategoryCard";
 import BrowseSteam from "./components/BrowseSteam";
 import FeatureContainer from "./components/FeatureContainer";
-import { VRGameDatas, categories, midweekSpecialOffersData, todaySpecialOffersData, under90kGameDatas } from "../../../utils/datas";
+import { categories, midweekSpecialOffersData, todaySpecialOffersData, under90kGameDatas } from "../../../utils/datas";
 import Footer from "../../elements/Footer/Footer";
 import SignInBox from "./components/SignInBox";
 import SignInBoxFooter from "./components/SignInBoxFooter";
@@ -25,15 +25,15 @@ const breakpoints = {
 };
 
 const HomePage = () => {
-  const isLogin = useSelector((state) => state.auth.isLogin );
+  const isLogin = useSelector((state) => state.auth.isLogin);
   const [actionProducts, setActionProducts] = useState([]);
-  
+
   usePageTitle("Welcome to Steam");
 
   const getActionProducts = async () => {
     const response = await axios.get("http://localhost:3001/api/category/3");
     setActionProducts(response.data.category.products);
-  }
+  };
 
   // const getAllProducts = async () => {
   //   const response
@@ -41,7 +41,7 @@ const HomePage = () => {
 
   useEffect(() => {
     getActionProducts();
-  }, [])
+  }, []);
 
   return (
     <>
@@ -116,20 +116,16 @@ const HomePage = () => {
           ))}
         </FeatureContainer>
 
-
         {/* Feature: Popular Action Games */}
-        <FeatureContainer title={"Popular Action Games"} button={"BROWSE ALL"}>
-          {actionProducts?.map((game, index) => (
-            <SwiperSlide key={index}>
-              <GameCard id={game.id} image={game.product_thumbnail} price={game.PriceLists[0].price} />
-            </SwiperSlide>
-          ))}
-          {VRGameDatas.map((game, index) => (
-            <SwiperSlide key={index}>
-              <GameCard id={game.id} image={game.image} price={"100000"} />
-            </SwiperSlide>
-          ))}
-        </FeatureContainer>
+        {actionProducts.length > 0 && (
+          <FeatureContainer title={"Popular Action Games"} button={"BROWSE ALL"}>
+            {actionProducts?.map((game, index) => (
+              <SwiperSlide key={index}>
+                <GameCard id={game.id} image={game.product_thumbnail} price={game.PriceLists[0].price} />
+              </SwiperSlide>
+            ))}
+          </FeatureContainer>
+        )}
       </div>
 
       <div className="bg-[#1B2838] pb-16">
