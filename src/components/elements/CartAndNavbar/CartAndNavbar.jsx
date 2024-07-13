@@ -39,7 +39,7 @@ const CartAndNavbar = ({ cartCount }) => {
         >
           <i className="fa-sharp fa-solid fa-cart-shopping" />{" "}
           <span className="text-xs">
-            Cart ({cartCount !== undefined ? cartCount : fetchedCartCount})
+            Cart ({cartCount !== undefined ? cartCount : fetchedCartCount || 0})
           </span>
         </Link>
       </div>
