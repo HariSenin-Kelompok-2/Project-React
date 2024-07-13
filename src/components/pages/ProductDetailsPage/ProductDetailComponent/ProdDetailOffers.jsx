@@ -3,51 +3,47 @@ import steamDataSet from "./steamDataset";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const API_URL = "http://localhost:3001"; // Your API URL
+const API_URL = "http://localhost:3001"; 
 
 const ProdDetailOffers = () => {
   const params = useParams();
-  const id = parseInt(params.id); // Ensure id is parsed as integer
+  const id = parseInt(params.id); 
   const gameData = steamDataSet[id];
   const offers = gameData.offers;
-  const prices = gameData.price; // Use the correct prices
+  const prices = gameData.price; 
 
-  // State to manage feedback message after adding to cart
   const [addToCartMessage, setAddToCartMessage] = useState("");
-  const [refreshKey, setRefreshKey] = useState(0); // State to manage refresh
+  const [refreshKey, setRefreshKey] = useState(0); 
 
-  // Function to reload the page
   const reloadPage = () => {
     window.location.reload();
   };
 
-  // Function to add item to cart
   const addToCart = async (offerIndex) => {
     try {
       const response = await axios.post(`${API_URL}/api/carts`, {
-        priceListId: gameData.priceList_id, // Include priceList_id
+        priceListId: gameData.priceList_id, 
       });
       console.log("Item added to cart:", response.data);
       setAddToCartMessage(`Added ${offers[offerIndex]} to cart!`);
-      alert(`Added ${offers[offerIndex]} to cart!`); // Show success alert
-      reloadPage(); // Reload the page
+      alert(`Added ${offers[offerIndex]} to cart!`); 
+      reloadPage();
     } catch (error) {
       const errorMessage =
         error.response?.data?.message || "Failed to add item to cart.";
       console.error("Error adding to cart:", errorMessage);
       setAddToCartMessage(errorMessage);
-      alert(errorMessage); // Show error alert
+      alert(errorMessage); 
     }
   };
 
-  // useEffect to handle refresh logic
   useEffect(() => {
     if (addToCartMessage) {
       const timer = setTimeout(() => {
         setAddToCartMessage("");
       }, 1000);
 
-      return () => clearTimeout(timer); // Cleanup timer
+      return () => clearTimeout(timer); 
     }
   }, [addToCartMessage]);
 
