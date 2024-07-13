@@ -150,6 +150,7 @@
   margin-top: 8px;
   flex-wrap: wrap;
   font-size: 13px;
+  gap: 3rem;
 }
 
 .notes {
@@ -170,6 +171,7 @@
   align-items: center;
   display: flex;
   flex-direction: row;
+  gap: 5px;
 }
 
 .windows_icon > i {
@@ -278,6 +280,7 @@
 #option_gift {
   background: #3b3f4880;
   border: 0;
+  padding: 7px;
   min-width: 100px;
   color: #dfe3e6;
 }
