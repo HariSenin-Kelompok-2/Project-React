@@ -15,6 +15,7 @@ const CartPage = () => {
     const handleGetCarts = async () => {
       try {
         const data = await getCarts();
+        console.log(data);
         setCarts(data.data || []);
         calculateTotalPrice(data.data || []);
       } catch (error) {
@@ -89,7 +90,8 @@ const CartPage = () => {
                         <div className="detail_games">
                           <div className="games_details">
                             <div className="titles">
-                              {cart.PriceList.product.name}
+                              {cart.PriceList.product.name}{" "}
+                              {cart.PriceList.offerName}
                             </div>
                             <div className="row_notes row_icon">
                               <div className="icon_container">

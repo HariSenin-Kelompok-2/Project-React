@@ -13,15 +13,16 @@ const ProdDetailOffers = (props) => {
     window.location.reload();
   };
 
-  const handleAddToCart = async (offerIndex) => {
+  const handleAddToCart = async (offerIndex, productName, offerName) => {
     try {
       const response = await addToCart(offerIndex);
-      console.log(response)
-      setAddToCartMessage(`Added to cart!`);
-      alert(`Added to cart!`);
+      console.log(response);
+      setAddToCartMessage(`Added to cart! ${productName} ${offerName}`);
+      alert(`Added to cart! ${productName} ${offerName}`);
       reloadPage();
     } catch (error) {
-      const errorMessage = error.response?.data?.message || "Failed to add item to cart.";
+      const errorMessage =
+        error.response?.data?.message || "Failed to add item to cart.";
       console.error("Error adding to cart:", errorMessage);
       setAddToCartMessage(errorMessage);
       alert(errorMessage);
@@ -38,11 +39,9 @@ const ProdDetailOffers = (props) => {
     }
   }, [addToCartMessage]);
 
-  // Punya mas der
   const product = props.product;
   const PriceList = product?.PriceLists;
   const discount = (discountValue, normalPrice) => {
-    // {((offer?.discount / 100) * offer?.price )}
     return (discountValue / 100) * normalPrice;
   };
 
@@ -56,17 +55,31 @@ const ProdDetailOffers = (props) => {
       <div className="text-base text-right absolute right-1">
         <div className="pl-3 pr-0 bg-black rounded text-sm">
           <span>
-            {/* {formatPrice(offer?.price)}; */}
             {offer?.discount > 0 ? (
               <>
-                <span className="bg-lime-300 p-2 text-lg text-green-500">{offer?.discount} % </span>
-                <span className="line-through ">{formatPrice(offer?.price)} </span>
-                <span className="text-discount"> {formatPrice(offer?.price - discount(offer?.discount, parseInt(offer?.price)))} </span>
+                <span className="bg-lime-300 p-2 text-lg text-green-500">
+                  {offer?.discount} %{" "}
+                </span>
+                <span className="line-through ">
+                  {formatPrice(offer?.price)}{" "}
+                </span>
+                <span className="text-discount">
+                  {" "}
+                  {formatPrice(
+                    offer?.price -
+                      discount(offer?.discount, parseInt(offer?.price))
+                  )}{" "}
+                </span>
               </>
             ) : (
               <span>{formatPrice(offer?.price)}</span>
             )}
-            <button className="m-1 bg-buyBg py-2 px-4 rounded" onClick={() => handleAddToCart(offer.id)}>
+            <button
+              className="m-1 bg-buyBg py-2 px-4 rounded"
+              onClick={() =>
+                handleAddToCart(offer.id, product.name, offer.offerName)
+              }
+            >
               Add to Cart
             </button>
           </span>
