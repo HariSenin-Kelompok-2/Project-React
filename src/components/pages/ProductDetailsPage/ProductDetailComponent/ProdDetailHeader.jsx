@@ -147,6 +147,7 @@ const ProdDetailHeader = (props) => {
             <Swiper
               modules={[Navigation, Pagination, Scrollbar, A11y]}
               slidesPerView={5}
+              spaceBetween={5}
               className="lg:w-prodSliderSize lg:h-auto"
               scrollbar={{ draggable: true }}
             >
