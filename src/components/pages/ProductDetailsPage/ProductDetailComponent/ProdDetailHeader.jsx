@@ -33,8 +33,6 @@ const ProdDetailHeader = (props) => {
     }
   }, [product]);
 
-  // console.log(mainContent)
-
   const handleThumbnailClick = (src, type) => {
     setMainContent({ src, type });
   };
@@ -49,14 +47,14 @@ const ProdDetailHeader = (props) => {
       <div id="directory" className="text-fontColor text-sm">
         <p>
           {product?.Categories?.map((category, index) => {
-            return <span>{category.name} &gt; </span>;
+            return <span key={index}>{category.name} &gt; </span>;
           })}
         </p>
       </div>
       {/* game title*/}
       <div id="gameName" className="flex justify-between">
         <h1 className="text-3xl mb-4">{product.name}</h1>
-        <a href>
+        <a href="#">
           <button className="bg-buttonColorBg text-buttonColor pt-2 pr-4 pb-2 pl-4 rounded-sm">
             Community Hub
           </button>
@@ -84,19 +82,19 @@ const ProdDetailHeader = (props) => {
           <div className="reviews flex text-xs">
             <div className="reviewsHeader flex-col text-fontColor">
               <p>
-                <a href>Recent Reviews:</a>
+                <a href="#">Recent Reviews:</a>
               </p>
               <p>
-                <a href>All Reviews:</a>
+                <a href="#">All Reviews:</a>
               </p>
               <p className="leading-8">
-                <a href>Release Date:</a>
+                <a href="#">Release Date:</a>
               </p>
               <p>
-                <a href>Developer:</a>
+                <a href="#">Developer:</a>
               </p>
               <p>
-                <a href>Publisher:</a>
+                <a href="#">Publisher:</a>
               </p>
             </div>
             <div className="reviewsScore ml-4 text-buttonColor flex flex-col">
@@ -128,7 +126,10 @@ const ProdDetailHeader = (props) => {
             </p>
             {product?.Categories?.map((category, index) => {
               return (
-                <span className="text-buttonColor bg-greyBg rounded-sm py-1 px-1.5 mr-0.5">
+                <span
+                  key={index}
+                  className="text-buttonColor bg-greyBg rounded-sm py-1 px-1.5 mr-0.5"
+                >
                   {category.name}
                 </span>
               );
@@ -138,9 +139,9 @@ const ProdDetailHeader = (props) => {
         {/* game preview */}
         <div id="mainVideo" className="w-full h-full">
           {mainContent.type === "video" ? (
-            <video controls src={mainContent.src} type="video"></video>
+            <video controls src={mainContent.src} type="video/mp4"></video>
           ) : (
-            <img src={mainContent.src} alt="Main Preview" className="w-full"/>
+            <img src={mainContent.src} alt="Main Preview" className="w-full" />
           )}
           <div className="thumbnails flex justify-between gap-1 mt-1 w-full h-full">
             <Swiper
@@ -149,14 +150,28 @@ const ProdDetailHeader = (props) => {
               className="lg:w-prodSliderSize lg:h-auto"
               scrollbar={{ draggable: true }}
             >
-              {product?.ScrollThumbnails?.map((src, index) => (
+              {product?.ScrollThumbnails?.map((thumbnail, index) => (
                 <SwiperSlide key={index}>
-                  <img
-                    src={src.img}
-                    alt={`Screenshot ${index + 1}`}
-                    className="thumbnail"
-                    onClick={() => handleThumbnailClick(src.img, "image")}
-                  />
+                  {thumbnail.type === "video" ? (
+                    <video
+                      src={thumbnail.img}
+                      type={thumbnail.type}
+                      className="thumbnail"
+                      onClick={() =>
+                        handleThumbnailClick(thumbnail.img, "video")
+                      }
+                    ></video>
+                  ) : (
+                    <img
+                      src={thumbnail.img}
+                      type={thumbnail.type}
+                      alt={`Screenshot ${index + 1}`}
+                      className="thumbnail"
+                      onClick={() =>
+                        handleThumbnailClick(thumbnail.img, "image")
+                      }
+                    />
+                  )}
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -166,7 +181,7 @@ const ProdDetailHeader = (props) => {
       {/* sign in question */}
       <div id="question" className="bg-greyBg text-sm p-3">
         <p>
-          <a href className="text-white">
+          <a href="#" className="text-white">
             Sign In
           </a>
           to add this item to your wishlist, follow it, or mark it as ignored
