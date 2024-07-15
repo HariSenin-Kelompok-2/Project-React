@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -24,6 +23,8 @@ const ProdDetailHeader = (props) => {
     type: "video",
   });
 
+  const [activeSlide, setActiveSlide] = useState(0);
+
   useEffect(() => {
     if (product && product.video) {
       setMainContent({
@@ -33,8 +34,9 @@ const ProdDetailHeader = (props) => {
     }
   }, [product]);
 
-  const handleThumbnailClick = (src, type) => {
+  const handleThumbnailClick = (src, type, index) => {
     setMainContent({ src, type });
+    setActiveSlide(index);
   };
 
   const isRecommendLength = product?.Reviews?.filter(
@@ -51,7 +53,7 @@ const ProdDetailHeader = (props) => {
           })}
         </p>
       </div>
-      {/* game title*/}
+      {/* game title */}
       <div id="gameName" className="flex justify-between">
         <h1 className="text-3xl mb-4">{product.name}</h1>
         <a href="#">
@@ -150,6 +152,7 @@ const ProdDetailHeader = (props) => {
               spaceBetween={5}
               className="lg:w-prodSliderSize lg:h-auto"
               scrollbar={{ draggable: true }}
+              onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
             >
               {product?.ScrollThumbnails?.map((thumbnail, index) => (
                 <SwiperSlide key={index}>
@@ -157,9 +160,11 @@ const ProdDetailHeader = (props) => {
                     <video
                       src={thumbnail.img}
                       type={thumbnail.type}
-                      className="thumbnail"
+                      className={`thumbnail ${
+                        activeSlide === index ? "border-white border-2" : ""
+                      }`}
                       onClick={() =>
-                        handleThumbnailClick(thumbnail.img, "video")
+                        handleThumbnailClick(thumbnail.img, "video", index)
                       }
                     ></video>
                   ) : (
@@ -167,9 +172,11 @@ const ProdDetailHeader = (props) => {
                       src={thumbnail.img}
                       type={thumbnail.type}
                       alt={`Screenshot ${index + 1}`}
-                      className="thumbnail"
+                      className={`thumbnail ${
+                        activeSlide === index ? "border-white border-2" : ""
+                      }`}
                       onClick={() =>
-                        handleThumbnailClick(thumbnail.img, "image")
+                        handleThumbnailClick(thumbnail.img, "image", index)
                       }
                     />
                   )}
