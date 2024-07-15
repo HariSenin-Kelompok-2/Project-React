@@ -31,9 +31,9 @@ const HomePageMain = () => {
   const featuredProduct2 = allProducts[1];
 
   return (
-    <main className="bg-[#1b2838] pt-5 pb-10 px-4">
+    <main className="bg-[#1b2838] pt-7 pb-10 px-4">
       {/* Feature: Recommended */}
-      <FeatureContainer title="Featured & Recommended" slidesPerView={1} classProps="mt-7" slidesPerGroup={1} autoplay={autoplay}>
+      <FeatureContainer title="Featured & Recommended" slidesPerView={1} slidesPerGroup={1} autoplay={autoplay}>
         {/* Tidak menggunakan loop karena bug */}
         <SwiperSlide>
           <RecommendedJumbotron {...featuredProduct1} />

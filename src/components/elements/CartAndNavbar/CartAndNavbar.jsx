@@ -35,9 +35,9 @@ const CartAndNavbar = ({ cartCount }) => {
     cartCount !== undefined ? cartCount : fetchedCartCount;
 
   return (
-    <div className="flex items-center flex-col text-white bg-no-repeat bg-[#1b2838] lg:px-4">
+    <div className="flex items-center flex-col text-white bg-no-repeat bg-[#1b2838] lg:px-4 lg:pt-3">
       {/* Cart */}
-      <div className="text-sm hidden lg:mt-2 lg:max-w-[1100px] lg:flex lg:w-full">
+      <div className="text-sm hidden lg:max-w-[1100px] lg:flex lg:w-full">
         {isLogin && displayCartCount > 0 ? (
           <Link
             to="/cart"
