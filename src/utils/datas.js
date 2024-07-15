@@ -41,41 +41,6 @@ export const categories = [
     },
 ]
 
-export const under90kGameDatas = [
-    {
-        id: 6,
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/2708450/header_292x136.jpg?t=1710877806",
-        discountValue: "-20%",
-        isDiscount: true,
-        price: "90 000",
-        discountedPrice: "72 799",
-    },
-    {
-        id: 7,
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/739630/header_292x136.jpg?t=1702309974",
-        discountValue: null,
-        isDiscount: false,
-        price: "89 999",
-        discountedPrice: null,
-    },
-    {
-        id: 12,
-        image: "https://cdn.akamai.steamstatic.com/steam/subs/401587/header_292x136.jpg?t=1574100600",
-        discountValue: "-90%",
-        isDiscount: true,
-        price: "569 000",
-        discountedPrice: "56 900",
-    },
-    {
-        id: 2,
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1943950/header_292x136.jpg?t=1710893725",
-        discountValue: null,
-        isDiscount: false,
-        price: "69 999",
-        discountedPrice: null,
-    },
-];
-
 export const midweekSpecialOffersData = [
     {   
         id: 0,
@@ -99,7 +64,7 @@ export const todaySpecialOffersData = [
     {
         id: 0,
         type: "today deal",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/600090/header.jpg?t=1712077006",
+        image: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/524220/header.jpg?t=1719545479",
         discountValue: "-65%",
         price: "206 999",
         discountedPrice: "72 449"

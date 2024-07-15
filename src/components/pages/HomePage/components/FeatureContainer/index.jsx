@@ -25,6 +25,7 @@ const FeatureContainer = ({ title, children, button = null, button2 = null, clas
 
   return (
     <div className={`max-w-[1100px] text-white mx-auto relative ${classProps}`}>
+      
       <HeadingFeatures title={title}>
         {button && (
           <>
@@ -33,6 +34,7 @@ const FeatureContainer = ({ title, children, button = null, button2 = null, clas
           </>
         )}
       </HeadingFeatures>
+
       {isUsingArrow && (
         <div className="absolute gradient-arrow-left top-1/2 bottom-1/2 -translate-y-1/2 lg:flex py-[3.9rem] px-3 -left-[3.3rem] justify-center items-center cursor-pointer hidden" onClick={handlePrevious}>
           <div>
@@ -40,9 +42,11 @@ const FeatureContainer = ({ title, children, button = null, button2 = null, clas
           </div>
         </div>
       )}
+
       <Swiper loop navigation modules={[Navigation, Pagination]} spaceBetween={8} slidesPerView={slidesPerView} pagination={pagination} onSwiper={setSwiperRef} breakpoints={breakpoints} slidesPerGroup={slidesPerGroup}>
         {children}
       </Swiper>
+
       {isUsingArrow && (
         <div className="absolute gradient-arrow-right top-1/2 bottom-1/2 -translate-y-1/2 lg:flex py-[3.9rem] px-3 -right-[3.4rem] justify-center items-center cursor-pointer hidden" onClick={handleNext}>
           <div>
@@ -50,6 +54,7 @@ const FeatureContainer = ({ title, children, button = null, button2 = null, clas
           </div>
         </div>
       )}
+
     </div>
   );
 };
