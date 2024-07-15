@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getCarts } from "../../../API/cart";
+import { useSelector } from "react-redux";
 
 const CartAndNavbar = ({ cartCount }) => {
   const [fetchedCartCount, setFetchedCartCount] = useState(cartCount);
+  const isLogin = useSelector((state) => state.auth.isLogin); 
 
   useEffect(() => {
-    if (cartCount === undefined) {
+    if (isLogin && cartCount === undefined) { 
       const fetchCartCount = async () => {
         try {
           const carts = await getCarts();
@@ -18,7 +20,7 @@ const CartAndNavbar = ({ cartCount }) => {
 
       fetchCartCount();
     }
-  }, [cartCount]);
+  }, [isLogin, cartCount]);
 
   const navbarMenus = [
     "Your Store",
