@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { addToCart } from "../../../../API/cart";
 
 const formatPrice = (price) => {
@@ -8,6 +8,7 @@ const formatPrice = (price) => {
 
 const ProdDetailOffers = (props) => {
   const [addToCartMessage, setAddToCartMessage] = useState("");
+  const isLogin = useSelector((state) => state.auth.isLogin);
 
   const reloadPage = () => {
     window.location.reload();
@@ -15,6 +16,11 @@ const ProdDetailOffers = (props) => {
 
   const handleAddToCart = async (offerIndex, productName, offerName) => {
     try {
+      if (!isLogin) {
+        window.location.href = "/login";
+        return;
+      }
+
       const response = await addToCart(offerIndex);
       console.log(response);
       setAddToCartMessage(`Added to cart! ${productName} ${offerName}`);
@@ -29,23 +35,12 @@ const ProdDetailOffers = (props) => {
     }
   };
 
-  useEffect(() => {
-    if (addToCartMessage) {
-      const timer = setTimeout(() => {
-        setAddToCartMessage("");
-      }, 1000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [addToCartMessage]);
-
   const product = props.product;
   const PriceList = product?.PriceLists;
+
   const discount = (discountValue, normalPrice) => {
     return (discountValue / 100) * normalPrice;
   };
-
-  console.log(PriceList);
 
   const offersElements = PriceList?.map((offer, index) => (
     <div className="card p-4 mt-6 mb-2 rounded relative w-full" key={index}>
