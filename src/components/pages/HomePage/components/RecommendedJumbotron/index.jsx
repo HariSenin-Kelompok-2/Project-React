@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import GameTag from "./GameTag";
 import { formatPrice } from "../../../../../utils/functions";
 
-const RecommendedJumbotron = ({ id, ScrollThumbnails, name, PriceLists}) => {
+const RecommendedJumbotron = ({ id, ScrollThumbnails, name, PriceLists, jumbotron_image}) => {
   const screenShots = ScrollThumbnails?.slice(2, 6);
 
   return (
     <Link to={`product/${id}`} className="flex justify-center">
       <div className="w-full shadow-card lg:shadow-none lg:w-2/3">
         <div className="w-full">
-          <img className="w-full" src="https://cdn.akamai.steamstatic.com/steam/apps/1593500/capsule_616x353.jpg?t=1720454875" alt="Apex Legends Header Thumbnail" />
+          <img className="w-full" src={jumbotron_image} alt="" />
         </div>
         <div className="lg:hidden gradient-recommended p-1.5">
           <h3 className="font-semibold text-xl">{name}</h3>

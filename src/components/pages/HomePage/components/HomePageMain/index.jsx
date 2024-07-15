@@ -8,7 +8,7 @@ import BrowseSteam from "../BrowseSteam";
 import FeatureContainer from "../FeatureContainer";
 import SignInBox from "../SignInBox";
 import { useGetProductsByCategory } from "@/hooks/api/useGetProductsByCategory";
-import { useGetProducts } from "../../../../../hooks/api/useGetProducts";
+import { useGetProducts } from "@/hooks/api/useGetProducts";
 
 const breakpoints = {
   0: {
@@ -19,20 +19,27 @@ const breakpoints = {
   },
 };
 
+const autoplay = { delay: 2000, disableOnInteraction: false };
+
 const HomePageMain = () => {
   const isLogin = useSelector((state) => state.auth.isLogin);
   const actionProducts = useGetProductsByCategory(3);
   const openWorldProducts = useGetProductsByCategory(1);
   const allProducts = useGetProducts();
 
-  const featuredProduct = allProducts[0];
+  const featuredProduct1 = allProducts[0];
+  const featuredProduct2 = allProducts[1];
 
   return (
     <main className="bg-[#1b2838] pt-5 pb-10 px-4">
       {/* Feature: Recommended */}
-      <FeatureContainer title="Featured & Recommended" slidesPerView={1} isUsingArrow={false} classProps="mt-7">
+      <FeatureContainer title="Featured & Recommended" slidesPerView={1} classProps="mt-7" slidesPerGroup={1} autoplay={autoplay}>
+        {/* Tidak menggunakan loop karena bug */}
         <SwiperSlide>
-          <RecommendedJumbotron {...featuredProduct} />
+          <RecommendedJumbotron {...featuredProduct1} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <RecommendedJumbotron {...featuredProduct2} />
         </SwiperSlide>
       </FeatureContainer>
 

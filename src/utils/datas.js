@@ -41,25 +41,6 @@ export const categories = [
     },
 ]
 
-export const midweekSpecialOffersData = [
-    {   
-        id: 0,
-        type: "midweek deal",
-        image: "https://cdn.akamai.steamstatic.com/steam/spotlights/df26f523ee36ed6609a7a786/spotlight_image_english.jpg?t=1714087103",
-        discountValue: "-30%",
-        price: "200 000",
-        discountedPrice: "140 000"
-    },
-    {
-        id: 0,
-        type: "midweek deal",
-        image: "https://cdn.akamai.steamstatic.com/steam/spotlights/f11b6fb0223c1a2f55d07ab3/spotlight_image_english.jpg?t=1713302774",
-        discountValue: "-65%",
-        price: "206 999",
-        discountedPrice: "72 449"
-    },
-]
-
 export const todaySpecialOffersData = [
     {
         id: 0,

@@ -3,7 +3,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import HeadingFeatures from "./HeadingFeatures";
 import { Swiper } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import OutlineButton from "./OutlineButton";
 import PropTypes from "prop-types";
 import { useCallback, useState } from "react";
@@ -12,7 +12,7 @@ const pagination = {
   clickable: true,
 };
 
-const FeatureContainer = ({ title, children, button = null, button2 = null, classProps = "", slidesPerView = 4, isUsingArrow = true, breakpoints = null, slidesPerGroup = 4 }) => {
+const FeatureContainer = ({ title, children, button = null, button2 = null, classProps = "", slidesPerView = 4, isUsingArrow = true, breakpoints = null, slidesPerGroup = 4, autoplay = false }) => {
   const [swiperRef, setSwiperRef] = useState();
 
   const handlePrevious = useCallback(() => {
@@ -43,7 +43,7 @@ const FeatureContainer = ({ title, children, button = null, button2 = null, clas
         </div>
       )}
 
-      <Swiper loop navigation modules={[Navigation, Pagination]} spaceBetween={8} slidesPerView={slidesPerView} pagination={pagination} onSwiper={setSwiperRef} breakpoints={breakpoints} slidesPerGroup={slidesPerGroup}>
+      <Swiper loop navigation modules={[Navigation, Pagination, Autoplay]} spaceBetween={8} slidesPerView={slidesPerView} pagination={pagination} onSwiper={setSwiperRef} breakpoints={breakpoints} slidesPerGroup={slidesPerGroup} autoplay={autoplay}>
         {children}
       </Swiper>
 
@@ -54,7 +54,7 @@ const FeatureContainer = ({ title, children, button = null, button2 = null, clas
           </div>
         </div>
       )}
-
+      
     </div>
   );
 };
@@ -69,6 +69,7 @@ FeatureContainer.propTypes = {
   slidesPerView: PropTypes.number,
   slidesPerGroup: PropTypes.number,
   breakpoints: PropTypes.object,
+  autoplay: PropTypes.bool || PropTypes.object,
 };
 
 export default FeatureContainer;
