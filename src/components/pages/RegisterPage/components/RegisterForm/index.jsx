@@ -15,7 +15,7 @@ const RegisterForm = ({ setFormErrors }) => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
   usePageTitle("Create Your Account");
 
   const register = async (values) => {

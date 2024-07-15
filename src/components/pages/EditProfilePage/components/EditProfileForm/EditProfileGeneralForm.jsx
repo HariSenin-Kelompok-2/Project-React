@@ -4,12 +4,14 @@ import { editUser } from "../../../../../redux/slices/authSlice";
 import * as Yup from "yup";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useGetRegions } from "../../../../../hooks/api/useGetRegions";
 
 const EditProfileGeneralForm = () => {
   const user = useSelector((state) => state.auth.user);
   const [generalErrorMsg, setGeneralErrorMsg] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const regions = useGetRegions();
 
   const editUserGeneralhandler = async (values) => {
     try {
@@ -87,9 +89,11 @@ const EditProfileGeneralForm = () => {
             onChange={generalFormik.handleChange}
             value={generalFormik.values.region}
           >
-            <option value="Indonesia">Indonesia</option>
-            <option value="China">China</option>
-            <option value="Vietnam">Vietnam</option>
+            {regions?.map((region) => (
+              <option value={region.name} key={region.name}>
+                {region.name}
+              </option>
+            ))}
           </select>
           {generalFormik.touched.region && generalFormik.errors.region ? <div className="text-xs pt-1 px-1 md:text-sm lg:text-base">{generalFormik.errors.region}</div> : null}
         </div>

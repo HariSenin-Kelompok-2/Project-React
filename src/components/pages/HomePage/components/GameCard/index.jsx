@@ -8,27 +8,6 @@ const formatPrice = (price) => {
 const GameCard = ({ image, price, id, isDiscount = false, discountedPrice = null, discountValue = null, type = null }) => {
   return (
     <>
-      {type === "midweek deal" && (
-        <Link to={`/product/${id}`} className="shadow-card block text-xs lg:text-base">
-          <img src={image} alt="game" className="w-full" />
-          <div className="px-4 py-3 bg-[url('https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg')] bg-bottom bg-cover">
-            <p className="mb-2 lg:mb-0">MIDWEEK DEAL</p>
-            <p className="my-2 font-light text-[#acdbf5] text-sm hidden md:block">Offer ends 7 may @ 12:00am</p>
-            <div className="flex mb-[1rem]">
-              <div className="px-1 py-0.5 text-discount bg-[#4c6b22] flex">
-                <span className="my-auto block font-[500] text-sm lg:text-3xl">{discountValue}</span>
-              </div>
-              <div className="px-2 py-0.5 bg-[#344654] ">
-                <span className="text-discountOriginalPrice before:content-[''] relative before:left-0 before:right-0 before:border-b before:absolute before:top-[43%] before:-skew-y-[8deg] before:border-discountOriginalPrice block text-xs text-right w-fit ml-auto">
-                  Rp {price}
-                </span>
-                <span className="text-discount">Rp {discountedPrice}</span>
-              </div>
-            </div>
-          </div>
-        </Link>
-      )}
-
       {type === "today deal" && (
         <Link to={`/product/${id}`} className="shadow-card text-xs lg:text-base">
           <img src={image} alt="" />
