@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getCarts } from "../../../API/cart";
+import { useSelector } from "react-redux";
 
 const CartAndNavbar = ({ cartCount }) => {
   const [fetchedCartCount, setFetchedCartCount] = useState(cartCount);
+  const isLogin = useSelector((state) => state.auth.isLogin);
 
   useEffect(() => {
-    if (cartCount === undefined) {
+    if (isLogin && cartCount === undefined) {
       const fetchCartCount = async () => {
         try {
           const carts = await getCarts();
@@ -18,7 +20,7 @@ const CartAndNavbar = ({ cartCount }) => {
 
       fetchCartCount();
     }
-  }, [cartCount]);
+  }, [isLogin, cartCount]);
 
   const navbarMenus = [
     "Your Store",
@@ -29,19 +31,24 @@ const CartAndNavbar = ({ cartCount }) => {
     "Labs",
   ];
 
+  const displayCartCount =
+    cartCount !== undefined ? cartCount : fetchedCartCount;
+
   return (
     <div className="flex items-center flex-col text-white bg-no-repeat bg-[#1b2838] lg:px-4">
       {/* Cart */}
       <div className="text-sm hidden lg:mt-2 lg:max-w-[1100px] lg:flex lg:w-full">
-        <Link
-          to="/cart"
-          className="block bg-[#5c7e10] px-6 py-1 ml-auto hover:bg-[#7ea64b]"
-        >
-          <i className="fa-sharp fa-solid fa-cart-shopping" />{" "}
-          <span className="text-xs">
-            Cart ({cartCount !== undefined ? cartCount : fetchedCartCount || 0})
-          </span>
-        </Link>
+        {isLogin && displayCartCount > 0 ? (
+          <Link
+            to="/cart"
+            className="block bg-[#5c7e10] px-6 py-1 ml-auto hover:bg-[#7ea64b]"
+          >
+            <i className="fa-sharp fa-solid fa-cart-shopping" />{" "}
+            <span className="text-xs">Cart ({displayCartCount})</span>
+          </Link>
+        ) : (
+          <span></span>
+        )}
       </div>
 
       {/* Feature: NavBar */}
