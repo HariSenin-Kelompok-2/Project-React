@@ -44,3 +44,13 @@ export const deleteAllCarts = async () => {
     throw error;
   }
 };
+
+export const addCartPayment = async () => {
+  try {
+    const response = await axios.post(`${API_URL}/api/carts/payment`);
+    console.log(response);
+  } catch (error) {
+    console.error("Error add cart to product owned:", error);
+    throw error;
+  }
+}

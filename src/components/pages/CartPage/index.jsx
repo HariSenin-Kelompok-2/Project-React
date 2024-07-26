@@ -3,32 +3,17 @@ import CartAndNavbar from "../../elements/CartAndNavbar/CartAndNavbar";
 import Footer from "../../elements/Footer/Footer";
 import Header from "../../elements/Header/Header";
 import usePageTitle from "../../../hooks/usePageTitle";
-import { getCarts, deleteCart, deleteAllCarts } from "../../../API/cart";
+import { getCarts, deleteCart, deleteAllCarts, addCartPayment } from "../../../API/cart";
+
+const formatPrice = (price) => {
+  return `Rp ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}`;
+};
 
 const CartPage = () => {
   usePageTitle("Shopping Cart");
 
   const [carts, setCarts] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-
-  useEffect(() => {
-    const handleGetCarts = async () => {
-      try {
-        const data = await getCarts();
-        console.log(data);
-        setCarts(data.data || []);
-        calculateTotalPrice(data.data || []);
-      } catch (error) {
-        console.error("Error loading carts:", error);
-      }
-    };
-
-    handleGetCarts();
-  }, []);
-
-  const formatPrice = (price) => {
-    return `Rp ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}`;
-  };
 
   const calculateTotalPrice = (carts) => {
     let total = 0;
@@ -58,6 +43,31 @@ const CartPage = () => {
       console.error("Error removing all carts:", error);
     }
   };
+
+  const handlePayment = async () => {
+    try {
+      await addCartPayment();
+      alert("Payment success");
+      window.location.reload();
+    } catch (error) {
+      console.error("Error payment:", error);
+    }
+  }
+
+  useEffect(() => {
+    const handleGetCarts = async () => {
+      try {
+        const data = await getCarts();
+        console.log(data);
+        setCarts(data.data || []);
+        calculateTotalPrice(data.data || []);
+      } catch (error) {
+        console.error("Error loading carts:", error);
+      }
+    };
+
+    handleGetCarts();
+  }, []);
 
   return (
     <div className="lg:flex lg:flex-col lg:justify-between lg:min-h-screen bg-[#1b2838]">
@@ -170,7 +180,7 @@ const CartPage = () => {
                 <div className="row mb-10 notePayment">
                   Sales tax will be calculated during checkout where applicable
                 </div>
-                <button className="payment_btn">Continue to payment</button>
+                <button className="payment_btn" onClick={handlePayment}>Continue to payment</button>
               </div>
             </div>
           </div>
